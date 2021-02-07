@@ -1,0 +1,55 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "windows/win10-edge"
+  config.vm.define "win10-vx-developer-vm"
+  
+  # name the VM in virtualbox
+  # set gui mode on or keep off
+  # Use 3 CPU and 8GB of RAM
+  # set video memory to 128
+  # and automatically mount shares
+  config.vm.provider "virtualbox" do |v|
+	v.name = "win10 VX VM"
+	#v.gui = true
+	v.cpus = 3
+	v.memory = 8192
+	v.customize ["modifyvm", :id, "--vram", "128"]
+  end
+  
+  # set shared folders
+  # TODO: configure path to share
+  config.vm.synced_folder "../../Documents/dev", "C:\\devshare", automount: true
+  
+  # Configuring general and winrm
+  config.vm.guest = :windows
+  config.vm.communicator = ENV['communicator'] || "winrm"
+  config.winrm.username = "IEUser"
+  config.winrm.password = "Passw0rd!"
+  config.vm.boot_timeout = 600
+  config.vm.graceful_halt_timeout = 600
+  
+  # Configuring ssh
+  config.ssh.username="IEUser"
+  config.ssh.password="Passw0rd!"
+  config.ssh.insert_key = false
+  config.ssh.sudo_command = ''
+  config.ssh.shell = 'sh -l'
+  
+  # forward ssh, rdp and winrm to the host
+  config.vm.network :forwarded_port, guest: 3389, host: 3391
+  config.vm.network :forwarded_port, guest: 22, host: 3322
+  # TODO: activate port fwd for WINRM if needed
+  #config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+  
+  # start the bootstrap script
+  # Enabling RDP & WINRM:
+  # and installing software with chocolate
+  config.vm.provision :shell, path: "bootstrap.ps1"  
+end
