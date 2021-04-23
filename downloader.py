@@ -32,8 +32,7 @@ for winVersion in body:
                 break
 logging.info("Starting download of approx. 7GB image. This might take a bit...")
 # Download VM image
-logging.error("uncomment this here")
-# urllib.request.urlretrieve(vmURL, dlName)
+urllib.request.urlretrieve(vmURL, dlName)
 logging.info(f"Download finished. FILE: {dlName}")
 
 # compare precalc hash from microsoft with hash of downloaded file
@@ -44,7 +43,6 @@ logging.info(f"Remote hash value: {md5hash}")
 
 logging.info(f"Calculating local hash value. This might take a bit...")
 CHUNK = 4194304     # 4 MB chunks
-"""
 md5 = hashlib.md5()
 with open(dlName, 'rb') as f:
     while True:
@@ -53,9 +51,10 @@ with open(dlName, 'rb') as f:
             break
         md5.update(data)
 
-localMD5 = md5.hexdigest()"""
-localMD5 = md5hash.decode("utf-8").lower()
+localMD5 = md5.hexdigest()
 logging.info(f"Local hash value: {localMD5}")
+
+# compare hashes and return exit code
 if md5hash.decode("utf-8").lower() == localMD5:
     logging.info(f"Hashes match! Download successful.")
     sys.exit(0)

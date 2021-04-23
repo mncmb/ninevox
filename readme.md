@@ -7,15 +7,9 @@ Current contents:
 
 Dev environment based on windows10 90 day trial image for IE / Edge developers. 
 
-This Vagrant config allows for automatic deployment and configuration of a fresh Windows 10 box with 90 days of trial use. Additionally it sets up the box for RDP and SSH access and installs chocolatey and some applications useful for development. More customization can be done by installing additional packages, see chocolatey documentation: https://chocolatey.org/packages. 
-
-Since, I regularly came across the problem that my dev and test environments expired, I wanted to reduce the amount of maintenance. So automatic provisioning was the logical choice. And while there is a Windows box available over on the vagrant hub (https://app.vagrantup.com/gusztavvargadr/boxes/windows-10) this introduces unknown dependencies (and most importantly it doesn't let me get acquainted with most of the technology used here). This box righte here comes directly from Microsoft and has WinRM already enabled. 
-
 ### Register box with Vagrant
 
-In order to use the box, the following setup is required:
-
-+ execute the `build.sh` script from the _build_vagrant-win10_base_ directory
+In order to use the box, the `build.sh` script must be executed.
 
 This does the following:
 
@@ -30,7 +24,10 @@ vagrant up
 ``` 
 to deploy the box. The default credentials for the Windows Edge Developer VM are: `IEUser:Passw0rd!`.
 
+### About the config
+This Vagrant config allows for automatic deployment and configuration of a fresh Windows 10 box with 90 days of trial use. Additionally it sets up the box for RDP and SSH access and installs chocolatey and some applications useful for development. More customization can be done by installing additional packages, see chocolatey documentation: https://chocolatey.org/packages. 
 
+Since, I regularly came across the problem that my dev and test environments expired, I wanted to reduce the amount of maintenance. So automatic provisioning was the logical choice. And while there is a Windows box available over on the vagrant hub (https://app.vagrantup.com/gusztavvargadr/boxes/windows-10) this introduces unknown dependencies (and most importantly it doesn't let me get acquainted with most of the technology used here). This box righte here comes directly from Microsoft and has WinRM already enabled. 
 
 
 ## kali
