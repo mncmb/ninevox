@@ -28,7 +28,7 @@ C:\vagrant\choco-install.ps1
 
 # create desktop links to programs
 # cmd /C mklink /d C:\Users\IEUser\Desktop\tools C:\ProgramData\chocolatey\bin
-Set-ExecutionPolicy Bypass -Scope Process -Force; .\create_choco_shortcut.ps1 x32dbg x64dbg pestudio pe-bear
+Set-ExecutionPolicy Bypass -Scope Process -Force; C:\vagrant\create_choco_shortcut.ps1 x32dbg x64dbg pestudio pe-bear
 
 # TODO: install and use puppet
 # download from https://downloads.puppetlabs.com/windows/puppet5/

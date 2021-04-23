@@ -29,7 +29,7 @@ function CreateShortcut {
     if (![System.IO.File]::Exists($TargetFile))
     {
         Write-Error "File name $TargetFile does not exist"
-        Exit
+        return
     }
 
 
@@ -42,6 +42,7 @@ function CreateShortcut {
     $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
     $Shortcut.TargetPath = $TargetFile
     $Shortcut.Save()
+    Write-Host  "[INFO] `"$ShortcutFile`" created."
 }
 
 

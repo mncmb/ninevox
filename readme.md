@@ -7,7 +7,7 @@ Current contents:
 
 Dev environment based on windows10 90 day trial image for IE / Edge developers. 
 
-This Vagrant config allows for automatic deployment and configuration of a fresh Windows 10 box with 90 days of trial use. Additionally it sets up the box for RDP and SSH access and installs chocolatey and some applications useful for development, DFIR and light reversing. Since the chocolatey script should be pretty self explanatory, you might customize this to your hearts desire. Just look up application names over on https://chocolatey.org/packages. 
+This Vagrant config allows for automatic deployment and configuration of a fresh Windows 10 box with 90 days of trial use. Additionally it sets up the box for RDP and SSH access and installs chocolatey and some applications useful for development, DFIR and light reversing. Application names can be looked up via chocolatey documentation: https://chocolatey.org/packages. 
 
 Since, I regularly came across the problem that my dev and test environments expired, I wanted to reduce the amount of maintenance. So automatic provisioning was the logical choice. And while there is a Windows box available over on the vagrant hub (https://app.vagrantup.com/gusztavvargadr/boxes/windows-10) this introduces unknown dependencies. This box comes directly from Microsoft.
 
