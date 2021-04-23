@@ -11,10 +11,12 @@ choco install x64dbg.portable
 choco install pebear
 
 # install SysInternals
-choco install sysinternals
+# choco install sysinternals
 
 # install Zimmermantools
-choco install ericzimmermantools
+# choco install ericzimmermantools
 
 # install firefox
 choco install firefox
+
+choco install golang vscode processhacker mingw

@@ -9,7 +9,7 @@ cmd /C 'net localgroup "remote desktop users" IEUser /add'
 # winrm - Switch to private network
 # powershell -InputFormat None -NoProfile -ExecutionPolicy Bypass -Command '$networkListManager = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]"{DCB00C01-570F-4A9B-8D69-199FDBA5723B}")) ; $connections = $networkListManager.GetNetworkConnections() ; $connections | % {$_.GetNetwork().SetCategory(1)}'
 
-# activate winrm
+# activate winrm -> already activated on vagrant box
 #sc config winrm start=auto
 cmd /C "winrm quickconfig -q"
 
@@ -25,8 +25,10 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 # install packages and create symlink to installs
 echo "[INFO] run chocolatey installations:"
 C:\vagrant\choco-install.ps1
-cmd /C mklink /d C:\Users\IEUser\Desktop\tools C:\ProgramData\chocolatey\bin
 
+# create desktop links to programs
+# cmd /C mklink /d C:\Users\IEUser\Desktop\tools C:\ProgramData\chocolatey\bin
+Set-ExecutionPolicy Bypass -Scope Process -Force; .\create_choco_shortcut.ps1 x32dbg x64dbg pestudio pe-bear
 
 # TODO: install and use puppet
 # download from https://downloads.puppetlabs.com/windows/puppet5/
