@@ -18,6 +18,10 @@ cmd /C "winrm quickconfig -q"
 echo "[INFO] setting up SSH server:"
 C:\BGinfo\openssh.ps1
 
+# set background to something not completely boring
+mv C:\vagrant\files\modern.IE.1024x768.jpg C:\BGinfo\modern.IE.1024x768.jpg
+
+
 # install chocolatey
 echo "[INFO] installing chocolatey package manager:" 
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))

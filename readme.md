@@ -1,7 +1,14 @@
 # init
 Vagrant files for the setup of different dev / test environments. They use the shell provisioner at the moment.
 
-Current contents:
+## Prereqs
+Ansible and Vagrant require some plugins for the boxes. These are:
+```
+vagrant plugin install winrm winrm-elevated vagrant-vbguest
+
+
+ansible-galaxy collection install community.windows ansible.windows chocolatey.chocolatey
+```
 
 ## Win10Dev
 
@@ -40,4 +47,8 @@ Afterwards the user `kali` with password `kali` is created and a handful of appl
 --------------------
 Sources:
 https://gist.github.com/santrancisco/a7183470efa0e3412222670d0bfb3da5
-
+https://www.redhat.com/en/blog/system-administrators-guide-getting-started-ansible-fast?extIdCarryOver=true&sc_cid=701f2000001OH6uAAG
+https://www.jonathanmedd.net/2019/09/ansible-windows-and-powershell-the-basics-introduction.html
+https://github.com/geerlingguy/ansible-vagrant-examples/tree/master/rails
+https://docs.ansible.com/ansible/latest/collections/chocolatey/chocolatey/win_chocolatey_module.html
+https://community.chocolatey.org/packages

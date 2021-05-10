@@ -20,3 +20,6 @@ choco install pebear
 choco install firefox
 
 choco install golang vscode processhacker mingw
+
+# might need these
+# choco install ressource-explorer dnspy putty

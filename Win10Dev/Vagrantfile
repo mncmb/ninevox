@@ -45,11 +45,18 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 3389, host: 3391
   config.vm.network :forwarded_port, guest: 22, host: 3322
   # TODO: activate port fwd for WINRM if needed
-  #config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+  config.vm.network :forwarded_port, guest: 5985, host: 5985, id: "winrm", auto_correct: true
+  config.vm.network :forwarded_port, guest: 5986, host: 5986, id: "winrm", auto_correct: true
   
   # start the bootstrap script
   # - enables RDP & WINRM:
   # - installs software with chocolatey
   # - sets some lnks to desktop
   config.vm.provision :shell, path: "bootstrap.ps1"  
+
+  # provision with ansible
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+  end
+
 end

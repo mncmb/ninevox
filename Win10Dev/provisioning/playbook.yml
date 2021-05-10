@@ -1,0 +1,31 @@
+---
+- hosts: all
+  tasks:
+
+  # Install chocolatey
+  - name: Install chocolatey
+    win_chocolatey:
+        name:
+        - chocolatey-core.extension
+        - chocolatey-windowsupdate.extension
+        state: present
+
+  # Install packages
+  - name: Install tools
+    win_chocolatey:
+        name:
+        - reshack
+        - pebear
+        - visualstudio2019community
+        - x64dbg
+        - golang
+        - vscode
+        - firefox
+        - pestudio
+        - cffexplorer
+        state: present
+  #- name: Install dnSpy
+  #  win_chocolatey:
+  #      name:
+  #      - dnspy
+  #      state: present
