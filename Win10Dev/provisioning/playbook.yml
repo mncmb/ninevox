@@ -1,10 +1,33 @@
 ---
 - hosts: all
   tasks:
+  
+  # Setup SSH with script that came with the box
+  - name: Setup SSH
+    win_shell: C:\BGinfo\openssh.ps1
 
+  # Copy BGI config files over to the box
+  - name: Setup BGI config
+    win_copy: 
+      src: "{{ item.src }}"  
+      dest: "{{ item.dest }}"
+      remote_src: yes
+    with_items:
+      - { src: C:\vagrant\files\modern.IE.1024x768.jpg, dest: C:\BGinfo\modern.IE.1024x768.jpg }
+      - { src: C:\vagrant\files\BGCONFIG.BGI, dest: C:\BGinfo\BGCONFIG.BGI }
+
+
+
+  # Copy BGI config files over to the box
+  #- name: Setup BGI wallpaper
+  #  win_copy: 
+  #    src: C:\vagrant\files\modern.IE.1024x768.jpg  
+  #    dest: C:\BGinfo\modern.IE.1024x768.jpg
+  #    remote_src: yes
+  
   # Install chocolatey
   - name: Install chocolatey
-    win_chocolatey:
+    ansible.builtin.win_chocolatey:
         name:
         - chocolatey-core.extension
         - chocolatey-windowsupdate.extension
@@ -16,13 +39,26 @@
         name:
         - reshack
         - pebear
-        - visualstudio2019community
-        - x64dbg
-        - golang
-        - vscode
-        - firefox
+        - x64dbg.portable
         - pestudio
-        - cffexplorer
+        state: present
+
+  - name: install firefox
+    win_chocolatey:
+        name:
+        - firefox
+        state: present
+  
+  - name: install golang
+    win_chocolatey:
+        name:
+        - golang
+        state: present
+  
+  - name: install vscode
+    win_chocolatey:
+        name:
+        - vscode
         state: present
   #- name: Install dnSpy
   #  win_chocolatey:
