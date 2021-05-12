@@ -1,6 +1,6 @@
 all:
   hosts:
-    win10-test-complete:
+    win10-dev-vm:
       ansible_user: IEUser
       ansible_password: Passw0rd!
       ansible_host: 127.0.0.1

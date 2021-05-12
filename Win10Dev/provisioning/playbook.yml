@@ -43,6 +43,10 @@
         - pestudio
         state: present
 
+  # make this a handler and and add notify to install tools -> test this
+  - name: Create shortcuts
+    win_shell: C:\vagrant\create_choco_shortcut.ps1 PE-bear x96dbg pestudio
+
   - name: install firefox
     win_chocolatey:
         name:
@@ -60,6 +64,25 @@
         name:
         - vscode
         state: present
+          
+  # depends on Win updates, so might require a reboot or another
+  - name: install Visual Studio 2019 community 
+    win_chocolatey:
+        name:
+        - visualstudio2019community  
+        state: present
+
+  - name: install Visual Studio 2019 build tools 
+    win_chocolatey:
+        name:  
+        - visualstudio2019buildtools
+        state: present
+
+  - name: install dnspy
+    win_chocolatey:
+      name:
+      - dnspy
+      state: present
   #- name: Install dnSpy
   #  win_chocolatey:
   #      name:
