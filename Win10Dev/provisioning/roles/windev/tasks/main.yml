@@ -1,0 +1,30 @@
+- name: Install tools
+  win_chocolatey:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ tool_packages }}"
+  notify: Create shortcuts
+
+- name: install firefox
+  win_chocolatey:
+    name:
+    - firefox
+    state: present
+
+- name: install golang
+  win_chocolatey:
+      name:
+      - golang
+      state: present
+
+- name: install python
+  win_chocolatey:
+      name:
+      - python
+      state: present
+
+- name: Install editors
+  win_chocolatey:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ editors }}"

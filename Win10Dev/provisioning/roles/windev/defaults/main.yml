@@ -1,0 +1,18 @@
+tool_packages:
+  - reshack
+  - pebear
+  - x64dbg.portable
+  - pestudio
+
+tool_shortcuts:
+  - PE-bear 
+  - x96dbg
+  - pestudio
+
+editors:
+  - vscode
+  - visualstudio2019community
+  - visualstudio2019buildtools
+
+CreateShortcut:
+  - C:\vagrant\create_choco_shortcut.ps1

@@ -1,5 +1,9 @@
 ---
 - hosts: all
+  roles: 
+  - choco
+  - windev
+  
   tasks:
   
   # Setup SSH with script that came with the box
@@ -26,63 +30,6 @@
   #    remote_src: yes
   
   # Install chocolatey
-  - name: Install chocolatey
-    ansible.builtin.win_chocolatey:
-        name:
-        - chocolatey-core.extension
-        - chocolatey-windowsupdate.extension
-        state: present
-
-  # Install packages
-  - name: Install tools
-    win_chocolatey:
-        name:
-        - reshack
-        - pebear
-        - x64dbg.portable
-        - pestudio
-        state: present
-
-  # make this a handler and and add notify to install tools -> test this
-  - name: Create shortcuts
-    win_shell: C:\vagrant\create_choco_shortcut.ps1 PE-bear x96dbg pestudio
-
-  - name: install firefox
-    win_chocolatey:
-        name:
-        - firefox
-        state: present
-  
-  - name: install golang
-    win_chocolatey:
-        name:
-        - golang
-        state: present
-  
-  - name: install vscode
-    win_chocolatey:
-        name:
-        - vscode
-        state: present
-
-  - name: install python
-    win_chocolatey:
-        name:
-        - python
-        state: present
-          
-  # depends on Win updates, so might require a reboot or another
-  - name: install Visual Studio 2019 community 
-    win_chocolatey:
-        name:
-        - visualstudio2019community  
-        state: present
-
-  - name: install Visual Studio 2019 build tools 
-    win_chocolatey:
-        name:  
-        - visualstudio2019buildtools
-        state: present
 
   - name: install dnspy
     win_chocolatey:
