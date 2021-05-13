@@ -64,6 +64,12 @@
         name:
         - vscode
         state: present
+
+  - name: install python
+    win_chocolatey:
+        name:
+        - python
+        state: present
           
   # depends on Win updates, so might require a reboot or another
   - name: install Visual Studio 2019 community 
