@@ -3,11 +3,13 @@ tool_packages:
   - pebear
   - x64dbg.portable
   - pestudio
+  - processhacker
 
 tool_shortcuts:
   - PE-bear 
   - x96dbg
   - pestudio
+  - processhacker
 
 editors:
   - vscode
