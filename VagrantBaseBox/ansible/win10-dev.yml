@@ -1,0 +1,6 @@
+- hosts: all
+  gather_facts: true
+  roles:
+    - windows_common
+    # - windows_domain_client # maybe later
+    - windows_development
