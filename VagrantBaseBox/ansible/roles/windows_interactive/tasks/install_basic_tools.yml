@@ -14,5 +14,6 @@
     - winscp
     - 7zip 
     - sysinternals
+    - microsoft-windows-terminal
     #- cmder
   ignore_errors: yes

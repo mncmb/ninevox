@@ -1,0 +1,16 @@
+TOOL_PATH: C:\Program Files\Hindsight
+TOOL_URL: https://github.com/obsidianforensics/hindsight/releases/download/v2021.04.26/hindsight_gui.exe
+
+- name: Create directory
+  win_file:
+    path: '{{ TOOL_PATH }}'
+    state: directory
+
+- name: Download release version
+  win_get_url:
+    url: '{{ TOOL_URL }}'  
+    dest: '{{ TOOL_PATH }}\Hindsight.exe'
+
+
+
+

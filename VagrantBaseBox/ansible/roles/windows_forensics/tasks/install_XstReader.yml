@@ -1,0 +1,27 @@
+TOOL_PATH: C:\Program Files\XstReader
+TOOL_ARCHIVE: C:\Program Files\XstReader\XstReader.zip
+TOOL_URL: https://github.com/Dijji/XstReader/releases/download/v1.14/XstReader.zip
+
+
+- name: Create directory
+  win_file:
+    path: '{{ TOOL_PATH }}'
+    state: directory
+
+- name: Download release version
+  win_get_url:
+    url: '{{ TOOL_URL }}'  
+    dest: '{{ TOOL_ARCHIVE }}'
+
+- name: Unzip tool
+  community.windows.win_unzip:
+    src: '{{ TOOL_ARCHIVE }}'
+    dest: '{{ TOOL_PATH }}'
+    creates: '{{ TOOL_PATH }}'
+
+- name: Remove tool archive
+  ansible.windows.win_file:
+    path: '{{ TOOL_ARCHIVE }}'
+    state: absent
+
+

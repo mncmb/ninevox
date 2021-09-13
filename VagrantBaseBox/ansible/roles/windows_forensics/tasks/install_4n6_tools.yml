@@ -1,18 +1,15 @@
-# TODO set shortcuts see here https://docs.chocolatey.org/en-us/create/functions/install-chocolateyshortcut
-- name: Install tools to help forensic investigations
+- name: Install tools to help forensic investigations/ incident response analysi
   win_chocolatey:
     name: '{{ item }}'
     state: present
   loop:
-    - git
-    - vscode
-    - notepadplusplus.install
-    - sublimetext3 
     - python3
-    - microsoft-windows-terminal
     - putty
     - filezilla
-    - sysinternals
-    - winscp
-    - 
+    - ericzimmermantools
+    - volatility
+    - forensic7z
+    - regripper
+    - autopsy
+
   ignore_errors: yes

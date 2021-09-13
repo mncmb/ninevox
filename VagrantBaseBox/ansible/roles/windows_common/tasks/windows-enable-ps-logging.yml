@@ -7,7 +7,7 @@
     datatype: dword
     data: 1
 
-- name: Enable Windows Scriptblock Logging
+- name: Enable Windows Scriptblock Invocation Logging
   ignore_errors: yes
   win_regedit:
     key: "HKLM:\\Software\\Policies\\Microsoft\\Windows\\PowerShell\\ScriptBlockLogging"

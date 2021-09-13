@@ -11,6 +11,9 @@ and some Windows test versions.
 
 The only thing needed for this setup is any kind of x64 system. While terraform and cloud hosters are cool this tech stack allows easy experimentation. 
 
+## forensics
+Contains Arsenal Image Mounter, FTK Imager and KAPE. Due to their licenses these are excluded from the repo. Bring your own. For non commercial use, you can download these from the respective links for free.
+
 ## TODO
 - setting desktop shortcuts for tools, potentially with [install-chocolateyshortcut](https://docs.chocolatey.org/en-us/create/functions/install-chocolateyshortcut)
 - set tasklist shortcuts for different applications

@@ -1,0 +1,1 @@
+%PROGRAMDATA%\chocolatey\bin\bginfo.exe C:\BGinfo\bginfo.bgi /silent /timer:0 /nolicprompt

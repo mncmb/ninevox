@@ -3,8 +3,6 @@
     name: '{{ item }}'
     state: present
   loop:
-      - procexp 
-      - procmon 
       - reshack 
       - processhacker 
       #- wireshark
