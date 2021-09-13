@@ -11,3 +11,5 @@
 
 - name: Activate sysmon with config
   win_shell: sysmon.exe -accepteula -i C:\Windows\Temp\sysmonconfig-export.xml
+  ignore_errors: yes
+

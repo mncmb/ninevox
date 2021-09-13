@@ -1,4 +1,4 @@
-- name: Install other tools
+- name: Install base tools
   win_chocolatey:
     name: '{{ item }}'
     state: present
@@ -6,7 +6,13 @@
     #- vmware-tools
     - virtualbox-guest-additions-guest.install
     - googlechrome
-    - firefox
     - bginfo
+    - firefox
+    - git
+    - vscode
+    - notepadplusplus.install
+    - winscp
+    - 7zip 
+    - sysinternals
     #- cmder
   ignore_errors: yes

@@ -3,32 +3,28 @@
     name: '{{ item }}'
     state: present
   loop:
-      - sysinternals
-      - procexp
-      - procmon
-      - reshack
-      - processhacker
+      - procexp 
+      - procmon 
+      - reshack 
+      - processhacker 
       #- wireshark
       #- nmap
       #- dotpeek
-      - dnspy
+      - dnspy 
       #- ilspy
-      - pestudio
-      - explorersuite
-      - ghidra
+      - pestudio 
+      - explorersuite 
+      - ghidra 
       #- x64dbg.portable
       #- ida-free
       #- ollydbg
       #- cutter
       #- radare2
       #- confuser
-      - 7zip 
       - apimonitor 
       - dependencywalker 
       - die 
       - hxd 
       - pebear 
-      - sysinternals
       - x64dbg.portable 
-      - winscp
   ignore_errors: yes

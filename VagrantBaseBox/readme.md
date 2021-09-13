@@ -10,3 +10,13 @@ There are lots of great projects about automating the deployment of a lab enviro
 and some Windows test versions.
 
 The only thing needed for this setup is any kind of x64 system. While terraform and cloud hosters are cool this tech stack allows easy experimentation. 
+
+## TODO
+- setting desktop shortcuts for tools, potentially with [install-chocolateyshortcut](https://docs.chocolatey.org/en-us/create/functions/install-chocolateyshortcut)
+- set tasklist shortcuts for different applications
+- dev share: mounted share from host system for win-dev
+- BGI file, config and custom wallpaper
+
+
+- windows_interactive tools needed on interactive windows systems
+

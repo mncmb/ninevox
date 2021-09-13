@@ -56,7 +56,7 @@ Vagrant.configure("2") do |config|
       end
 
       config.vm.provider :virtualbox do |vb|
-        vb.gui = true # always have a GUI
+        vb.gui = false # always have a GUI
         vb.name = 'WinLab_' + host
         vb.linked_clone = details.key?('linked_clone') ? details['linked_clone']: false
         vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
