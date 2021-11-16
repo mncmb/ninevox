@@ -1,7 +1,7 @@
-TOOL_PATH: C:\Program Files\Hindsight
-TOOL_URL: https://github.com/obsidianforensics/hindsight/releases/download/v2021.04.26/hindsight_gui.exe
+#TOOL_PATH: C:\Program Files\Hindsight
+#TOOL_URL: https://github.com/obsidianforensics/hindsight/releases/download/v2021.04.26/hindsight_gui.exe
 
-- name: Create directory
+- name: Create hindsight directory
   win_file:
     path: '{{ TOOL_PATH }}'
     state: directory
@@ -11,6 +11,6 @@ TOOL_URL: https://github.com/obsidianforensics/hindsight/releases/download/v2021
     url: '{{ TOOL_URL }}'  
     dest: '{{ TOOL_PATH }}\Hindsight.exe'
 
-
-
-
+# TODO make shortcut path a global variable and clean this command up
+- name: Create Hindsight Desktop shortcut
+  win_shell: 'C:\setup\create_choco_shortcut.ps1 {{ TOOL_PATH }}\Hindsight.exe C:\Users\Public\Desktop\Hindsight.exe'

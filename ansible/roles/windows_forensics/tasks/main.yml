@@ -1,6 +1,7 @@
 - include: install_4n6_tools.yml
 - include: install_xstreader.yml
 - include: install_hindsight.yml
+- include: install_chainsaw.yml
 #- include: setup_autopsy_plugins.yml
 
 # - include: download_example.yml
@@ -15,3 +16,7 @@
 
 
 # see here: https://awesomedfir.com/ and especially this list https://awesomedfir.com/dfir-tooling
+
+# TODO: create module that does the install_xstreader 
+#       and hindsight functionaility from a given github 
+#       repo link to latest release

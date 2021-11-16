@@ -2,25 +2,8 @@
 # which is based on https://github.com/jborean93/ansible-windows/blob/master/vagrant/inventory.yml
 all:
   hosts:
-    # dc01:
-    #   ip: 10.0.1.10
-    #   vagrant_box: StefanScherer/windows_2019
-    #   box_version: 2021.05.15
-    #   box_type: windows
-    #   linked_clone: true
-    #   cpus: 2
-    #   memory: 4096
-    #win10-dev:
-    #  ip: 10.0.1.25
-    #  vagrant_box: StefanScherer/windows_10
-    #  box_version: 2021.08.17
-    #  box_type: windows
-    #  linked_clone: true
-    #  cpus: 2
-    #  memory: 4096
-    #  vram: "128"
-     win10-dfir:
-       ip: 10.0.1.35
+     windfir:
+       ip: 10.0.1.46
        vagrant_box: StefanScherer/windows_10
        box_version: 2021.08.17
        box_type: windows
@@ -30,9 +13,6 @@ all:
        vram: "128"
  
   vars:
-    root_domain: testlab.local
-    domain_name: testlab
-    tld: local # not used yet, placeholder in case we need it
     win_domain_admin: Administrator
     win_domain_admin_pass: Passw0rd!
     local_admin_password: Windows2021 # not used yet

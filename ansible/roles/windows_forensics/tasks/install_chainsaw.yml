@@ -1,0 +1,15 @@
+# https://github.com/Dijji/XstReader/releases/latest/download/XstReader.zip
+# 
+
+
+- name: Download Chainsaw to specified path only if modified
+  win_get_url:
+    url: https://github.com/countercept/chainsaw/releases/latest/download/chainsaw_x86_64-pc-windows-msvc.zip
+    dest: C:\Windows\Temp\Chainsaw.zip
+    force: no
+
+- name: Unzip Chainsaw 
+  win_unzip:
+    src: C:\Windows\Temp\Chainsaw.zip
+    dest: C:\Forensics\Chainsaw
+    creates: C:\Forensics\Chainsaw

@@ -1,4 +1,0 @@
-- name: Download example image
-  win_get_url:
-    url: '{{ TOOL_URL }}'  
-    dest: '{{ TOOL_ARCHIVE }}'

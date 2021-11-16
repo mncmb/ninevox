@@ -1,0 +1,23 @@
+
+- name: Create directory
+  win_file:
+    path: '{{ xst_path }}'
+    state: directory
+
+- name: Download xstreader release version
+  win_get_url:
+    url: '{{ xst_url }}'  
+    dest: '{{ xst_path }}{{ xst_archive }}'
+
+- name: Unzip xstreader
+  community.windows.win_unzip:
+    src: '{{ xst_path }}{{ xst_archive }}'
+    dest: '{{ xst_path }}'
+    creates: '{{ xst_path }}'
+
+- name: Remove xstreader tool archive
+  ansible.windows.win_file:
+    path: '{{ xst_path }}{{ xst_archive }}'
+    state: absent
+
+

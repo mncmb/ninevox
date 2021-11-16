@@ -11,4 +11,5 @@
     - forensic7z
     - regripper
     - autopsy
+    - sysinternals
   ignore_errors: yes

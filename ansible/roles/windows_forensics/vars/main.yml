@@ -1,0 +1,5 @@
+HS_PATH: C:\Forensics\Hindsight
+HS_URL: https://github.com/obsidianforensics/hindsight/releases/download/v2021.04.26/hindsight_gui.exe
+xst_path: C:\Forensics\XstReader\
+xst_archive: XstReader.zip
+xst_url: https://github.com/Dijji/XstReader/releases/download/v1.14/XstReader.zip

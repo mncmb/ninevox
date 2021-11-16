@@ -1,0 +1,20 @@
+- name: Install base tools
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  loop:
+    #- vmware-tools
+    - virtualbox-guest-additions-guest.install
+    - googlechrome
+    - firefox
+    - git
+    - vscode
+    - notepadplusplus.install
+    - winscp
+    - 7zip 
+    - sysinternals
+    # this is broken - microsoft-windows-terminal
+    - python3
+    - wsl2
+    #- cmder
+  ignore_errors: yes
