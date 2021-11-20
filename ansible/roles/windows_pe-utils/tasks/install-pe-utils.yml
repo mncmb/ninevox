@@ -5,4 +5,10 @@
   loop:
     - pebear
     - pestudio
+    - explorersuite # cff explorer
+    - reshack
+    - x64dbg.portable
+    - imhex
   ignore_errors: yes
+
+

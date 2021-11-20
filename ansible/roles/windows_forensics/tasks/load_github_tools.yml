@@ -1,0 +1,23 @@
+- name: load zipped github tools
+  win_get_url:
+    url: '{{ item.value.url }}'
+    dest: '{{ TEMP_PATH }}\{{ item.value.name }}.zip'
+    force: no
+  loop: '{{ zipped_tools | dict2items }}' # evaluate dict and return "list"
+  ignore_errors: yes
+
+- name: unzip github tools
+  win_unzip:
+    src: '{{ TEMP_PATH }}\{{ item.value.name }}.zip'
+    dest: '{{ FORENSIC_PROGRAMS }}\{{ item.value.name }}'
+    creates: '{{ FORENSIC_PROGRAMS }}\{{ item.value.name }}'
+  loop: '{{ zipped_tools | dict2items }}' # evaluate dict and return "list"
+  ignore_errors: yes
+
+- name: load other, nonzipped github tools
+  win_get_url:
+    url: '{{ item.value.url }}'
+    dest: '{{ TEMP_PATH }}\{{ item.value.name }}'
+    force: no
+  loop: '{{ nonzipped_tools | dict2items }}' # evaluate dict and return "list"
+  ignore_errors: yes

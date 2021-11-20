@@ -1,0 +1,15 @@
+# https://www.thomasmaurer.ch/2019/06/install-wsl-2-on-windows-10/
+# setup for WSL2
+- name: Enable WSL
+  win_shell: Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+- name: Install linux distro
+  win_shell: winget install Canonical.Ubuntu.2004 # --accept-source-agreements --accept-package-agreements  ## doesn't seem to be needed
+
+- name: Enable Virt feature
+  win_shell: Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
+
+- name: set version of WSL
+  win_shell: wsl --set-version DistroName 2
+
+

@@ -1,8 +1,13 @@
+- include_vars: vars/github_tools.yml
 - include: install_4n6_tools.yml
-- include: install_xstreader.yml
-- include: install_hindsight.yml
-- include: install_chainsaw.yml
+#- include: install_xstreader.yml
+#- include: install_hindsight.yml
+#- include: install_chainsaw.yml
+- include: load_github_tools.yml
+- include: copy_image-mounting.yml
 #- include: setup_autopsy_plugins.yml
+#- include: setup_zimmerman.yml
+#- include: setup_cheat-sheets.yml
 
 # - include: download_example.yml
 # xstreader

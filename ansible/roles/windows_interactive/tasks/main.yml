@@ -1,1 +1,3 @@
 - include: install_basic_tools.yml
+# - include: install_winget.yml # doesnt work currently see here https://github.com/microsoft/winget-cli/issues/256, could hack around this with task/runonce script
+# doesnt work currently, maybe windows related, maybe vbox - include: install_wsl2.yml

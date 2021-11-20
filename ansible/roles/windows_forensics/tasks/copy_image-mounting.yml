@@ -1,0 +1,11 @@
+- name: Create imaging directory
+  win_file:
+    path: '{{ FORENSIC_PROGRAMS }}\Image utils'
+    state: directory
+
+- name: Upload Imager utilities
+  win_copy:
+    src: '../files/{{ item }}'
+    dest: '{{ FORENSIC_PROGRAMS }}\Image utils\{{ item }}'
+    force: no
+  loop: '{{ imager }}'

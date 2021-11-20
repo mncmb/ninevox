@@ -50,6 +50,7 @@ Vagrant.configure("2") do |config|
         }
         ansible.playbook = "../ansible/#{host}.yml"
         ansible.config_file = "../ansible/ansible.cfg"
+        ansible.ask_vault_pass = true
         ansible.compatibility_mode = "2.0"
       end
 

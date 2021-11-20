@@ -2,9 +2,5 @@
 - include: create_local_admin.yml
 - include: set-timezone.yml
 - include: configure-sysmon.yml
-- include: windows-disable-ipv6.yml
-- include: windows-disable-defender.yml
-- include: disable_firewall.yml
 - include: windows-enable-icmp.yml
 - include: windows-enable-ps-logging.yml
-- include: make_windows_sorta_better.yml

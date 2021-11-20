@@ -9,7 +9,7 @@
     - ericzimmermantools
     - volatility
     - forensic7z
-    - regripper
+    # doesnt exist in repos- regripper
     - autopsy
     - sysinternals
   ignore_errors: yes

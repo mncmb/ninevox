@@ -1,0 +1,5 @@
+---
+- include: windows-disable-ipv6.yml
+- include: windows-disable-defender.yml
+- include: disable_firewall.yml
+- include: make_windows_sorta_better.yml

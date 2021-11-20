@@ -5,16 +5,15 @@
   loop:
     #- vmware-tools
     - virtualbox-guest-additions-guest.install
-    - googlechrome
+    #- googlechrome
     - firefox
     - git
     - vscode
-    - notepadplusplus.install
+    #- notepadplusplus.install
     - winscp
     - 7zip 
-    - sysinternals
+    #- sysinternals
     # this is broken - microsoft-windows-terminal
-    - python3
-    - wsl2
+    #- python3
     #- cmder
   ignore_errors: yes
