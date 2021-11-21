@@ -1,0 +1,59 @@
+# tools that are available in chocolatey
+forensic_tools:
+  - python3
+  - putty
+  - filezilla
+  - ericzimmermantools
+  - volatility
+  - forensic7z
+  # doesnt exist in repos- regripper
+  - autopsy
+  - sysinternals
+
+# github tools, that get unpacked
+zipped_tools:
+  regripper:
+    name: regripper
+    url: https://github.com/keydet89/RegRipper3.0/archive/refs/heads/master.zip
+  chainsaw:
+    name: Chainsaw
+    url: https://github.com/countercept/chainsaw/releases/latest/download/chainsaw_x86_64-pc-windows-msvc.zip
+  xst:
+    name: XstReader
+    url: https://github.com/Dijji/XstReader/releases/download/v1.14/XstReader.zip
+
+# github tools standalone exe
+nonzipped_tools:
+  hindsight:
+    name: Hindsight.exe
+    url: https://github.com/obsidianforensics/hindsight/releases/download/v2021.04.26/hindsight_gui.exe
+
+# collector utils from github
+collector_utils:
+  lcs:
+    name: linuxcatscale-v1.3.zip
+    url: https://github.com/FSecureLABS/LinuxCatScale/archive/refs/tags/v1.3.zip
+  cylr1:
+    name: CyLR-linux-x64.zip
+    url: https://github.com/orlikoski/CyLR/releases/latest/download/CyLR_linux-x64.zip
+  cylr2:
+    name: CyLR-windows-x64.zip
+    url: https://github.com/orlikoski/CyLR/releases/latest/download/CyLR_win-x64.zip
+  loki:
+    name: loki-ioc-scanner-0.44.2.zip
+    url: https://github.com/Neo23x0/Loki/releases/download/v0.44.2/loki_0.44.2.zip
+  avml:
+    name: avml.elf
+    url: https://github.com/microsoft/avml/releases/latest/download/avml
+  winpmemx64:
+    name: winpmem_mini_x64_rc2.exe
+    url: https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x64_rc2.exe
+  winpmemx86:
+    name: winpmem_mini_x86.exe
+    url: https://github.com/Velocidex/WinPmem/releases/download/v4.0.rc1/winpmem_mini_x86.exe
+
+# autopsy plugins
+autopsy_plugins:
+  marmckinnon:
+    name: autopsy-plugins
+    url: https://github.com/markmckinnon/Autopsy-Plugins/archive/refs/heads/master.zip

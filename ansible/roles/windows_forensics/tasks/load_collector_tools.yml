@@ -1,0 +1,20 @@
+- name: Create collector directory
+  win_file:
+    path: '{{ COLLECTOR_PATH }}'
+    state: directory
+
+- name: load collector github tools
+  win_get_url:
+    url: '{{ item.value.url }}'
+    dest: '{{ COLLECTOR_PATH }}\{{ item.value.name }}'
+    force: no
+  loop: '{{ collector_utils | dict2items }}' # evaluate dict and return "list"
+  ignore_errors: yes
+
+- name: Upload KAPE collector
+  win_copy:
+    src: '../files/{{ item }}'
+    dest: '{{ COLLECTOR_PATH }}\{{ item }}'
+    force: no
+  loop: 
+    - '{{ KAPE_FILE }}'

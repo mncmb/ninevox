@@ -1,16 +1,19 @@
 # paths
 FORENSIC_PROGRAMS: C:\Forensics
 TEMP_PATH: C:\Windows\Temp
+COLLECTOR_PATH: '{{ FORENSIC_PROGRAMS}}\Collector_utils'
+ZIMMERMAN_PATH: '{{ FORENSIC_PROGRAMS}}\Zimmerman_tools'
+TOOL_PATH: '{{ FORENSIC_PROGRAMS}}\Analysis_tools'
+IMGUTIL_PATH: '{{ FORENSIC_PROGRAMS }}\Image_utils'
+PLUGINS_PATH: '{{ FORENSIC_PROGRAMS}}\Plugins'
 
 ## file names
 imager:
   - AccessData_FTK_Imager_(x64).exe
   - Arsenal-Image-Mounter-v3.4.141.zip 
-
 KAPE_FILE: KAPE.zip
+GETZIMMER_FILE: Get-ZimmermanTools.ps1
+MKLINKBAT_FILE: autopsy-plugins-mklink.bat
 
 ## autopsy plugins
 AUTOPSY_PLUG_:
-
-## collector tools
-collector:

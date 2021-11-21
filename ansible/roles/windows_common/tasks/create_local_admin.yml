@@ -14,6 +14,9 @@
     groups: Administrators, Remote Desktop Users
     state: present
   loop: '{{ users | dict2items }}' # evaluate dict and return "list"
+  loop_control:
+    label: 'create user: {{ item.value.name }}'
+  #no_log: true # do not log passwords
   ignore_errors: yes # if we rerun the playbook, this will fail the whole playbook, so don't worry about it if it fails
 
 

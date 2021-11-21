@@ -1,23 +1,21 @@
-- include_vars: vars/github_tools.yml
+- include_vars: vars/tools.yml
 - include: install_4n6_tools.yml
-#- include: install_xstreader.yml
-#- include: install_hindsight.yml
-#- include: install_chainsaw.yml
 - include: load_github_tools.yml
 - include: copy_image-mounting.yml
-#- include: setup_autopsy_plugins.yml
-#- include: setup_zimmerman.yml
+- include: load_collector_tools.yml
+- include: load_zimmerman.yml
+- include: setup_autopsy_plugins.yml
 #- include: setup_cheat-sheets.yml
 
 # - include: download_example.yml
-# xstreader
-# diskmount utilities like ftk, arsenal
+# DONE xstreader
+# DONE diskmount utilities like ftk, arsenal
 # sqlreader and browser history tools, hindsight
-# registry explorer
-# elex
-# KAPE
-# autopsy and plugins
-# acquisition tools like cylr, kape, ... avml, 
+# DONE IS A ZIMMERMAN TOOL registry explorer
+# NOPE: needs license:  elex
+# DONE KAPE
+# DONE autopsy and plugins
+# DONE acquisition tools like cylr, kape, ... avml, 
 
 
 # see here: https://awesomedfir.com/ and especially this list https://awesomedfir.com/dfir-tooling

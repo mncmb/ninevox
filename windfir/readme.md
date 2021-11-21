@@ -2,14 +2,17 @@
 This project is heavily based on https://github.com/Marshall-Hallenbeck/red_team_attack_lab.
 Another influence is https://www.aidanmitchell.uk/orchestrating-the-hacklab-part-1/.
 
-## software stack
-There are lots of great projects about automating the deployment of a lab environment. One of the easiest ways in terms of software and monetary requirements is the route via:
-- Vagrant
-- Ansible
-- Virtualbox
-and some Windows test versions.
+# testing autopsy
+ - test images: https://digitalcorpora.org/corpora/disk-images 
+ - nps-2010-emails is pretty small
 
-The only thing needed for this setup is any kind of x64 system. While terraform and cloud hosters are cool this tech stack allows easy experimentation. 
+## todo rework readme 
+so that is useful
+
+
+## software stack
+for included software see 'ansible/roles/windows_forensics/vars/tools.yml'
+
 
 ## forensics
 Contains Arsenal Image Mounter, FTK Imager and KAPE. Due to their licenses these are excluded from the repo. Bring your own. For non commercial use, you can download these from the respective links for free.

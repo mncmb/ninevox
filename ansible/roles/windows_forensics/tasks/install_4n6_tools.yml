@@ -1,15 +1,6 @@
-- name: Install tools to help forensic investigations/ incident response analysi
+- name: Install tools to help forensic investigations/ incident response analysis
   win_chocolatey:
     name: '{{ item }}'
     state: present
-  loop:
-    - python3
-    - putty
-    - filezilla
-    - ericzimmermantools
-    - volatility
-    - forensic7z
-    # doesnt exist in repos- regripper
-    - autopsy
-    - sysinternals
+  loop: '{{ forensic_tools }}'
   ignore_errors: yes
