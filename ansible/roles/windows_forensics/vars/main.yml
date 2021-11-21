@@ -1,6 +1,9 @@
 # paths
 FORENSIC_PROGRAMS: C:\Forensics
 TEMP_PATH: C:\Windows\Temp
+DESKTOP_PATH: C:\Users\Public\Desktop
+
+## specific paths
 COLLECTOR_PATH: '{{ FORENSIC_PROGRAMS}}\Collector_utils'
 ZIMMERMAN_PATH: '{{ FORENSIC_PROGRAMS}}\Zimmerman_tools'
 TOOL_PATH: '{{ FORENSIC_PROGRAMS}}\Analysis_tools'

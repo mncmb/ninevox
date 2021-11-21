@@ -1,4 +1,4 @@
-# ansible-vault encrypt_string --ask-vault-pass 'passToEncrypt'--name 'pass'
+# ansible-vault encrypt_string --ask-vault-pass 'passToEncrypt' --name 'pass'
 # for test purpose "password"
 # WARNING DONT USE THIS IN PROD LOL
 

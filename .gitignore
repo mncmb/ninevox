@@ -20,7 +20,7 @@
 /VagrantBaseBox/.vagrant/**
 /*/.vagrant/**
 
-# and exclude special licensed programs
+# and exclude special licensed software
 # get your own copies from respective developer sites
 # these are free for non commercial / testing use - 
 /ansible/roles/windows_forensics/files/Arsenal*

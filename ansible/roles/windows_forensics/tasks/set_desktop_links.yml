@@ -1,0 +1,11 @@
+# puts files in current path, so change in right dir before execution
+- name: make link from forensics to desktop
+  win_shell: 'cmd /C MKLINK /D "{{ DESKTOP_PATH }}\Forensics" "{{ item }}"'
+  loop:
+    - '{{ FORENSIC_PROGRAMS }}'
+  ignore_errors: yes
+  
+
+- name: make link from chocolatey_bin to forensics
+  win_shell: 'cmd /C MKLINK /D "{{ FORENSIC_PROGRAMS }}\Chocolatey_bin" "C:\ProgramData\chocolatey\bin"'
+  ignore_errors: yes

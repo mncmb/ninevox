@@ -5,6 +5,7 @@
 - include: load_collector_tools.yml
 - include: load_zimmerman.yml
 - include: setup_autopsy_plugins.yml
+- include: set_desktop_links.yml
 #- include: setup_cheat-sheets.yml
 
 # - include: download_example.yml
