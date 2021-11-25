@@ -7,7 +7,6 @@
 # Recursively allow files under subtree
 !/Win10Dev/**
 !/kali/**
-!/VagrantBaseBox/**
 !/windfir/**
 !/ansible/**
 !/readme.md
@@ -17,7 +16,6 @@
 # but exclude vagrant caches
 /Win10Dev/.vagrant/**
 /kali/.vagrant/**
-/VagrantBaseBox/.vagrant/**
 /*/.vagrant/**
 
 # and exclude special licensed software
@@ -26,6 +24,3 @@
 /ansible/roles/windows_forensics/files/Arsenal*
 /ansible/roles/windows_forensics/files/AccessData*
 /ansible/roles/windows_forensics/files/KAPE*
-/VagrantBaseBox/ansible/roles/windows_forensics/files/Arsenal*
-/VagrantBaseBox/ansible/roles/windows_forensics/files/AccessData*
-/VagrantBaseBox/ansible/roles/windows_forensics/files/KAPE*

@@ -1,3 +1,0 @@
-- name: Set timezone to 'Central European Standard Time'
-  community.windows.win_timezone:
-    timezone: Central European Standard Time

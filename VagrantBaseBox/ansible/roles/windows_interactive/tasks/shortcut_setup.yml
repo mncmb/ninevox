@@ -1,9 +1,0 @@
-- name: Create setup directory
-  win_file:
-    path: C:\setup
-    state: directory
-
-- name: Copy shortcut.ps1 to setup directory
-  win_copy:
-    src: ../files/create_choco_shortcut.ps1
-    dest: C:\setup\create_choco_shortcut.ps1
