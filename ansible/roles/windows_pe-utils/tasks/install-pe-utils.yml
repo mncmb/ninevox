@@ -2,13 +2,7 @@
   win_chocolatey:
     name: '{{ item }}'
     state: present
-  loop:
-    - pebear
-    - pestudio
-    - explorersuite # cff explorer
-    - reshack
-    - x64dbg.portable
-    - imhex
+  loop: '{{ pe_tools }}'
   ignore_errors: yes
 
 

@@ -1,2 +1,0 @@
-- name: Install windows terminal via store / winget
-  win_shell: winget install Microsoft.WindowsTerminal --accept-source-agreements # --accept-package-agreements

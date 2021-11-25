@@ -2,7 +2,7 @@
 - name: make link from forensics to desktop
   win_shell: 'cmd /C MKLINK /D "{{ DESKTOP_PATH }}\Forensics" "{{ item }}"'
   loop:
-    - '{{ FORENSIC_PROGRAMS }}'
+    - '{{ FORENSIC_PROGRAMS }}' # this contains only 1 item atm 
   ignore_errors: yes
   
 
