@@ -1,3 +1,5 @@
+# download collector tools and utils for win, nix, mac
+
 - name: Create collector directory
   win_file:
     path: '{{ COLLECTOR_PATH }}'

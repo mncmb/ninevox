@@ -1,0 +1,12 @@
+dst_path_prefix: ' "C:\Users\Public\Desktop\'
+src_path_prefix: '" "C:\ProgramData\chocolatey\lib\'
+shortcut_forensics_tools:
+  - '{{ dst_path_prefix }}python" "C:\Python310\python.exe"'
+  - '{{ dst_path_prefix }}putty" "C:\ProgramData\chocolatey\bin\putty.exe"'
+  - '{{ dst_path_prefix }}filezilla" "C:\Program Files\FileZilla FTP Client\filezill.exe"'
+  - '{{ dst_path_prefix }}TimelineExplorer" "C:\Forensics\Zimmerman_tools\TimelineExplorer\TimelineExplorer.exe"'
+  - '{{ dst_path_prefix }}volatility2.6{{ src_path_prefix }}volatility\tools\volatility_2.6_win64_standalone\volatility_2.6_win64_standalone.exe"'
+  - '{{ dst_path_prefix }}autoruns{{ src_path_prefix }}sysinternals\tools\autoruns.exe"'
+  - '{{ dst_path_prefix }}procexp{{ src_path_prefix }}sysinternals\tools\procexp.exe"'
+  - '{{ dst_path_prefix }}chainsaw" "C:\Forensics\Tools\Chainsaw\chainsaw\chainsaw.exe"'
+  - '{{ dst_path_prefix }}XstReader" "C:\Forensics\Tools\XstReader\XstReader.exe"'
