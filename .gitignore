@@ -9,6 +9,7 @@
 !/kali/**
 !/windfir/**
 !/ansible/**
+!/malware-lab/**
 !/readme.md
 !/TODO.md
 !/.gitignore
