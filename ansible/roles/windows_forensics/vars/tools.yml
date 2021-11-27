@@ -21,6 +21,9 @@ zipped_tools:
   xst:
     name: XstReader
     url: https://github.com/Dijji/XstReader/releases/download/v1.14/XstReader.zip
+  evttransdb:
+    name: EventTranscript.db-Research
+    url: https://github.com/AndrewRathbun/EventTranscript.db-Research/archive/refs/heads/main.zip
 
 # github tools standalone exe
 nonzipped_tools:

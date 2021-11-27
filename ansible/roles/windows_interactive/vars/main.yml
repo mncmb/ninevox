@@ -1,0 +1,14 @@
+interactive_tools:
+  #- vmware-tools
+  - virtualbox-guest-additions-guest.install
+  #- googlechrome
+  - firefox
+  - git
+  - vscode
+  #- notepadplusplus.install
+  - winscp
+  - 7zip 
+  #- sysinternals
+  # this is broken - microsoft-windows-terminal
+  #- python3
+  #- cmder

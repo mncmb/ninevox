@@ -1,3 +1,6 @@
 - include: install_basic_tools.yml
-# - include: install_winget.yml # doesnt work currently see here https://github.com/microsoft/winget-cli/issues/256, could hack around this with task/runonce script
+- include: install_win-terminal.yml 
+# win terminal doesnt work currently see here https://github.com/microsoft/winget-cli/issues/256, could hack around this with task/runonce script
+# DOES WORK now: scheduled task used to circumvent the issue
+
 # doesnt work currently, maybe windows related, maybe vbox - include: install_wsl2.yml

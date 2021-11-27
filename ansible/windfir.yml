@@ -6,4 +6,4 @@
     - windows_forensics
     - windows_pe-utils
   vars_files:
-  - roles/vars/users.yml
+  - roles/vars/windfir/users.yml
