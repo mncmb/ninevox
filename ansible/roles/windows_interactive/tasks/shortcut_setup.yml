@@ -3,7 +3,12 @@
 #    path: C:\setup
 #    state: directory
 
-- name: Copy shortcut.ps1 to setup directory
-  win_copy:
-    src: ../files/create_choco_shortcut.ps1
-    dest: C:\Windows\Temp\create_choco_shortcut.ps1
+- name: Setup PE utils shortcuts to desktop
+  win_shell: ' Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1" -Force;
+              Install-ChocolateyShortcut -ShortcutFilePath "C:\Users\vagrant\Desktop\{{ item }}.lnk" -TargetPath C:\ProgramData\chocolatey\lib\{{ item }}\tools\{{ item }}.exe
+  '
+  loop: '{{ interactive_tools }}'
+  ignore_errors: yes
+
+
+

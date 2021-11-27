@@ -1,11 +1,13 @@
 - include_vars: vars/tools.yml
-- include: install_4n6_tools.yml
-- include: load_github_tools.yml
-- include: copy_image-mounting.yml
-- include: load_collector_tools.yml
-- include: load_zimmerman.yml
-- include: setup_autopsy_plugins.yml
-- include: set_desktop_links.yml
+- include_vars: vars/shortcuts.yml
+#- include: install_4n6_tools.yml
+#- include: load_github_tools.yml
+#- include: copy_image-mounting.yml
+#- include: load_collector_tools.yml
+#- include: load_zimmerman.yml
+#- include: setup_autopsy_plugins.yml
+#- include: set_desktop_links.yml
+- include: setup_shortcuts.yml
 #- include: setup_cheat-sheets.yml
 
 # - include: download_example.yml

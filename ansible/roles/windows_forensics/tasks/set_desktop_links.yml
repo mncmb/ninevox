@@ -7,5 +7,5 @@
   
 
 - name: make link from chocolatey_bin to forensics
-  win_shell: 'cmd /C MKLINK /D "{{ FORENSIC_PROGRAMS }}\Chocolatey_bin" "C:\ProgramData\chocolatey\bin"'
+  win_shell: 'cmd /C MKLINK /D "{{ FORENSIC_PROGRAMS }}\Chocolatey_bin" "C:\ProgramData\chocolatey\lib"'
   ignore_errors: yes

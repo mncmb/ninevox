@@ -1,0 +1,4 @@
+- name: Setup forensics shortcuts to desktop
+  win_shell: 'cmd /c mklink {{ item }}'
+  loop: '{{ shortcut_forensics_tools }}'
+  ignore_errors: yes
