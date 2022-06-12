@@ -1,0 +1,44 @@
+# vagrant reload win10 --provision
+# vagrant provision win10 
+
+Vagrant.configure("2") do |config|
+  default_cpus = 2
+  default_mem = 6096
+  dev_ip = "192.168.56.200"
+  dns_server = "8.8.8.8"
+  hostname = "win10devx"
+  
+  # todo: make sure to test this with 
+  # hostname and define name are not the same
+  config.vm.define hostname do |cfg|
+    cfg.vm.box = "gusztavvargadr/windows-10"
+    # cfg.vm.hostname = hostname # this might be the problem. setting hostname here and under provider 
+    cfg.vm.boot_timeout = 600
+    cfg.winrm.transport = :plaintext
+    cfg.vm.communicator = "winrm"
+    cfg.winrm.basic_auth_only = true
+    cfg.winrm.timeout = 600
+    cfg.winrm.retry_limit = 20
+    cfg.vm.network :private_network, ip: dev_ip, gateway: "192.168.56.1", dns: dns_server
+
+    cfg.vm.provider "virtualbox" do |vb, override|
+      vb.gui = true
+      vb.name = hostname + "_lab"
+      vb.default_nic_type = "82545EM"
+      vb.customize ["modifyvm", :id, "--memory", default_mem]
+      vb.customize ["modifyvm", :id, "--cpus", default_cpus]
+      vb.customize ["modifyvm", :id, "--vram", "32"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+    end
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #     Machine config
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    cfg.vm.provision "shell", path: "generic_setup.ps1", privileged: false
+    cfg.vm.provision "shell", path: "logging.ps1", privileged: false
+    cfg.vm.provision "shell", path: "setup_dev.ps1", privileged: false
+  end
+
+end

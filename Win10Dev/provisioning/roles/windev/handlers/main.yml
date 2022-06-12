@@ -1,3 +1,0 @@
-- name: Create shortcuts
-  win_shell: "{{ CreateShortcut}} {{ item }}"
-  with_items: "{{ tool_shortcuts }}"

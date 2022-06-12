@@ -1,8 +1,0 @@
-pe_tools:
-  - pebear
-  - pestudio
-  - explorersuite # cff explorer
-  - reshack
-  - x64dbg.portable
-  - imhex
-  - die # detect it easy

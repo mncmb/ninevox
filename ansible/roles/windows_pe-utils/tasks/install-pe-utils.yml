@@ -1,8 +1,0 @@
-- name: Install PE utils that help with PE analysis
-  win_chocolatey:
-    name: '{{ item }}'
-    state: present
-  loop: '{{ pe_tools }}'
-  ignore_errors: yes
-
-

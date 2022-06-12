@@ -1,4 +1,0 @@
----
-- include_vars: vars/shortcuts.yml
-- include: install-pe-utils.yml
-- include: setup_shortcuts.yml

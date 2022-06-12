@@ -1,6 +1,0 @@
-- name: Install base tools
-  win_chocolatey:
-    name: '{{ item }}'
-    state: present
-  loop: '{{ interactive_tools }}'
-  ignore_errors: yes

@@ -1,4 +1,0 @@
-- name: Setup PE utils shortcuts to desktop
-  win_shell: 'cmd /c {{ item }}'
-  loop: '{{ shortcut_pe_tools }}'
-  ignore_errors: yes

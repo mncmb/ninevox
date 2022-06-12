@@ -1,6 +1,0 @@
-- name: Install chocolatey
-  ansible.builtin.win_chocolatey:
-      name:
-      - chocolatey-core.extension
-      - chocolatey-windowsupdate.extension
-      state: present

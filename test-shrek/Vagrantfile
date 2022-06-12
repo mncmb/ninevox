@@ -1,0 +1,91 @@
+# vagrant reload win10 --provision
+# vagrant provision win10 
+
+Vagrant.configure("2") do |config|
+  domain_name = "shreklab.local"
+  default_cpus = 2
+  default_mem = 4096
+  dc_ip = "192.168.56.102"
+  client1_ip = "192.168.56.104"
+  dns_server = "8.8.8.8"
+  
+  config.vm.define "dc" do |cfg|
+    hostname = "dc-babayy"
+    cfg.vm.box = "gusztavvargadr/windows-server"
+    #cfg.vm.hostname = hostname
+    cfg.vm.boot_timeout = 600
+    cfg.winrm.transport = :plaintext
+    cfg.vm.communicator = "winrm"
+    cfg.winrm.basic_auth_only = true
+    cfg.winrm.timeout = 300
+    cfg.winrm.retry_limit = 20
+    cfg.vm.network :private_network, ip: dc_ip, gateway: "192.168.56.1", dns: dns_server
+
+    cfg.vm.provider "virtualbox" do |vb, override|
+      vb.gui = true
+      vb.name = hostname + domain_name
+      vb.default_nic_type = "82545EM"
+      vb.customize ["modifyvm", :id, "--memory", default_mem]
+      vb.customize ["modifyvm", :id, "--cpus", default_cpus]
+      vb.customize ["modifyvm", :id, "--vram", "32"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+    end
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #     Machine config
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    provison_args = "-ip " + dc_ip + " -domain " + domain_name + " -dns " + dns_server
+    cfg.vm.provision "shell", path: "scripts/provision.ps1", privileged: false, args: provison_args
+    cfg.vm.provision "reload"
+    cfg.vm.provision "shell", path: "scripts/provision.ps1", privileged: false, args: provison_args
+    cfg.vm.provision "shell", path: "scripts/install-utilities.ps1", privileged: false
+    cfg.vm.provision "shell", path: "scripts/install-sysinternals.ps1", privileged: false
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #     DC specific config
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    cfg.vm.provision "shell", path: "powershells/create_domain_users.ps1", privileged: false
+    cfg.vm.provision "shell", path: "powershells/configure-powershelllogging.ps1", privileged: false
+    cfg.vm.provision "shell", path: "powershells/configure-AuditingPolicyGPOs.ps1", privileged: false
+    cfg.vm.provision "shell", path: "powershells/configure-defender.ps1", privileged: false
+    #cfg.vm.provision "shell", path: "scripts/configure-disable-windows-defender-gpo.ps1", privileged: false
+    #cfg.vm.provision "shell", path: "scripts/configure-taskbar-layout-gpo.ps1", privileged: false
+    # cfg.vm.provision "shell", path: "powershells/configure-rdp-user-gpo.ps1", privileged: false   # something something version conflicts on importing migrationtable?!
+  end
+
+  config.vm.define "win10" do |cfg|
+    hostname = "win10-client01"
+    cfg.vm.box = "gusztavvargadr/windows-10"
+    #cfg.vm.hostname = hostname
+    cfg.vm.boot_timeout = 800
+    cfg.vm.communicator = "winrm"
+    cfg.winrm.basic_auth_only = true
+    cfg.winrm.timeout = 800
+    cfg.winrm.retry_limit = 20
+    cfg.vm.network :private_network, ip: client1_ip, gateway: "192.168.56.1", dns: dc_ip
+
+    cfg.vm.provider "virtualbox" do |vb, override|
+      vb.gui = true
+      vb.name = domain_name + "_" + hostname
+      vb.default_nic_type = "82545EM"
+      vb.customize ["modifyvm", :id, "--memory", default_mem]
+      vb.customize ["modifyvm", :id, "--cpus", default_cpus]
+      vb.customize ["modifyvm", :id, "--vram", "32"]
+      vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+    end
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #     Machine config
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    provison_args = "-ip " + client1_ip + " -domain " + domain_name + " -dns " + dc_ip
+    cfg.vm.provision "shell", path: "powershells/configure-iface-prio-and-DNS.ps1", privileged: false, args: dc_ip
+    cfg.vm.provision "shell", path: "scripts/provision.ps1", privileged: false, args: provison_args
+    cfg.vm.provision "reload"
+    cfg.vm.provision "shell", path: "scripts/provision.ps1", privileged: false, args: provison_args
+    cfg.vm.provision "shell", path: "scripts/install-utilities.ps1", privileged: false
+    cfg.vm.provision "shell", path: "scripts/install-sysinternals.ps1", privileged: false
+  end
+end
