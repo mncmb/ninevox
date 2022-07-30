@@ -1,34 +1,22 @@
-# took out setting hostname 2x and removed override setting from provider 
 Vagrant.configure("2") do |config|
   config.vm.define "win10dev" do |cfg|
     cfg.vm.box = "gusztavvargadr/visual-studio"
-    #cfg.vm.box = "gusztavvargadr/windows-10"
+    cfg.vm.box_version = "2022.2102.2205" # version pin this for testing
     cfg.vm.boot_timeout = 600
-    # cfg.winrm.transport = :plaintext
-    # cfg.vm.communicator = "winrm"
-    # cfg.winrm.basic_auth_only = true
-    cfg.winrm.timeout = 400
-    cfg.winrm.retry_limit = 20
-    cfg.vm.network :private_network, ip: "192.168.56.201", gateway: "192.168.56.1", dns: "8.8.8.8"
     cfg.vm.synced_folder '.', '/vagrant', disabled: false
 
-    cfg.vm.provision "shell", path: "generic_setup.ps1", privileged: false
-    cfg.vm.provision "shell" , path: "../powershells/configure-iface-prio-and-DNS.ps1", privileged: false, args: "-dns 10.0.2.15 -setdns $False"
-    cfg.vm.provision "shell", path: "../scripts/install-utilities.ps1", privileged: false
-    cfg.vm.provision "shell", path: "logging.ps1", privileged: false
-    cfg.vm.provision "shell", path: "../scripts/set-wallpaper.ps1", privileged: false,args: "dev"
+    #cfg.vm.provision "shell", path: "generic_setup.ps1", privileged: false
+    #cfg.vm.provision "shell", path: "logging.ps1", privileged: false
+    #cfg.vm.provision "shell", path: "set-wallpaper.ps1", privileged: false,args: "dev"
+    #cfg.vm.provision "shell", path: "boxstarter.ps1", privileged: false 
     cfg.vm.provision "shell", path: "setup_dev.ps1", privileged: false 
 
     cfg.vm.provider "virtualbox" do |vb|
       vb.gui = true
-      vb.name = "win10 devx"
-      vb.default_nic_type = "82545EM"
       vb.customize ["modifyvm", :id, "--memory", 6096]
       vb.customize ["modifyvm", :id, "--cpus", 2]
       vb.customize ["modifyvm", :id, "--vram", "32"]
       vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-      #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
     end
   end
 end
