@@ -1,6 +1,6 @@
 # install choco tools 
 Write-Host "setting up dev utils"
-choco install -y --limit-output --no-progress NotepadPlusPlus 7zip apimonitor dependencywalker die dnspy explorersuite firefox ghidra git golang hxd notepadplusplus nuget.commandline pebear processhacker python3 vcredist-all vcredist140 visualstudio2019-workload-nativedesktop vscode windows-sdk-10-version-2004-windbg x64dbg.portable 
+choco install -y --limit-output --no-progress NotepadPlusPlus 7zip apimonitor dependencywalker die dnspy explorersuite firefox ghidra git golang hxd notepadplusplus nuget.commandline pebear processhacker python3 vcredist-all vcredist140 visualstudio2022-workload-nativedesktop vscode windows-sdk-10-version-2004-windbg x64dbg.portable 
 
 # --------------------------------------
 $devdir = $($HOME+'\Desktop\devx')
