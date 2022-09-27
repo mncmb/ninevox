@@ -1,6 +1,7 @@
 
 sudo apt update
 sudo apt install -y gobuster golang-go seclists remmina ghidra code-oss docker.io mingw-w64 #neo4j bloodhound
+sudo apt install -y sliver
 sudo usermod -aG docker $(whoami)
 
 sudo gem install evil-winrm
@@ -10,7 +11,7 @@ cd
 mkdir Tools
 cd Tools
 git clone https://github.com/optiv/ScareCrow
-git clone https://github.com/BishopFox/sliver
+#git clone https://github.com/BishopFox/sliver
 git clone --recursive https://github.com/n1nj4sec/pupy
 git clone https://github.com/ropnop/kerbrute
 git clone https://github.com/carlospolop/PEASS-ng
@@ -29,11 +30,12 @@ docker run -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 -v neo4j/data:/data neo
 wget https://github.com/BloodHoundAD/BloodHound/releases/latest/download/BloodHound-linux-x64.zip
 
 wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEAS.bat
+wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/winPEASany.exe
 wget https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh
 
 # build sliver docker image
-cd ~/Tools/sliver
-docker build -t sliver .
+# cd ~/Tools/sliver
+# docker build -t sliver .
 # docker run -it -p 80:80 -p 443:443 --name sliver sliver
 
 

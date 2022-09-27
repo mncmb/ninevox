@@ -1,0 +1,49 @@
+require 'yaml'
+inventory = YAML.load_file('inventory.yml')
+vars = inventory['all']['vars']
+
+Vagrant.configure("2") do |config|
+    inventory['all']['hosts'].each do |host,details|
+        config.vm.define host do |cfg|
+            #host_portion = details['ip'].split(/\./)[3].to_i
+            cfg.vm.box = details['vagrant_box']
+            cfg.vm.box_check_update = false # we specifically set the version for most of them so it's stable
+            cfg.vm.hostname = host
+            # cfg.vm.boot_timeout = details.key?('boot_timeout') ? details['boot_timeout']: vars['default_host']['boot_timeout']
+            # cfg.winrm.transport = :plaintext
+            # cfg.vm.communicator = "winrm"
+            # cfg.winrm.basic_auth_only = true
+            # cfg.winrm.timeout = details.key?('timeout') ? details['timeout']: vars['default_host']['timeout']
+            # cfg.winrm.retry_limit = 20
+            # dns_server = details.key?('dns') ? details['dns']: vars['default_host']['dns']
+            # cfg.vm.network :private_network, ip: details['ip'], gateway: "192.168.56.1", dns: dns_server
+
+            #cfg.vm.synced_folder '.', '/vagrant', disabled: false
+
+            # provison_args = "-ip " + details['ip'] + " -domain " + vars['domain_name'] + " -dns " + dns_server
+            # if details.key?('scripts') then
+            #     details['scripts'].each do |scriptname,script_path|
+            #         cfg.vm.provision "shell", path: script_path, privileged: false
+            #     end
+            # end 
+            vars['vagrant_ports'].each do |protocol, details|
+                config.vm.network :forwarded_port, guest: details['guest'], host: details['host'] + host_portion
+            end
+
+
+            cfg.vm.provider "virtualbox" do |vb, override|
+              vb.gui = true
+              vb.name = 'shreklab_' + host
+              # vb.default_nic_type = "82545EM"
+              vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
+              vb.customize ["modifyvm", :id, "--cpus", details.key?('cpus') ? details['cpus']: vars['default_host']['cpus']]
+              vb.customize ["modifyvm", :id, "--vram", "32"]
+              vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+              vb.customize ["modifyvm", :id, "--nat-network1", "NatNetwork"]  # check out '"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm' for options
+              # vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+              # vb.customize ["setextradata", "global", "GUI/SuppressMessages", "all" ]
+              # vb.linked_clone = details.key?('linked_clone') ? details['linked_clone']: false
+            end
+        end
+    end
+end

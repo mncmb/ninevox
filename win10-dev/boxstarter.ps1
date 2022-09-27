@@ -3,7 +3,6 @@ Set-WindowsExplorerOptions -EnableShowHiddenFilesFoldersDrives -EnableShowProtec
 Set-BoxstarterTaskbarOptions -Size Small
 
 # choco install IIS-WebServerRole -source windowsfeatures
-
 # install terminal dependency bc of chocolatey issue https://github.com/mkevenaar/chocolatey-packages/issues/124
 $archiveUrl = 'https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx'
 $archiveName = Split-Path -Leaf $archiveUrl

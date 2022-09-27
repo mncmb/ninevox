@@ -9,5 +9,4 @@ choco install -y --limit-output --no-progress git 7zip chocolateygui boxstarter
 # script is part of chocolatey
 # Update-SessionEnvironment 
 refreshenv
-
 Write-Host "finished basic setup"

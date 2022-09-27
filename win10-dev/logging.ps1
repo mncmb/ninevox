@@ -76,7 +76,7 @@ function Invoke-Sysinternals {
 function Get-Powersiem {
 	Write-Host "downloading powersiem"
 	New-TempWorkingDir
-	iwr -usebasicparsing -outfile "sysmon-config.xml" https://raw.githubusercontent.com/Neo23x0/sysmon-config/master/sysmonconfig-export.xml
+	git clone -q https://github.com/mncmb/PowerSiem
 	Write-Host "finished downloading powersiem"
 }
 
@@ -87,6 +87,22 @@ function Invoke-Systools {
 	Invoke-Zimmer
 	Invoke-Sysinternals
 	Get-Powersiem
+	Write-Host "get ImHex-NoGPU version and velociraptor"
+	iwr -useb -o imhex-1.22.0-Windows-Portable-NoGPU.zip https://github.com/WerWolv/ImHex/releases/download/v1.22.0/imhex-1.22.0-Windows-Portable-NoGPU.zip
+	iwr -useb -o velociraptor-v0.6.5-windows-amd64.exe https://github.com/Velocidex/velociraptor/releases/download/v0.6.5-0/velociraptor-v0.6.5-windows-amd64.exe
+	Write-Host "TODO get hayabusa, chainsaw, loki"
+}
+
+# https://stackoverflow.com/questions/32609460/test-if-zip-file-extract-command-executed
+function unzip {
+  param([string]$zipfile, [string]$outpath)
+
+  try {
+    [IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
+    $true
+  } catch {
+    $false
+  }
 }
 
 Invoke-Systools

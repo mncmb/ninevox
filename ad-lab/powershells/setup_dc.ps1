@@ -1,6 +1,6 @@
 .\generic_setup.ps1
 
-$deviceIP = "10.0.2.10"
+
 
 
 
@@ -42,6 +42,7 @@ Get-NetIPConfiguration
 # $ifaceIdx = get-NetIpconfiguration | where {$_.IPv4DefaultGateway} | select InterfaceIndex
 # Set-NetIPInterface -InterfaceAlias Ethernet -Dhcp Disabled
 # Set-DnsClientServerAddress -InterfaceAlias Ethernet -ResetServerAddresses
+$deviceIP = "10.0.2.10"
 New-NetIPAddress -IPAddress $deviceIP -DefaultGateway 10.0.2.2 -InterfaceAlias Ethernet -PrefixLength 24
 Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 127.0.0.1,::1
 Get-NetIPConfiguration
