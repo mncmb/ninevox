@@ -7,17 +7,13 @@ $domain = "shreklab.local"
 # --------------------------------------
 ############################################
 
-# install AD - close server manager
+# install AD
 Install-windowsfeature AD-domain-services
-# install forest
 import-module ADDSDeployment
-# might change this to "P@ssW0rD!" to make this easier to attack
 $Secure_String_Pwd = ConvertTo-SecureString "S3cUr3P@ssW0rD!" -AsPlainText -Force
-Install-ADDSForest -NoRebootOnCompletion -CreateDnsDelegation:$false -SafeModeAdministratorPassword $Secure_String_Pwd -DatabasePath "C:\Windows\NTDS" -DomainMode "Win2012R2" -DomainName $domain -ForestMode "Win2012R2" -InstallDns:$true -LogPath "C:\Windows\NTDS" -SysvolPath "C:\Windows\SYSVOL" -Force:$true
-# install RSAT
+Install-ADDSForest -NoRebootOnCompletion -SafeModeAdministratorPassword $Secure_String_Pwd -DomainMode "Win2012R2" -DomainName $domain -ForestMode "Win2012R2" -InstallDns -Force
 Install-WindowsFeature RSAT-ADDS
 
-# for AD to work, restart is required
 Restart-computer
 
 ############################################
@@ -26,17 +22,17 @@ Restart-computer
 # --------------------------------------
 ############################################
 # see here http://woshub.com/powershell-configure-windows-networking/
-$ipv4 = (Get-NetIPAddress | Where-Object {$_.AddressState -eq "Preferred" -and $_.ValidLifetime -lt "24:00:00"}).IPAddress
-$ipv4.Substring(0, $ipv4.LastIndexOf("."))
-$staticIP = $ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".10"
-$gateway = (Get-NetIPConfiguration).IPv4DefaultGateway.Nexthop
+#$ipv4 = (Get-NetIPAddress | Where-Object {$_.AddressState -eq "Preferred" -and $_.ValidLifetime -lt "24:00:00"}).IPAddress
+#$ipv4.Substring(0, $ipv4.LastIndexOf("."))
+#$staticIP = $ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".10"
+#$gateway = (Get-NetIPConfiguration).IPv4DefaultGateway.Nexthop
 # creates something like $staticIP = "10.0.2.10"
-New-NetIPAddress -IPAddress $staticIP -DefaultGateway $gateway -InterfaceAlias Ethernet -PrefixLength 24
+#New-NetIPAddress -IPAddress $staticIP -DefaultGateway $gateway -InterfaceAlias Ethernet -PrefixLength 24
 # Get-NetIPConfiguration
 # Restart-NetAdapter -InterfaceAlias Ethernet
 
-Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $staticIP,($ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".1")
-Get-DNSClientServerAddressipv
+#Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $staticIP,($ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".1")
+#Get-DNSClientServerAddressipv
 
 ############################################
 # --------------------------------------
@@ -45,18 +41,15 @@ Get-DNSClientServerAddressipv
 ############################################
 # https://adsecurity.org/?p=3377
 # https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations
-
 # backup GPO https://learn.microsoft.com/en-us/powershell/module/grouppolicy/backup-gpo?view=windowsserver2022-ps&viewFallbackFrom=win10-ps
-# Backup-GPO -Name Auditing -Path \\VBOXSVR\vagrant\gpos
-
 # import GPO https://learn.microsoft.com/en-us/powershell/module/grouppolicy/restore-gpo?view=windowsserver2022-ps&viewFallbackFrom=win10-ps
-# Restore-GPO -BackupId 0fc29b3c-fb83-4076-babb-6194c1b4fc26 -Path "\\Server1\Backups"
+
 new-gpo -name Auditing
 new-gpo -name Sysmon
 new-gpo -name "Powershell script block logging"
-Import-GPO -BackupGpoName Auditing -TargetName Auditing -Path \\VBOXSVR\vagrant\gpos
-Import-GPO -BackupGpoName Sysmon -TargetName Sysmon -Path \\VBOXSVR\vagrant\gpos
-Import-GPO -BackupGpoName "Powershell script block logging" -TargetName Sysmon -Path \\VBOXSVR\vagrant\gpos
+Import-GPO -BackupGpoName Auditing -TargetName Auditing -Path "\\VBOXSVR\vagrant\gpos"
+Import-GPO -BackupGpoName Sysmon -TargetName Sysmon -Path "\\VBOXSVR\vagrant\gpos"
+Import-GPO -BackupGpoName "Powershell script block logging" -TargetName Sysmon -Path "\\VBOXSVR\vagrant\gpos"
 $fqdn = "dc=" +(($domain.split(".")) -join ",dc=")
 new-gplink -name Auditing -Target $fqdn
 new-gplink -name Sysmon -Target $fqdn
@@ -75,6 +68,17 @@ new-gplink -name "Powershell script block logging" -Target $fqdn
 #         Users
 # --------------------------------------
 ############################################
-net user shrek Myswamp2022! /ADD /DOMAIN /Y
+net user shrek "Myswamp2022!" /ADD /DOMAIN /Y
 net group "Domain Admins" shrek /add /Y
 net user donkey "Passw0rd!" /ADD /DOMAIN /Y
+
+
+# adding ADCS
+# taken from https://github.com/jfmaes/x33fcon-workshop/blob/main/dc/add-ons.ps1
+Install-WindowsFeature Adcs-Cert-Authority -IncludeManagementTools
+Install-AdcsCertificationAuthority -CAType EnterpriseRootCa -Force
+Install-PackageProvider NuGet -Force
+Set-PSRepository PSGallery -InstallationPolicy Trusted
+Install-Module ADCSTemplate -Force
+add-WindowsFeature Adcs-Web-Enrollment
+Install-AdcsWebEnrollment -Force

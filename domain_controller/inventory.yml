@@ -3,7 +3,7 @@
 # workstations / clients are required to include "win10" in their name in order for the provision script to work
 all:
   hosts:
-    dc:
+    dc01:
       #ip: 192.168.56.102
       #dns: 8.8.8.8
       vagrant_box: gusztavvargadr/windows-server
@@ -16,7 +16,14 @@ all:
         #script2: powershells/configure-powershelllogging.ps1
         #s3: powershells/configure-AuditingPolicyGPOs.ps1
         #s4: powershells/configure-rdp-user-gpo.ps1
-    win10-client1:
+    fs01:
+      #ip: 192.168.56.102
+      #dns: 8.8.8.8
+      vagrant_box: gusztavvargadr/windows-server
+      #linked_clone: true
+      cpus: 2
+      memory: 6096
+    ws01001:
     #   ip: 192.168.56.104
       vagrant_box: gusztavvargadr/windows-10
     #   #linked_clone: true # even though there's one, it speeds up testing; this will be removed later
