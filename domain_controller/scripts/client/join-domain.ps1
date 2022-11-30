@@ -11,7 +11,7 @@ $ipv4 = (Get-NetIPAddress | Where-Object {$_.AddressState -eq "Preferred" -and $
 $ipv4.Substring(0, $ipv4.LastIndexOf("."))
 $dcIP = $ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".10"
 
-Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $dcIP,8.8.8.8,::1
+Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $dcIP,($ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".1")
 Get-DNSClientServerAddress
 
 ############################################

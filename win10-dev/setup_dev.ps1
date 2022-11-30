@@ -1,9 +1,10 @@
 # install choco tools 
 Write-Host "setting up dev utils"
-choco install -y --limit-output --no-progress NotepadPlusPlus 7zip apimonitor dependencywalker die dnspy explorersuite firefox ghidra git golang hxd notepadplusplus nuget.commandline pebear processhacker python3 vcredist-all vcredist140 vscode windows-sdk-10-version-2004-windbg x64dbg.portable
+choco install -y --limit-output --no-progress 7zip apimonitor dependencywalker die dnspy explorersuite firefox ghidra hxd pebear processhacker x64dbg.portable
+choco install -y --limit-output --no-progress git golang python3 nuget.commandline vcredist-all vcredist140 vscode notepadplusplus windows-sdk-10-version-2004-windbg
 Write-Host "installing Visual Studio native package. This will take a while"
 choco install -y --limit-output --no-progress visualstudio2022-workload-nativedesktop
-# --------------------------------------
+#########################################################################################
 $devdir = $($HOME+'\Desktop\devx')
 md -Force $devdir
 # add exclusion for directory
@@ -15,6 +16,16 @@ Remove-MpPreference -ExclusionPath "C:\"
 # this option is default so we get info that defender wants to submit something
 Set-MpPreference -SubmitSamplesConsent 0
 
+# install pyinstaller
+pip install pyinstaller pyarmor
+
+# these are required to compile ThreatCheck and probably other stuff
+nuget sources add -Source https://www.nuget.org/api/v2/ 2>$null 
+
+
+
+#########################################################################################
+# refresh chocolety environment
 refreshenv
 cd $devdir
 
@@ -34,21 +45,13 @@ iwr -useb https://github.com/mkaring/ConfuserEx/releases/latest/download/Confuse
 iwr -useb https://github.com/sevagas/macro_pack/releases/latest/download/macro_pack.exe -o macro_pack.exe
 
 
-
-# install pyinstaller
-pip install pyinstaller
-
-# https://github.com/Flangvik/SharpCollection
-# https://github.com/S3cur3Th1sSh1t/PowerSharpPack
-
-# these are required to compile ThreatCheck
-nuget sources add -Source https://www.nuget.org/api/v2/ 2>$null 
-
 # open DEVELOPER command prompt
 # cd AMSITrigger # or whatever
 # nuget restore         ### fixes dependencies and loads missing packages
 # msbuild /p:Configuration=Release
 
+
+#########################################################################################
 mkdir Tools
 cd Tools
 git clone -q https://github.com/vyrus001/go-mimikatz
@@ -58,3 +61,5 @@ git clone -q https://github.com/GhostPack/Seatbelt
 git clone -q https://github.com/rasta-mouse/Watson
 git clone -q https://github.com/GhostPack/SharpUp
 git clone -q https://github.com/S3cur3Th1sSh1t/PowerSharpPack
+# https://github.com/Flangvik/SharpCollection
+# https://github.com/S3cur3Th1sSh1t/PowerSharpPack

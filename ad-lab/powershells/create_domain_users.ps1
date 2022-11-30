@@ -6,8 +6,7 @@ $dc = $env:COMPUTERNAME
 Write-Host "$('[{0:HH:mm}]' -f (Get-Date)) Adding users"
 net user shrek Myswamp2022! /ADD /DOMAIN /Y
 net group "Domain Admins" shrek /add /Y
-
-net user donkey "I<3youshrek" /ADD /DOMAIN /Y
+net user donkey "Passw0rd!" /ADD /DOMAIN /Y
 
 net user pinocchio Wy_82ZZhiuhcVfYNsk2X5 /ADD /DOMAIN /Y
 set-ADUser pinocchio -description "pw:Wy_82ZZhiuhcVfYNsk2X5"

@@ -35,8 +35,8 @@ New-NetIPAddress -IPAddress $staticIP -DefaultGateway $gateway -InterfaceAlias E
 # Get-NetIPConfiguration
 # Restart-NetAdapter -InterfaceAlias Ethernet
 
-Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses 127.0.0.1,8.8.8.8,::1
-Get-DNSClientServerAddress
+Set-DNSClientServerAddress -InterfaceAlias Ethernet -ServerAddresses $staticIP,($ipv4.Substring(0, $ipv4.LastIndexOf(".")) + ".1")
+Get-DNSClientServerAddressipv
 
 ############################################
 # --------------------------------------
@@ -53,11 +53,14 @@ Get-DNSClientServerAddress
 # Restore-GPO -BackupId 0fc29b3c-fb83-4076-babb-6194c1b4fc26 -Path "\\Server1\Backups"
 new-gpo -name Auditing
 new-gpo -name Sysmon
+new-gpo -name "Powershell script block logging"
 Import-GPO -BackupGpoName Auditing -TargetName Auditing -Path \\VBOXSVR\vagrant\gpos
 Import-GPO -BackupGpoName Sysmon -TargetName Sysmon -Path \\VBOXSVR\vagrant\gpos
+Import-GPO -BackupGpoName "Powershell script block logging" -TargetName Sysmon -Path \\VBOXSVR\vagrant\gpos
 $fqdn = "dc=" +(($domain.split(".")) -join ",dc=")
 new-gplink -name Auditing -Target $fqdn
 new-gplink -name Sysmon -Target $fqdn
+new-gplink -name "Powershell script block logging" -Target $fqdn
 
 # deploy sysmon immediate task
 # see for immediate task creation https://4sysops.com/archives/run-powershell-scripts-as-immediate-scheduled-tasks-with-group-policy/ or https://support.huntress.io/hc/en-us/articles/4404012795027-Deploying-Huntress-with-Group-Policy-GPO-and-Immediate-Scheduled-Task 
@@ -66,3 +69,12 @@ new-gplink -name Sysmon -Target $fqdn
 
 # all clients that join will land in the following OU
 # redircmp "OU=Clients, OU=Computers, OU=PRACTICALTH, DC=practicalth, DC=com"
+
+############################################
+# --------------------------------------
+#         Users
+# --------------------------------------
+############################################
+net user shrek Myswamp2022! /ADD /DOMAIN /Y
+net group "Domain Admins" shrek /add /Y
+net user donkey "Passw0rd!" /ADD /DOMAIN /Y
