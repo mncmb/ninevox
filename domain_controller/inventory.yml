@@ -4,12 +4,11 @@
 all:
   hosts:
     dc01:
-      #ip: 192.168.56.102
-      #dns: 8.8.8.8
       vagrant_box: gusztavvargadr/windows-server
-      #linked_clone: true
+      linked_clone: true
       cpus: 2
       memory: 6096
+      ip_suffix: 100
       #scripts:
         # script key can be anything, only the path is used
         #script1: powershells/create_domain_users.ps1
@@ -17,18 +16,15 @@ all:
         #s3: powershells/configure-AuditingPolicyGPOs.ps1
         #s4: powershells/configure-rdp-user-gpo.ps1
     fs01:
-      #ip: 192.168.56.102
-      #dns: 8.8.8.8
       vagrant_box: gusztavvargadr/windows-server
-      #linked_clone: true
+      linked_clone: true
       cpus: 2
       memory: 6096
+      ip_suffix: 110
     ws01001:
-    #   ip: 192.168.56.104
+      ip: 10.0.2.31
       vagrant_box: gusztavvargadr/windows-10
-    #   #linked_clone: true # even though there's one, it speeds up testing; this will be removed later
-    #   #boot_timeout: 1200
-    #   #timeout: 1200
+      linked_clone: true # speeds up testing?! can be removed later
   vars:
     # these are default values for hosts, you can override them in the host-specific config above
     default_host:
@@ -36,7 +32,8 @@ all:
       memory: 4096
       boot_timeout: 600
       timeout: 600
-      dns: 192.168.56.102
+      dc_suffix: 100
+      iface: "Ethernet 2"
     domain_name: shreklab.local
 
     # each protocol and host have their own port forward
