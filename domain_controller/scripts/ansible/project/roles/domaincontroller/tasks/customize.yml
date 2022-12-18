@@ -1,0 +1,11 @@
+- name: set wallpaper var
+  set_fact:
+    wallpaper_path: "C:\\Users\\Shrek\\Pictures\\wallpaperflare.com_wallpaper.jpg"
+
+- name: Upload wallpaper
+  win_copy:
+    src: ../files/wallpaperflare.com_wallpaper.jpg
+    dest: "{{ wallpaper_path }}"
+
+- name: Set wallpaper
+  win_shell: "set-itemproperty -path 'HKLM:Control Panel\\Desktop' -name WallPaper -value {{ wallpaper_path }}"

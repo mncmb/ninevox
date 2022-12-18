@@ -6,3 +6,9 @@ see `create-domain.ps1` for additional info
 - checkout elastic container project
 - https://www.elastic.co/de/security-labs/the-elastic-container-project
 - https://github.com/peasead/elastic-container
+
+
+## ansible
+```
+ansible-playbook -i hosts site.yml
+```

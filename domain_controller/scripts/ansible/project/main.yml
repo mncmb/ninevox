@@ -1,0 +1,20 @@
+---
+## This playbook deploys the whole application stack in this site.
+# https://github.com/ansible/ansible-examples/blob/master/lamp_haproxy/site.yml
+
+# Apply common configuration to all hosts
+#- hosts: dc01
+#  roles:
+#  - domaincontroller
+#
+# domain join systems.
+- hosts: 
+    - fs01
+    - ws01001
+  roles:
+  - common
+
+#- hosts: ws010[01:100]
+# roles:
+#  - common
+

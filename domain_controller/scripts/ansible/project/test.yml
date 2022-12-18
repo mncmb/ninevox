@@ -1,0 +1,14 @@
+---
+- name: win_ping module demo
+  hosts: dc01
+  become: false
+  gather_facts: false
+  tasks:
+    - name: test the nested ouput style 'a.b' 
+      debug:
+        msg: "{{ users.admin.name }}"
+    - name: test the nested ouput style 'a['b']' 
+      debug:
+        msg: "{{ users['admin']['name'] }}"
+    - name: test connection
+      ansible.windows.win_ping:

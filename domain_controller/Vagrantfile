@@ -1,48 +1,55 @@
 require 'yaml'
 inventory = YAML.load_file('inventory.yml')
 vars = inventory['all']['vars']
+vmgroups = inventory['all']['children']
 
 Vagrant.configure("2") do |config|
-    inventory['all']['hosts'].each do |host,details|
-        config.vm.define host do |cfg|
-            #host_portion = details['ip'].split(/\./)[3].to_i
-            cfg.vm.box = details['vagrant_box']
-            cfg.vm.box_check_update = false # we specifically set the version for most of them so it's stable
-            cfg.vm.hostname = host
-            # cfg.vm.boot_timeout = details.key?('boot_timeout') ? details['boot_timeout']: vars['default_host']['boot_timeout']
-            # cfg.winrm.transport = :plaintext
-            # cfg.vm.communicator = "winrm"
-            # cfg.winrm.basic_auth_only = true
-            # cfg.winrm.timeout = details.key?('timeout') ? details['timeout']: vars['default_host']['timeout']
-            # cfg.winrm.retry_limit = 20
-            # dns_server = details.key?('dns') ? details['dns']: vars['default_host']['dns']
-            # cfg.vm.network :private_network, ip: details['ip'], gateway: "192.168.56.1", dns: dns_server
+    vmgroups.each do |group,groupdetails|
+        # puts group # essentially print for vagrant
+        # nesting under 'children' is necessary so that ansible can use the same inventory
+        vmgroups[group]['hosts'].each do |host,details|
+            config.vm.define host do |cfg|
+                cfg.vm.box = details['vagrant_box']
+                cfg.vm.box_check_update = false # we specifically set the version for most of them so it's stable
+                cfg.vm.hostname = host
+                #host_ip =  details['ansible_host']
+                # use the plaintext WinRM transport and force it to use basic authentication.
+                # NB this is needed because the default negotiate transport stops working
+                #    after the domain controller is installed.
+                #    see https://groups.google.com/forum/#!topic/vagrant-up/sZantuCM0q4
+                if details.key?('winrm_plain') ? details['winrm_plain']: false then 
+                    cfg.winrm.transport = :plaintext
+                    cfg.winrm.basic_auth_only = true
+                end
+                cfg.vm.boot_timeout = details.key?('boot_timeout') ? details['boot_timeout']: vars['default_host']['boot_timeout']
+                cfg.winrm.timeout = details.key?('timeout') ? details['timeout']: vars['default_host']['timeout']
+                #cfg.vm.network :private_network, ip: host_ip
+                cfg.vm.synced_folder '.', '/vagrant', disabled: false
+                # provison_args = "-ip " + details['ip'] + " -domain " + vars['domain_name'] + " -dns " + dns_server
+            
+                if details.key?('scripts') then
+                    details['scripts'].each do |script_name,script_data|
+                        cfg.vm.provision "shell", path: script_data['path'], args: script_data['args'], privileged: false
+                        # reload if required after script
+                        if script_data.key?('reload') ? script_data['reload'] : false then
+                            cfg.vm.provision "reload"
+                        end
+                    end
+                end 
 
-            #cfg.vm.synced_folder '.', '/vagrant', disabled: false
-
-            # provison_args = "-ip " + details['ip'] + " -domain " + vars['domain_name'] + " -dns " + dns_server
-            # if details.key?('scripts') then
-            #     details['scripts'].each do |scriptname,script_path|
-            #         cfg.vm.provision "shell", path: script_path, privileged: false
-            #     end
-            # end 
-            #vars['vagrant_ports'].each do |protocol, details|
-            #    config.vm.network :forwarded_port, guest: details['guest'], host: details['host'] + host_portion
-           # end
-
-
-            cfg.vm.provider "virtualbox" do |vb, override|
-              vb.gui = true
-              vb.name = 'shreklab_' + host
-              # vb.default_nic_type = "82545EM"
-              vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
-              vb.customize ["modifyvm", :id, "--cpus", details.key?('cpus') ? details['cpus']: vars['default_host']['cpus']]
-              vb.customize ["modifyvm", :id, "--vram", "32"]
-              vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-              # - since VBox does not behave nicely with port fwds into NatNetworks, nic1 is kept as type NAT to handle these
-              vb.customize ["modifyvm", :id, "--nic2", "natnetwork"] # set nic 2 to NatNetwork 
-              vb.customize ["modifyvm", :id, "--nat-network1", "NatNetwork"]  
-              # check out '"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm' for options
+                cfg.vm.provider "virtualbox" do |vb, override|
+                  vb.gui = true
+                  vb.name = 'shreklab_' + host
+                  # vb.default_nic_type = "82545EM"
+                  vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
+                  vb.customize ["modifyvm", :id, "--cpus", details.key?('cpus') ? details['cpus']: vars['default_host']['cpus']]
+                  vb.customize ["modifyvm", :id, "--vram", "32"]
+                  vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+                  # - since VBox does not behave nicely with port fwds into NatNetworks, nic1 is kept as type NAT to handle these
+                  vb.customize ["modifyvm", :id, "--nic2", "natnetwork"] # set nic 2 to NatNetwork 
+                  vb.customize ["modifyvm", :id, "--nat-network1", "NatNetwork"]  
+                  # check out '"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm' for options
+                end
             end
         end
     end

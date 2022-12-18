@@ -1,0 +1,4 @@
+---
+- hosts: dc01
+  roles:
+  - domaincontroller
