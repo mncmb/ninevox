@@ -3,6 +3,7 @@ Write-Host "setting up dev utils"
 choco install -y --limit-output --no-progress 7zip apimonitor dependencywalker die dnspy explorersuite firefox ghidra hxd pebear processhacker x64dbg.portable
 choco install -y --limit-output --no-progress git golang python3 nuget.commandline vcredist-all vcredist140 vscode notepadplusplus windows-sdk-10-version-2004-windbg
 Write-Host "installing Visual Studio native package. This will take a while"
+Write-Host "..."
 choco install -y --limit-output --no-progress visualstudio2022-workload-nativedesktop
 #########################################################################################
 $devdir = $($HOME+'\Desktop\devx')
@@ -13,7 +14,8 @@ Remove-MpPreference -ExclusionPath "C:\"
 # disable automatic sample submission --- never submit, never ask
 #    Set-MpPreference -SubmitSamplesConsent 2
 # Always prompt - Automatic sample submission - ON 
-# this option is default so we get info that defender wants to submit something
+# this option is the default value for disabling
+# we get info that defender wants to submit something and deems it suspicious
 Set-MpPreference -SubmitSamplesConsent 0
 
 # install pyinstaller
@@ -37,6 +39,7 @@ git clone -q https://github.com/rasta-mouse/ThreatCheck
 git clone -q https://github.com/mgeeky/PackMyPayload
 git clone -q https://github.com/vyrus001/ebowla-2
 git clone -q --recurse https://github.com/mgeeky/ProtectMyTooling
+git clone -q https://github.com/Aetsu/OffensivePipeline
 
 # download latest confuserEx release
 iwr -useb https://github.com/mkaring/ConfuserEx/releases/latest/download/ConfuserEx.zip -o ConfuserEx.zip
@@ -44,7 +47,9 @@ iwr -useb https://github.com/mkaring/ConfuserEx/releases/latest/download/Confuse
 # download latest macroPack
 iwr -useb https://github.com/sevagas/macro_pack/releases/latest/download/macro_pack.exe -o macro_pack.exe
 
-
+###############################
+# TO BUILD SOMETHING
+###############################
 # open DEVELOPER command prompt
 # cd AMSITrigger # or whatever
 # nuget restore         ### fixes dependencies and loads missing packages
