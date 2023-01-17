@@ -4,6 +4,12 @@ param ( [String] $dc_suffix= "100",
 $iface=$env:VAGRANT_PRIMARY_INTERFACE
 $domain=$env:VAGRANT_DOMAIN_NAME
 
+if ((gwmi win32_computersystem).Domain -eq $domain) {
+    write-host "already joind domain $domain, skipping..."
+    exit
+}
+
+
 write-host started join-domain with the following args
 write-host $domain, $iface, $dc_suffix, $static_suffix
 

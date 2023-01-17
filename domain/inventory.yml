@@ -29,6 +29,8 @@ all:
             script1: 
               path: powershell/join-domain.ps1
               args: ["100","110"]
+            script2: 
+              path: powershell/fs/setup-fs.ps1
         ws01001:
           vagrant_box: gusztavvargadr/windows-10
           linked_clone: true 

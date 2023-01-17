@@ -1,6 +1,7 @@
 
-param ( [String] $domain = "shreklab.local", [String] $root= "C:\", [String] $ShareName= "data")
+param ( [String] $root= "C:\", [String] $ShareName= "data")
 
+$domain=$env:VAGRANT_DOMAIN_NAME
 # fileshare setup taken from https://github.com/jfmaes/x33fcon-workshop/blob/main/FS01/addons.ps1
 # with some slight fixes
 New-Item -ItemType directory -Path "$root$ShareName"
