@@ -7,7 +7,10 @@ Vagrant.configure("2") do |config|
     vmgroups.each do |group,groupdetails|
         # puts group # essentially print for vagrant
         # nesting under 'children' is necessary so that ansible can use the same inventory
+        # test = []    # ruby array init
         vmgroups[group]['hosts'].each do |host,details|
+            # test.push host    # ruby array add
+            # puts test         # print array
             config.vm.define host do |cfg|
                 cfg.vm.box = details['vagrant_box']
                 cfg.vm.box_check_update = false # we specifically set the version for most of them so it's stable

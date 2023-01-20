@@ -2,7 +2,7 @@
 
 export DEBIAN_FRONTEND=noninteractive 
 sudo apt update
-sudo apt install -y jq gobuster golang-go seclists remmina ghidra code-oss docker.io mingw-w64 sliver starkiller ffuf rustc nim
+sudo DEBIAN_FRONTEND=noninteractive apt install -y jq gobuster golang-go seclists remmina ghidra code-oss docker.io mingw-w64 sliver starkiller ffuf rustc nim
 
 # TODO
 # look into havoc jenkins build script, this post about jenkins automation https://blog.sunggwanchoi.com/half-automating-powersharppack/
@@ -24,18 +24,20 @@ pip3 install updog bloodhound pyinstaller pyarmor
 # needed for bloodhound-python see https://github.com/cannatag/ldap3/issues/1038
 pip3 install pycryptodome
 
-EXPORT_PATH='export PATH=/home/$USER/.local/bin:$PATH'
-if grep -xq $EXPORT_PATH ~/.zshrc; then
-    echo $EXPORT_PATH >> ~/.zshrc
+EXPORT_PATH="export PATH=/home/$USER/.local/bin"
+if [[ -z $(grep -x $EXPORT_PATH:'$PATH' ~/.zshrc) ]]; then
+    echo $EXPORT_PATH:'$PATH' >> ~/.zshrc
+    $(echo $EXPORT_PATH:$PATH)
 fi
 
 # https://github.com/RustScan/RustScan
 # install rustscan via cargo
 cargo install rustscan 
 
-EXPORT_PATH='export PATH=/home/$USER/.cargo/bin:$PATH'
-if grep -xq $EXPORT_PATH ~/.zshrc; then
-    echo $EXPORT_PATH >> ~/.zshrc
+EXPORT_PATH="export PATH=/home/$USER/.cargo/bin"
+if [[ -z $(grep -x $EXPORT_PATH:'$PATH' ~/.zshrc) ]]; then
+    echo $EXPORT_PATH:'$PATH' >> ~/.zshrc
+    $(echo $EXPORT_PATH:$PATH)
 fi
 
 cd
@@ -77,7 +79,7 @@ git clone --recurse-submodules https://github.com/ajpc500/NimlineWhispers2
 # setup neo4j for use with bloodhound
 cd ~/Tools
 mkdir -p neo4j/data
-docker run -d --name neo4j -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 -v /home/$USER/Tools/neo4j/data:/data neo4j
+sudo docker run -d --name neo4j -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 -v /home/$USER/Tools/neo4j/data:/data neo4j
 
 # wget https://github.com/BloodHoundAD/BloodHound/releases/latest/download/BloodHound-linux-x64.zip
 

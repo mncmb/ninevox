@@ -14,6 +14,8 @@ vagrant up --provision
 
 vagrant destroy -f
 
+vagrant start dc01 fs01 
+
 vagrant halt
 
 vagrant up dc01 fs01
@@ -39,3 +41,4 @@ vagrant up dc01 fs01
 - check similar projects for common GPOs, check if there are any public source repos regarding reallive GPOs
 - add elasticcontainerproject https://www.elastic.co/de/security-labs/the-elastic-container-project 
 - add velocistack https://github.com/weslambert/velocistack
+- change the powershell function that sets env variables so that it sets all env variables in one call, instead of one per env variable (see ruby arrays in vagrantfile for keeping it as yaml defined in inventory)
