@@ -42,3 +42,5 @@ vagrant up dc01 fs01
 - add elasticcontainerproject https://www.elastic.co/de/security-labs/the-elastic-container-project 
 - add velocistack https://github.com/weslambert/velocistack
 - change the powershell function that sets env variables so that it sets all env variables in one call, instead of one per env variable (see ruby arrays in vagrantfile for keeping it as yaml defined in inventory)
+- modify CreateOUStructure.ps1 to reduce clutter a bit and 3lettercodes so they fit thematically in badblood `. .\Invoke-BadBlood.ps1 -NonInteractive`
+- for "location names" see here, maybe there is a use for it https://shrek.fandom.com/wiki/Shrek_universe

@@ -1,6 +1,4 @@
-param ( [String] $dc_suffix= "100",  
-        [String] $ip_host_suffix= "100", 
-        [String] $admin = "shrek", 
+param ( [String] $admin = "shrek", 
         [String] $adminpass = "Swamp2022!")
 
 $iface=$env:VAGRANT_PRIMARY_INTERFACE
@@ -58,9 +56,22 @@ new-gplink -name "Powershell script block logging" -Target $fqdn
 net user $admin $adminpass /ADD /DOMAIN /Y
 net group "Domain Admins" $admin /add /Y
 net group "Enterprise Admins" $admin /add /Y
-#net group "Domain Admins" vagrant /add /Y # dis for ADCS error fix?
-net user donkey "Passw0rd!" /ADD /DOMAIN /Y
+# net group "Domain Admins" vagrant /add /Y # dis for ADCS error fix?
+# net user donkey "Passw0rd!" /ADD /DOMAIN /Y
 
+# https://shrek.fandom.com/wiki/Category:Characters
+# https://github.com/davidprowe/BadBlood
+# install DSInternals to create SIDHistory attackable objects with BadBlood
+Install-Module DSInternals -Force
+cd C:\Windows\Temp
+iwr -useb -o badblood.zip https://github.com/mncmb/BadBlood/archive/refs/heads/master.zip
+expand-archive badblood.zip 
+cd badblood\Badblood-master
+. .\Invoke-BadBlood.ps1 -NonInteractive
+# --------------------------------------
+#         install ADCS
+# --------------------------------------
+############################################
 
 # generate session as Enterprise admin, so that adcs enterprise cert can be installed later
 $username = "$domain\$admin";
