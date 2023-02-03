@@ -4,17 +4,13 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |vb, override|
         vb.gui = true
         vb.name = 'router'
-        vb.customize ["modifyvm", :id, "--nic2", "intnet"] # set nic 2 to internal1 
-        vb.customize ["modifyvm", :id, "--intnet2", "Internal1"] 
+        vb.customize ["modifyvm", :id, "--nic2", "intnet"] # set nic 2 to internal Network 
+        vb.customize ["modifyvm", :id, "--intnet2", "Internal1"] # set internal Network on nic 2, to the name Internal1 
         vb.customize ["modifyvm", :id, "--nic3", "intnet"] # set nic 3 to internal2 
-        vb.customize ["modifyvm", :id, "--intnet3", "Internal2"]   
-
-
+        vb.customize ["modifyvm", :id, "--intnet3", "Internal2"] # set internal Network on nic 3, to the name Internal2
         # set nic to NatNetwork
         # check out VBOXMANAGE 'modifyvm' command (on win "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe") for options
         # [--nic<1-N> none|null|nat|bridged|intnet|hostonly|generic|natnetwork]
-        #vb.customize ["modifyvm", :id, "--nic1", "natnetwork"] 
-        #vb.customize ["modifyvm", :id, "--nat-network1", "NatNetwork"] 
         # --cableconnected<1-N> on|off: Enables you to temporarily disconnect a virtual network interface, as if a network cable had been pulled from a real network card. This might be useful, for example for resetting certain software components in the VM. 
       end
     config.vm.provision "shell", path: "fwconf.sh", privileged: false

@@ -56,7 +56,7 @@ new-gplink -name "Powershell script block logging" -Target $fqdn
 net user $admin $adminpass /ADD /DOMAIN /Y
 net group "Domain Admins" $admin /add /Y
 net group "Enterprise Admins" $admin /add /Y
-# net group "Domain Admins" vagrant /add /Y # dis for ADCS error fix?
+# net group "Domain Admins" vagrant /add /Y # dis for ADCS error fix? -> resolved by generating session as Enterprise admin
 # net user donkey "Passw0rd!" /ADD /DOMAIN /Y
 
 # https://shrek.fandom.com/wiki/Category:Characters

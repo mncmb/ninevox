@@ -10,15 +10,25 @@ This repository currently contains the following:
 
 ## vagrant commands
 ```bash
-vagrant up --provision
+vagrant up dc01 fs01    # only deploy specified hosts
+vagrant up --provision  # restart provisioning scripts
 
-vagrant destroy -f
 
-vagrant start dc01 fs01 
+vagrant destroy -f      # destroy all machines without confirmation
 
-vagrant halt
 
-vagrant up dc01 fs01
+vagrant halt            # stop all machines
+vagrant start dc01 fs01 # start specified hosts
+```
+
+## vagrantfile ruby tricks
+The following statements can be used in vagrantfiles to debug stuff or so 
+```ruby
+puts group          # ruby print 
+test = []           # ruby array init
+test.push host      # ruby array add
+puts test           # print array
+# shell .args   = "#{ENV['VAR1']} #{ENV['VAR2']}"  ---- see here https://stackoverflow.com/questions/19648088/pass-environment-variables-to-vagrant-shell-provisioner
 ```
 
 ## Active Donkey
@@ -44,3 +54,9 @@ vagrant up dc01 fs01
 - change the powershell function that sets env variables so that it sets all env variables in one call, instead of one per env variable (see ruby arrays in vagrantfile for keeping it as yaml defined in inventory)
 - modify CreateOUStructure.ps1 to reduce clutter a bit and 3lettercodes so they fit thematically in badblood `. .\Invoke-BadBlood.ps1 -NonInteractive`
 - for "location names" see here, maybe there is a use for it https://shrek.fandom.com/wiki/Shrek_universe
+- add documents related to shlore
+- add theWaffler, pencilHead and King as usernames -> allstar
+- change interfaces for all systems
+- change/remove environment scripts -> not linux compatible and not necessarily needed 
+1. make it work
+2. pretty stuff up

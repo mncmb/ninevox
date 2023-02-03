@@ -1,17 +1,34 @@
 # based on https://github.com/jborean93/ansible-windows/blob/master/vagrant/inventory.yml
 # scriptX keys can be named anything, it doesn't matter - only path (and args) subkeys are used
 all:
-  children:
+  children: #TODO children can be removed since no more ansible in use
     domain:
       hosts:
+        router: # first box deployed, so that subnets do exist for all other machines
+          vagrant_box: ubuntu/focal64
+          cpus: 1
+          memory: 512
+          interfaces:
+            adapter1: # Network Interface nic1 being NAT seems to be required for Virtualbox to work correctly
+              type: ["--nic2", "natnetwork"]
+              name: ["--nat-network2", "NatNetwork"]
+            adapter2: 
+              type: ["--nic3", "intnet"]
+              name: ["--intnet3", "Internal1"]
+            adapter3: 
+              type: ["--nic4", "intnet"]
+              name: ["--intnet4", "Internal2"]
+          scripts:
+            script1: 
+              path: powershell/router/fwconf.sh
+              reload: true # reload so options are applied correctly
         dc01:
           vagrant_box: gusztavvargadr/windows-server
           linked_clone: true # supposedly speeds up testing - can be removed later
-          winrm_plain: true
-          #ansible_host: 10.0.2.100
+          winrm_plain: true # necessary option that gets checked so that dc provisioning works in vagrant
           cpus: 2
           memory: 4096
-          # default winrm tries are 20, larger value needed for domain deployment
+          # host_ip ===> DC IP is set in VARS.ENV, see further below
           scripts:
             script1: 
               path: powershell/dc/01_create-domain.ps1
@@ -22,23 +39,23 @@ all:
         fs01:
           vagrant_box: gusztavvargadr/windows-server
           linked_clone: true
-          #ansible_host: 10.0.2.110
           cpus: 2
           memory: 2096
+          host_ip: 10.10.100.12
           scripts:
             script1: 
               path: powershell/join-domain.ps1
               args: ["100","110"]
             script2: 
               path: powershell/fs/setup-fs.ps1
-        ws01001:
-          vagrant_box: gusztavvargadr/windows-10
-          linked_clone: true 
-          #ansible_host: 10.0.2.21
-          scripts:
-            script1: 
-              path: powershell/join-domain.ps1
-              args: ["100"]
+        #ws01001:
+        #  vagrant_box: gusztavvargadr/windows-10
+        #  linked_clone: true 
+        #  #ansible_host: 10.0.2.21
+        #  scripts:
+        #    script1: 
+        #      path: powershell/join-domain.ps1
+        #      args: ["100"]
     # control:
     #   hosts:
     #     ansible:
@@ -54,16 +71,16 @@ all:
       memory: 2096
       boot_timeout: 600
       timeout: 600
-      iface: "Ethernet 2"
-      dc_ip_dns: 10.0.2.100
+      interfaces:
+        adapter3: 
+              type: ["--nic2", "intnet"] #TODO
+              name: ["--intnet2", "Internal2"] #TODO
+      default_domain: #TODO
     env:
-      key1:
-        key: VAGRANT_DOMAIN_NAME
-        value: sh.rek.lab
-      key2:
-        key: VAGRANT_PRIMARY_INTERFACE
-        value: "Ethernet 2"
-    safemodeAdminPW: "S3cUr3P@ssW0rD!"
+      VAGRANT_DOMAIN_NAME: sh.rek.lab
+      VAGRANT_PRIMARY_IFACE: "Ethernet 2"
+      VAGRANT_DC_IP: 10.10.100.10
+    safemodeAdminPW: "MuCh S3cUr3, v3Ry P@ssW0rD!"
     ansible_user: vagrant
     ansible_password: vagrant
     ansible_port: 5985
