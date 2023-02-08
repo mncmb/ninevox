@@ -1,8 +1,27 @@
 require 'yaml'
 inventory = YAML.load_file('inventory.yml')
 vars = inventory['all']['vars']
-env = 
 vmgroups = inventory['all']['children']
+
+if Gem.win_platform? then
+    if(File.exist?('C:\Program Files\Oracle\VirtualBox\VBoxManage.exe')) 
+      puts 'VBoxManage at default location'
+      vboxmanage = "\"C:\\Program Files\\Oracle\\VirtualBox\\VBoxManage.exe\""
+    end
+else 
+    puts "Requiring VBoxManage to be in path. Setup will fail, if it is not in path. Please configure path."
+    vboxmanage = "vboxmanage"
+end
+if defined?(vboxmanage) then
+    checkOutput = `#{vboxmanage} natnetwork list #{vars['net_adapter']}`
+    if checkOutput.include? "0 networks" then
+      createCommand = "#{vboxmanage} natnetwork add --netname #{vars['net_adapter']} --network \"#{vars['dhcp_range']}\" --enable --dhcp on"
+      puts "NatNetwork adapter doesn't exist. Executing command:\n#{createCommand}"
+      system(createCommand)
+    else 
+      puts "NatNetwork #{vars['net_adapter']} #{vars['dhcp_range']} already created. Skipping ..." 
+    end
+end
 
 Vagrant.configure("2") do |config|
     vmgroups.each do |group,groupdetails| #TODO groups can be removed since no more ansible in use
@@ -32,7 +51,17 @@ Vagrant.configure("2") do |config|
                         cfg.vm.provision "shell" do |shell|
                             shell.path = script_data['path']
                             shell.args = script_data['args']
-                            # shell.env = {VAGRANT_DOMAIN:ENV['AWS_ACCESS_KEY'],AWS_ACCESS_KEY:ENV['AWS_ACCESS_KEY']} 
+                            shell.env = {
+                                VAGRANT_DOMAIN_NAME: vars['VAGRANT_DOMAIN_NAME'],
+                                VAGRANT_PRIMARY_IFACE: vars['VAGRANT_PRIMARY_IFACE'],
+                                VAGRANT_DC_IP: vars['VAGRANT_DC_IP'],
+                                VAGRANT_HOST_IP: details.key?('host_ip') ? details['host_ip'] : "",
+                                VAGRANT_DA_NAME: vars['VAGRANT_DA_NAME'],
+                                VAGRANT_DA_PASS: vars['VAGRANT_DA_PASS'],
+                                VAGRANT_USER_NAME: vars['VAGRANT_USER_NAME'],
+                                VAGRANT_USER_PASS: vars['VAGRANT_USER_PASS'],
+                                VAGRANT_SAFEMODE_PASS: vars['VAGRANT_SAFEMODE_PASS'],
+                            } 
                             # shell.privileged = false
                         end
                         # reload if required after script
@@ -43,7 +72,7 @@ Vagrant.configure("2") do |config|
                 end
 
                 cfg.vm.provider "virtualbox" do |vb, override|
-                    vb.gui = true
+                    vb.gui = details.key?('gui') ? details['gui']: false
                     vb.name = 'shreklab_' + host
                     # vb.default_nic_type = "82545EM"
                     vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
@@ -53,10 +82,11 @@ Vagrant.configure("2") do |config|
                     # check out '."C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" modifyvm' for options
                     # [--nic<1-N> none|null|nat|bridged|intnet|hostonly|generic|natnetwork]
                     # set all network interfaces either via host specific or default config
-                    interfaces = details.key?('interfaces') ? details['interfaces']: vars['default_host']['interfaces']
-                    interfaces.each do |adap_name,adap_data|
-                        vb.customize ["modifyvm", :id, adap_data["type"][0], adap_data["type"][1]] # eg ["--nic2", "natnetwork"]
-                        vb.customize ["modifyvm", :id, adap_data["name"][0], adap_data["name"][1]] # eg ["--nat-network2", "NatNetwork"]
+                    modifyvm = details.key?('modifyvm') ? details['modifyvm']: vars['default_host']['modifyvm']
+                    # TODO: rewrite this to do generic customizations via modifyvm, not only interfaces
+                    modifyvm.each do |mod_name,mod_values|
+                        #puts "setting modifyvm for id: #{:id}, args: #{mod_values[0]},#{mod_values[1]}"
+                        vb.customize ["modifyvm", :id, mod_values[0], mod_values[1]] # eg ["--nic2", "natnetwork"]
                     end
                   # ... 
                 end

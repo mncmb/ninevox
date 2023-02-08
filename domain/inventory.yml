@@ -8,16 +8,14 @@ all:
           vagrant_box: ubuntu/focal64
           cpus: 1
           memory: 512
-          interfaces:
-            adapter1: # Network Interface nic1 being NAT seems to be required for Virtualbox to work correctly
-              type: ["--nic2", "natnetwork"]
-              name: ["--nat-network2", "NatNetwork"]
-            adapter2: 
-              type: ["--nic3", "intnet"]
-              name: ["--intnet3", "Internal1"]
-            adapter3: 
-              type: ["--nic4", "intnet"]
-              name: ["--intnet4", "Internal2"]
+          modifyvm:
+            # Network Interface nic1 being NAT seems to be required for Virtualbox to work correctly
+            nic2: ["--nic2", "natnetwork"]
+            nat-network2: ["--nat-network2", "ShrekNat"] # when changing iface Name, also change vars.net_adapter
+            nic3: ["--nic3", "intnet"]
+            intnet3: ["--intnet3", "Internal1"] 
+            nic4: ["--nic4", "intnet"]
+            intnet4: ["--intnet4", "Internal2"]
           scripts:
             script1: 
               path: powershell/router/fwconf.sh
@@ -27,31 +25,59 @@ all:
           linked_clone: true # supposedly speeds up testing - can be removed later
           winrm_plain: true # necessary option that gets checked so that dc provisioning works in vagrant
           cpus: 2
-          memory: 4096
-          # host_ip ===> DC IP is set in VARS.ENV, see further below
+          memory: 3600
+          gui: true
+          # host_ip ===> DC IP is set in VARS, see further below
+          modifyvm:
+            nic2: ["--nic2", "intnet"] 
+            intnet2: ["--intnet2", "Internal2"]
+            audio: ["--audio", "dsound"]
+            audioctrl: ["--audiocontroller", "hda"]
+            audioout: ["--audioout", "on"]
           scripts:
-            script1: 
-              path: powershell/dc/01_create-domain.ps1
-              args: ["100","100"]
+            #script1: 
+            #  path: powershell/dc/01_create-domain.ps1
+            #  reload: true
+            #script2: 
+            #  path: powershell/dc/02_setup-dc.ps1
+            script3: 
+              path: powershell/dc/03_customize-admin.ps1
               reload: true
-            script2: 
-              path: powershell/dc/02_setup-dc.ps1
         fs01:
-          vagrant_box: gusztavvargadr/windows-server
+          vagrant_box: gusztavvargadr/sql-server
           linked_clone: true
           cpus: 2
-          memory: 2096
-          host_ip: 10.10.100.12
+          memory: 3600
+          host_ip: 10.0.9.20
           scripts:
             script1: 
               path: powershell/join-domain.ps1
-              args: ["100","110"]
+              #args: ["100","110"]
             script2: 
-              path: powershell/fs/setup-fs.ps1
-        #ws01001:
+              path: powershell/fs/setup-fssql.ps1
+        srv01:
+          vagrant_box: gusztavvargadr/windows-server-core
+          host_ip: 10.0.9.25
+          scripts:
+            script1: 
+              path: powershell/join-domain.ps1
+            script2:
+              path: powershell/srv/setup-iis.ps1
+        web01: # first box deployed, so that subnets do exist for all other machines
+          vagrant_box: ubuntu/focal64
+          host_ip: 172.16.0.10
+          cpus: 1
+          memory: 1024
+          modifyvm:
+            nic2: ["--nic2", "intnet"] 
+            intnet2: ["--intnet2", "Internal1"]
+          scripts:
+            script1: 
+              path: powershell/web/setup-web.sh
+        #ws101:
         #  vagrant_box: gusztavvargadr/windows-10
         #  linked_clone: true 
-        #  #ansible_host: 10.0.2.21
+        #  host_ip: 10.0.2.101
         #  scripts:
         #    script1: 
         #      path: powershell/join-domain.ps1
@@ -71,48 +97,44 @@ all:
       memory: 2096
       boot_timeout: 600
       timeout: 600
-      interfaces:
-        adapter3: 
-              type: ["--nic2", "intnet"] #TODO
-              name: ["--intnet2", "Internal2"] #TODO
-      default_domain: #TODO
-    env:
-      VAGRANT_DOMAIN_NAME: sh.rek.lab
-      VAGRANT_PRIMARY_IFACE: "Ethernet 2"
-      VAGRANT_DC_IP: 10.10.100.10
-    safemodeAdminPW: "MuCh S3cUr3, v3Ry P@ssW0rD!"
+      modifyvm:
+        nic2: ["--nic2", "intnet"] 
+        intnet2: ["--intnet2", "Internal2"]
+    # environemnt vars
+    VAGRANT_DOMAIN_NAME: sh.rek.lab
+    VAGRANT_PRIMARY_IFACE: "Ethernet 2"
+    VAGRANT_DC_IP: 10.0.9.10
+    VAGRANT_DA_NAME: shrek
+    VAGRANT_DA_PASS: Swamp2023!
+    VAGRANT_USER_NAME: donkey
+    VAGRANT_USER_PASS: Passw0rd!
+    VAGRANT_SAFEMODE_PASS: "MuCh_S3cUr3,_v3Ry_P@ssW0rD!"
     ansible_user: vagrant
     ansible_password: vagrant
     ansible_port: 5985
     ansible_connection: winrm
     ansible_winrm_transport: basic
     ansible_winrm_server_cert_validation: ignore
-    users:
-      admin1:
-        name: shrek
-        pass: Swamp2023!
-      user1:
-        name: donkey
-        pass: Passw0rd!
-        description: "COME HERE, DONKEY!"
+    net_adapter: "ShrekNat"
+    dhcp_range: "192.168.55.0/24"
 
     # each protocol and host have their own port forward
     # the starting IP range (in thousands) is the 'host' variable
     # we add the host portion of the IP address to this e.g. dc01: rdp port is 20010, winrm is 22010, etc
     # we are theoretically maxed at a single network since a .10 on one network would clash with a .10 on another
-    vagrant_ports:
-      rdp:
-        guest: 3389
-        host: 30000
-      ssh:
-        guest: 22
-        host: 31000
-      winrm_http:
-        guest: 5985
-        host: 32000
-      winrm_https:
-        guest: 5986
-        host: 33000
-      smb:
-        guest: 445
-        host: 34000
+    #vagrant_ports:
+    #  rdp:
+    #    guest: 3389
+    #    host: 30000
+    #  ssh:
+    #    guest: 22
+    #    host: 31000
+    #  winrm_http:
+    #    guest: 5985
+    #    host: 32000
+    #  winrm_https:
+    #    guest: 5986
+    #    host: 33000
+    #  smb:
+    #    guest: 445
+    #    host: 34000
