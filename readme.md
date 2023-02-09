@@ -161,6 +161,7 @@ Some weird things that had to be considered when doing networking with windows a
 - add ADCS vulns
 - add webclient service to servers
 - add donkey as local admin to servers
+- add DVWP (wordpress) on webserver
 
 ## references, etc.
 This project is based on or influenced by

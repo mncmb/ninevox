@@ -68,12 +68,12 @@ sudo DEBIAN_FRONTEND=noninteractive apt -y install \
     docker-ce-cli \
     docker-compose-plugin
 
-mkdir /opt/crapi
-cd /opt/crapi
-curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
-sed -i /opt/crapi/docker-compose.yml \
-        -e "s/127.0.0.1:8888:80/80:80/" \
-        -e "s/127.0.0.1:8025:8025/8025:8025/"
+# mkdir /opt/crapi
+# cd /opt/crapi
+# curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+# sed -i /opt/crapi/docker-compose.yml \
+#         -e "s/127.0.0.1:8888:80/80:80/" \
+#         -e "s/127.0.0.1:8025:8025/8025:8025/"
 # docker compose pull
 # docker compose -f docker-compose.yml --compatibility up -d
 # docker compose stop 
@@ -83,3 +83,7 @@ sed -i /opt/crapi/docker-compose.yml \
 
 
 # sudo docker run --rm -p 80:3000 -d bkimminich/juice-shop 
+# git clone https://github.com/vavkamil/dvwp.git
+# cd dvwp/
+# sudo docker compose up -d --build
+# sudo docker compose run --rm wp-cli install-wp
