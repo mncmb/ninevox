@@ -1,7 +1,8 @@
 # sh.rek.lab
 ![](pics/shreklab.jpg)
 
-This is my attempt at an active directory sandbox / lab environment.  
+## motivation
+This is my attempt at an active directory+ sandbox / lab environment.  
 
 The project follows one simple rule:   
 **Keep dependencies and requirements to a minimum**. 
@@ -23,7 +24,7 @@ Furthermore, since Vagrantfiles are ruby files, they can be used for all sorts o
 | ubuntu based FW | 10.0.9.1, 172.16.0.1, 192.168.55.x (DHCP) | firewall using iptables & netplan |  
 
 ## TLDR: how to setup?
-1. install virtualbox and vagrant if not already done
+1. install virtualbox and vagrant if not already done. Make sure to have a recent version.
     - windows:
         ```powershell
         winget add virtualbox
@@ -43,6 +44,22 @@ Furthermore, since Vagrantfiles are ruby files, they can be used for all sorts o
     vagrant up
     ```
 
+## Hardware reqs
+VMs are provisioned with the following specs:
+| box | cores | memory |
+| ---| ---| ---|
+| dc01 | 2 | 3600 |
+| fs01 | 2 | 3600 |
+| srv01 | 2 | 2048 |
+| web01 | 1 | 1024 |
+| router | 1 | 512 | 
+
+Overall around ~11 GB of memory + core utilization (4 phys cores with SMT should be enough) + probably around 100 GB of disk storage.   
+
+If you have only access to low specced systems, you could comment out `fs01` and probably downsize srv01 Memory to around 1400 meg. This would put the memory requirements below 7 GB.  
+
+Keep in mind you probably still have to setup a Kali VM or something similar.
+
 ## project structure 
 Answering the question: What's in those directories?
 
@@ -54,7 +71,7 @@ Answering the question: What's in those directories?
 
 ## users
 Since this is a vagrant deployment you can connect to every system with `vagrant:vagrant`.   
-Additionally, there are 2 users defined for administrative and general testing purposes in `inventory.yml` under `VAGRANT_DA_NAME` and `VAGRANT_USER_NAME`.
+Additionally, users `shrek:Swamp2023!` and `donkey:Passw0rd!` are defined for administrative and general testing purposes in `inventory.yml` under `VAGRANT_DA_NAME` and `VAGRANT_USER_NAME`.
 
 ## vagrant commands
 Some useful vagrant commands.
@@ -103,7 +120,7 @@ Some weird things that had to be considered when doing networking with windows a
 - Windows boxes seem to prioritize the first interface for network interactions. This leads to issues when they are connected to a domain. DNS should then be resolved over the Domain Controller, but since interface 1 is prioritized and interface 1 needs to be NAT (see point 1 above), there will be issues. To fix this, network adapter priorization is set for every system, so that "Ethernet 2" aka adapter 2 is prioritized.
 - Windows domain controllers cannot be reached by vagrant after DC promotion, unless specific WinRM options are set. (see inventory.yml and Vagrantfile)
 - For firewalling I initially wanted to use OpnSense, PFSense, OpenWRT or something like that. Unfortunately there are no (working) up to date versions of those available in the default vagrant box repository. For this reason I decided to go with a simple linux box and iptables.
-- Routes to NAT Network segment:
+- Routes to NAT Network segment: The original plan is to limit access to *server network*, so that a host in the *DMZ zone* has to be used for pivoting. Currently this works if you place your attacking machine into the NatNetwork `ShrekNat`. But it only works, because routing preferences of windows servers in *server network* prioritize the NAT adapter on ehternet 1. If you 
 
 
 ## todo 
@@ -130,7 +147,7 @@ Some weird things that had to be considered when doing networking with windows a
 - ~~make it work~~
 - ~~pretty stuff up~~
 - port fwd from NatNetwork to DMZ
-- defender exclusions and submissions
+- create GPO for defender exclusions, sample submissions, etc.
 - clean up GPOs
 - ~~test natnetwork auto creation, see https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-natnetwork.html~~
 - setup crAPI on webserver
@@ -139,6 +156,8 @@ Some weird things that had to be considered when doing networking with windows a
 - add more vulns and misconfigs
     - bring in interesting AD misconfigs, see https://github.com/Orange-Cyberdefense/GOAD and https://github.com/Marshall-Hallenbeck/red_team_attack_lab
 - add ADCS vulns
+- add webclient service to servers
+- add donkey as local admin to servers
 
 ## references, etc.
 This project is based on or influenced by
