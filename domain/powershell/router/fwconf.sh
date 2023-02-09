@@ -45,14 +45,32 @@ sudo iptables -A FORWARD -i enp0s10 -o enp0s8 -j ACCEPT
 sudo iptables -A FORWARD -i enp0s8 -o enp0s9 -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i enp0s8 -o enp0s10 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
+# allow connections to these ports to webserver
+# https://serverfault.com/questions/140622/how-can-i-port-forward-with-iptables
+sudo iptables -t nat -A PREROUTING -p tcp -i enp0s8 --dport 80 -j DNAT --to-destination 172.16.0.10:80
+sudo iptables -A FORWARD -p tcp -d 172.16.0.10 --dport 80 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+sudo iptables -t nat -A PREROUTING -p tcp -i enp0s8 --dport 8025 -j DNAT --to-destination 172.16.0.10:8025
+sudo iptables -A FORWARD -p tcp -d 172.16.0.10 --dport 8025 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+sudo iptables -t nat -A PREROUTING -p tcp -i enp0s8 --dport 81 -j DNAT --to-destination 172.16.0.10:8080
+sudo iptables -A FORWARD -p tcp -d 172.16.0.10 --dport 8080 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+
+# drop external traffic from interface enp0s8 
+# this might be required if manually adding routes
+###################################################
+# sudo iptables -A INPUT -i enp0s8 -j DROP
+# sudo iptables -A FORWARD -i enp0s8 -j DROP
+
 # configure NATing
 sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -o enp0s8 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -o enp0s9 -j MASQUERADE
 sudo iptables -t nat -A POSTROUTING -o enp0s10 -j MASQUERADE
 
+# install
 sudo apt update 
 sudo DEBIAN_FRONTEND=noninteractive apt install -y iptables-persistent bind9 net-tools
+
 
 # setup DNS
 cat > /tmp/named.conf.options << EOM
@@ -85,6 +103,7 @@ sudo mv /tmp/named.conf.options /etc/bind/named.conf.options
 
 #sudo route delete default gw 10.0.2.2 enp0s3
 #sudo ip route del 10.0.2.0/24 dev enp0s3
+# ip route add 139.59.2.125/32 via 192.168.2.254
 
 # netplan documentation
 # https://netplan.readthedocs.io/en/latest/examples/#using-multiple-addresses-with-multiple-gateways

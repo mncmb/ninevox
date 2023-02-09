@@ -50,19 +50,36 @@ fi
 
 
 
-# sudo apt update 
-# sudo DEBIAN_FRONTEND=noninteractive apt install -y docker.io docker-compose
-# ## setup crAPI
-# # https://github.com/OWASP/crAPI
-# 
-# mkdir ~/crapi
-# cd ~/crapi
-# 
-# curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
-# 
-# sed -i docker-compose.yml \
-#         -e "s/127.0.0.1:8888:80/80:80/" \
-#         -e "s/127.0.0.1:8025:8025/8025:8025/"
-# 
-# docker-compose pull
-# docker-compose -f docker-compose.yml --compatibility up -d
+sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt -y install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+sudo DEBIAN_FRONTEND=noninteractive apt -y install \
+    docker-ce \
+    docker-ce-cli \
+    docker-compose-plugin
+
+mkdir /opt/crapi
+cd /opt/crapi
+curl -o docker-compose.yml https://raw.githubusercontent.com/OWASP/crAPI/main/deploy/docker/docker-compose.yml
+sed -i /opt/crapi/docker-compose.yml \
+        -e "s/127.0.0.1:8888:80/80:80/" \
+        -e "s/127.0.0.1:8025:8025/8025:8025/"
+# docker compose pull
+# docker compose -f docker-compose.yml --compatibility up -d
+# docker compose stop 
+
+# sudo docker run -p 80:80 -d --name dvwa vulnerables/web-dvwa 
+# login with admin:password
+
+
+# sudo docker run --rm -p 80:3000 -d bkimminich/juice-shop 
