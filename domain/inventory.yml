@@ -8,6 +8,7 @@ all:
           vagrant_box: ubuntu/focal64
           cpus: 1
           memory: 512
+          gui: false
           modifyvm:
             # Network Interface nic1 being NAT seems to be required for Virtualbox to work correctly
             nic2: ["--nic2", "natnetwork"]
@@ -26,7 +27,6 @@ all:
           winrm_plain: true # necessary option that gets checked so that dc provisioning works in vagrant
           cpus: 2
           memory: 3600
-          gui: true
           # host_ip ===> DC IP is set in VARS, see further below
           modifyvm:
             nic2: ["--nic2", "intnet"] 
@@ -35,11 +35,11 @@ all:
             audioctrl: ["--audiocontroller", "hda"]
             audioout: ["--audioout", "on"]
           scripts:
-            #script1: 
-            #  path: powershell/dc/01_create-domain.ps1
-            #  reload: true
-            #script2: 
-            #  path: powershell/dc/02_setup-dc.ps1
+            script1: 
+              path: powershell/dc/01_create-domain.ps1
+              reload: true
+            script2: 
+              path: powershell/dc/02_setup-dc.ps1
             script3: 
               path: powershell/dc/03_customize-admin.ps1
               reload: true
@@ -58,6 +58,7 @@ all:
         srv01:
           vagrant_box: gusztavvargadr/windows-server-core
           host_ip: 10.0.9.25
+          gui: false
           scripts:
             script1: 
               path: powershell/join-domain.ps1
@@ -68,6 +69,7 @@ all:
           host_ip: 172.16.0.10
           cpus: 1
           memory: 1024
+          gui: false
           modifyvm:
             nic2: ["--nic2", "intnet"] 
             intnet2: ["--intnet2", "Internal1"]

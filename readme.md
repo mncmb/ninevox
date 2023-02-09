@@ -18,10 +18,30 @@ Furthermore, since Vagrantfiles are ruby files, they can be used for all sorts o
 | ---| ---| ---|
 | domain controller dc01 | 10.0.9.10 | BadBlood with custom settings, GPOs for better logging, ADCS installed |
 | file server fs01 | 10.0.9.20 | 2 file shares - anon access and authenticated access, MSSQL server |
-| iis server srv01 | 10.0.9.25 | IIS with fileupload vuln |
+| iis server srv01 | 10.0.9.25 | IIS with fileupload vuln, Windows Server core |
 | web server web01 | 172.16.0.10 | docker conainer with OWASP crAPI [completely ridiculous API](https://github.com/OWASP/crAPI) |
 | ubuntu based FW | 10.0.9.1, 172.16.0.1, 192.168.55.x (DHCP) | firewall using iptables & netplan |  
 
+## TLDR: how to setup?
+1. install virtualbox and vagrant if not already done
+    - windows:
+        ```powershell
+        winget add virtualbox
+        winget add vagrant
+        # refresh env / open new powershell
+        vagrant plugin install vagrant-reload
+        ```
+    - linux (replace with your package manager):
+        ```
+        apt install virtualbox vagrant
+        vagrant plugin install vagrant-reload
+        ```
+2. Clone repo and `vagrant up` like so:
+    ```
+    git clone https://github.com/mncmb/vagrant
+    cd vagrant/domain
+    vagrant up
+    ```
 
 ## project structure 
 Answering the question: What's in those directories?
@@ -31,16 +51,6 @@ Answering the question: What's in those directories?
 | domain | Lab environment consisting of router with 2 network segments. DMZ with a nix webserver and internal net containing IIS on Server Core, MSSQL&fileshare on Server and Domain Controller |
 | win10dev | dev environment for offensive tooling. Loads and installs projects and software like threatcheck, amsiTrigger, visualstudio, vscode, sysinternals, python, go, nim, c/c++ and c# build tools, x64dbg, ghidra, etc.|
 | kali | kali with some additional tools, seclists, covenant docker build and neo4j/bloodhound setup |
-
-
-## TLDR: how to setup?
-1. install virtualbox and vagrant if not already done
-2. Clone repo and `vagrant up` like so:
-```
-git clone https://github.com/mncmb/vagrant
-cd vagrant/domain
-vagrant up
-```
 
 ## users
 Since this is a vagrant deployment you can connect to every system with `vagrant:vagrant`.   

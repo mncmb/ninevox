@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
                 end
 
                 cfg.vm.provider "virtualbox" do |vb, override|
-                    vb.gui = details.key?('gui') ? details['gui']: false
+                    vb.gui = details.key?('gui') ? details['gui']: true # by default provision VMs with gui and not headless
                     vb.name = 'shreklab_' + host
                     # vb.default_nic_type = "82545EM"
                     vb.customize ["modifyvm", :id, "--memory", details.key?('memory') ? details['memory']: vars['default_host']['memory']]
