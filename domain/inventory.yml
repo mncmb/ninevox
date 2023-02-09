@@ -77,7 +77,7 @@ all:
         #ws101:
         #  vagrant_box: gusztavvargadr/windows-10
         #  linked_clone: true 
-        #  host_ip: 10.0.2.101
+        #  host_ip: 10.0.9.101
         #  scripts:
         #    script1: 
         #      path: powershell/join-domain.ps1
@@ -87,7 +87,7 @@ all:
     #     ansible:
     #       vagrant_box: ubuntu/jammy64
     #       linked_clone: true 
-    #       ansible_host: 10.0.2.150
+    #       host_ip: 10.0.9.150
     #       cpus: 2
     #       memory: 2048
   vars:
@@ -117,24 +117,3 @@ all:
     ansible_winrm_server_cert_validation: ignore
     net_adapter: "ShrekNat"
     dhcp_range: "192.168.55.0/24"
-
-    # each protocol and host have their own port forward
-    # the starting IP range (in thousands) is the 'host' variable
-    # we add the host portion of the IP address to this e.g. dc01: rdp port is 20010, winrm is 22010, etc
-    # we are theoretically maxed at a single network since a .10 on one network would clash with a .10 on another
-    #vagrant_ports:
-    #  rdp:
-    #    guest: 3389
-    #    host: 30000
-    #  ssh:
-    #    guest: 22
-    #    host: 31000
-    #  winrm_http:
-    #    guest: 5985
-    #    host: 32000
-    #  winrm_https:
-    #    guest: 5986
-    #    host: 33000
-    #  smb:
-    #    guest: 445
-    #    host: 34000
