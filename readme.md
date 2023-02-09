@@ -24,7 +24,7 @@ Furthermore, since Vagrantfiles are ruby files, they can be used for all sorts o
 | ubuntu based FW | 10.0.9.1, 172.16.0.1, 192.168.55.x (DHCP) | firewall using iptables & netplan |  
 
 ## TLDR: how to setup?
-1. install virtualbox and vagrant if not already done. Make sure to have a recent version.
+1. install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest tested versions VBox 6.1.x + vagrant 2.2.y).
     - windows:
         ```powershell
         winget add virtualbox
@@ -77,12 +77,15 @@ Additionally, users `shrek:Swamp2023!` and `donkey:Passw0rd!` are defined for ad
 Some useful vagrant commands.
 ```bash
 vagrant up dc01 fs01    # only deploy specified hosts
-vagrant up --provision  # restart provisioning scripts
+vagrant up --provision  # restart provisioning scripts for all systems
 
 vagrant reload web01    # restart vm 
 
 vagrant halt            # stop all machines
 vagrant destroy -f      # destroy all machines without confirmation
+
+vagrant ssh web01       # ssh into web01
+vagrant winrm srv01     # winrm into srv01
 ```
 
 ## vagrantfile ruby
@@ -91,7 +94,6 @@ Vagrant files are ruby files, so you can use all sorts of ruby features
 puts group              # ruby print 
 test = []               # ruby array init
 test.push host          # ruby array add
-puts test               # print array
 
 # string interpolation, see also https://stackoverflow.com/questions/19648088/pass-environment-variables-to-vagrant-shell-provisioner
 shell.args   = "#{vars['VAR1']} #{vars['VAR2']}"  
@@ -120,7 +122,7 @@ Some weird things that had to be considered when doing networking with windows a
 - Windows boxes seem to prioritize the first interface for network interactions. This leads to issues when they are connected to a domain. DNS should then be resolved over the Domain Controller, but since interface 1 is prioritized and interface 1 needs to be NAT (see point 1 above), there will be issues. To fix this, network adapter priorization is set for every system, so that "Ethernet 2" aka adapter 2 is prioritized.
 - Windows domain controllers cannot be reached by vagrant after DC promotion, unless specific WinRM options are set. (see inventory.yml and Vagrantfile)
 - For firewalling I initially wanted to use OpnSense, PFSense, OpenWRT or something like that. Unfortunately there are no (working) up to date versions of those available in the default vagrant box repository. For this reason I decided to go with a simple linux box and iptables.
-- Routes to NAT Network segment: The original plan is to limit access to *server network*, so that a host in the *DMZ zone* has to be used for pivoting. Currently this works if you place your attacking machine into the NatNetwork `ShrekNat`. But it only works, because routing preferences of windows servers in *server network* prioritize the NAT adapter on ehternet 1. If you 
+- Routes to NAT Network segment: The original plan is to limit access to *server network*, so that a host in the *DMZ zone* has to be used for pivoting. Currently this works if you place your attacking machine into the NatNetwork `ShrekNat`. But it only works, because routing preferences of windows servers in *server network* prioritize the NAT adapter on ehternet 1. If you disable that adapter, routing tables will be updated and *server network* systems can easily access DMZ and *outside/ nat network*. Will be fixed in a future update.
 
 
 ## todo 
@@ -147,6 +149,7 @@ Some weird things that had to be considered when doing networking with windows a
 - ~~make it work~~
 - ~~pretty stuff up~~
 - port fwd from NatNetwork to DMZ
+- fw rules & routes for server zone
 - create GPO for defender exclusions, sample submissions, etc.
 - clean up GPOs
 - ~~test natnetwork auto creation, see https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-natnetwork.html~~
