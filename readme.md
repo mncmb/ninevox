@@ -81,11 +81,16 @@ vagrant up --provision  # restart provisioning scripts for all systems
 
 vagrant reload web01    # restart vm 
 
+vagrant global-status   # show global status
+
 vagrant halt            # stop all machines
 vagrant destroy -f      # destroy all machines without confirmation
 
 vagrant ssh web01       # ssh into web01
 vagrant winrm srv01     # winrm into srv01
+
+vagrant ssh -- -L 1234:localhost:80     # do port fwd with vagrant ssh 
+
 ```
 
 ## vagrantfile ruby
