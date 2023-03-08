@@ -1,11 +1,17 @@
 # malware analysis lab
-male sure to be in the mallab directory and then simply create with 
+A classical malware analysis lab environment, following the 2 box approach.   
+One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
+
+![lab diagram](../pics/mallab.jpg)
+
+## deployment
+cd into to the mallab directory and deploy the lab with 
 ```bash
 vagrant up
 ```
 **IMPORTANT** 
 - Disable netAdapter of the control interface (NAT interface / Network Adapter 1) after successful deployment! 
- - Else malware has access to the internet and potentially to internal network ressources!
+ - Otherwise malware might have access to the internet and possibly to internal network ressources!
 
 
 ![disable_netadapter](../pics/disable_netadapter.jpg)
@@ -67,3 +73,7 @@ vagrant box add --force --name my_remnux ./package.box
 vagrant init my-remnux
 vagrant up
 ```
+
+
+## misc links 
+- [sentinelLabs guide - contains a setup script for the win vm](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/)

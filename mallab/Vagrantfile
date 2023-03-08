@@ -1,15 +1,11 @@
 Vagrant.configure("2") do |config|
-
-# Uncomment this depending on the provider you want to us 
-# ENV['VAGRANT_DEFAULT_PROVIDER'] = 'vmware_desktop'
-# default args - "domain name", "DC ip", "primary interface"
-prefix = "mallab" # vbox VM name prefix 
-defaults = ["10.10.10.1", "Ethernet 2"]
+# virtualbox VM name prefix 
+prefix = "mallab" 
+# DNS & gateway IP to point to and Interface that will be used as primary interface
+defaults = ["10.10.10.1", "Ethernet 2"] 
+# default VM ressource allocations
 ressources = {:cpus => "2", :memory => "4096"}
 boxes = [
-  # windows server 2022 : don't work for now
-  #{ :name => "DC01",  :ip => "192.168.56.10", :box => "StefanScherer/windows_2022", :box_version => "2021.08.23", :os => "windows"},
-  # windows server 2019
   { 
     :name => "remnux",  
     :iface => [{:name => "mallab_internal",  :ip => "10.10.10.1"}], 
@@ -19,12 +15,13 @@ boxes = [
   },
   { 
   :name => "win11-test", 
-  :iface => [{:name => "mallab_internal",  :ip => "10.10.10.21"}],
+  :iface => [{:name => "mallab_internal",  :ip => "10.10.10.22"}],
   :box => "gusztavvargadr/windows-11", 
   :os => "windows",
   :scripts => [{:path => "prepare-windows.ps1", :args => defaults, :reload => false}], 
   :memory => "8096",  
   },
+# if you want to deploy elastic, see "minad" for a config 
 #  { 
 #  :name => "elastic", 
 #  :iface => [{:name => "mallab_internal", :ip => "10.10.10.100"}], 
@@ -62,23 +59,18 @@ boxes = [
       target.vm.box = box[:box]
       target.vm.synced_folder '.', '/vagrant', disabled: false
 
-      # IP - also see https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/networking
+      # set IP 
+      # for network config check https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/networking
       box[:iface].each do |iface|
         target.vm.network :private_network, ip: iface[:ip], virtualbox__intnet: iface[:name]
       end
-      # target.vm.network :private_network, ip: box[:ip][1], virtualbox__intnet: box[:ip][0]
-      # if box.key?(:ip2)  # if defined set another internal nic
-      #   target.vm.network :private_network, ip: box[:ip2][1], virtualbox__intnet: box[:ip2][0]
-      # end
 
       # OS specific
       if box[:os] == "windows"
         target.vm.guest = :windows
         target.vm.communicator = "winrm"
-        #target.winrm.transport = :plaintext # req for windc after promo
-        #target.winrm.basic_auth_only = true # req for windc after promo
       else
-        #target.vm.communicator = "ssh"
+        target.vm.communicator = "ssh"
       end
 
       # iterate through scripts if there are any
