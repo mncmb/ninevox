@@ -56,7 +56,9 @@ git clone https://github.com/S3cur3Th1sSh1t/PowerSharpPack
 git clone https://github.com/S3cur3Th1sSh1t/WinPwn
 git clone https://github.com/byt3bl33d3r/OffensiveNim
 git clone https://github.com/zimawhit3/Bitmancer
+git clone https://github.com/trickster0/OffensiveRust
 git clone --recurse-submodules https://github.com/ajpc500/NimlineWhispers2
+git clone https://github.com/chvancooten/NimPlant
 
 
 #       Covenant

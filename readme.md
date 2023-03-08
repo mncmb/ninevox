@@ -173,3 +173,5 @@ This project is based on or influenced by
 - [Detection Lab](https://github.com/clong/DetectionLab)
 - [Red Team Attack Lab](https://github.com/Marshall-Hallenbeck/red_team_attack_lab)
 - [Game of Active Directory](https://github.com/Orange-Cyberdefense/GOAD)
+- [windows-lab](https://github.com/dbroeglin/windows-lab)
+- [windows domain controller vagrant](https://github.com/rgl/windows-domain-controller-vagrant)
