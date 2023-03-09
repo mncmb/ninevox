@@ -1,0 +1,2244 @@
+{
+    "users": [
+        {
+            "username": "Big.Jack.Horner",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wendy",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Aladdin",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Alligator.Pastor",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Angry.Mobs",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Animal.Crackers",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Animated.candelabra",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Animated.clock",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Anthrax",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Arm.guards",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Artephius",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Arthur.Pendragon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "monarchs",
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Baba",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Baby.Bear",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Baby.Shrek",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bagheera",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Baloo",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bananas",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bastet",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Big.Bad.Wolf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Bishop",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Black.Knight",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Black.Knights",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bloodwolf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Blue.Dragon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bluebird",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bookstore.Clerk",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Brandt",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bridge.Troll",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Brogan",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Bull",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "people"
+            ],
+            "ou": "san_ricardo"
+        },
+        {
+            "username": "Butter.Pants",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Buzzsaw.Baker",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cackling.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Callista",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Captain.Hook",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Captain.of.the.Duloc.Guards",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Carnivorous.Plants",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Casey",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cedric",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Chad",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Chef",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Chicken.Little",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cinderella",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Cinderellas.Stepmother",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Coco",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cookie.the.Ogre",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cookie",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Crazy.Larry",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Crown.Princess",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cupcake.Horse",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Cyclops",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Dagonet",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Dancing.Broom",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Davy.Crockett",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Death",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Debbie",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Doc",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Doctor",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Dom",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Don.Quixote",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Donkey",
+            "password": "Passw0rd!",
+            "description": "                                                                                                                         My Password was Passw0rd!",
+            "groups": [
+                "nobles",
+                "temporary"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Doris",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Dorothy.Gale",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Dragon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "temporary"
+            ],
+            "ou": "swamp"
+        },
+        {
+            "username": "Dronkeys",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "temporary"
+            ],
+            "ou": "swamp"
+        },
+        {
+            "username": "Dulcinea",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Duloc.Captains",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Duloc.Dolls",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Duloc.Guards",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Duloc.Knights",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Duloc.Mascot",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Dwarf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Eclair",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "El.Guante.Blanco",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "El.Moco",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Elderberry.Methuselah",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Emperor.of.Lilliput",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Esme",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Esmeralda",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Evil.Queen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fairy.Godmother",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Farmers.Wife",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fergus.Farkle.and.Felicia",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fiddlesworth",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fifi",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fighting.Trees",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Fiona",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans",
+                "nobles",
+                "residents"
+            ],
+            "ou": "swamp"
+        },
+        {
+            "username": "Forest.Animals",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Frankendrop",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Frankensteins.Monster",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Friar.Crunchypants",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Friar.Tuck",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Frog",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Frogs",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Furniture",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "G-nome",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Gary",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Georgie.Porgie",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Geppetto",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Gingerbread.Man",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Gnimrach",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Gnomes",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Golden.Goose",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Goldilocks",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Goldilocks",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Golem",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Grandma",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Great.Terror",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Great-Great.Grampy.Don-Don",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Gretched",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Gretel",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Griselda",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Grumpy",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Guards",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Guinevere",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Hamhock",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Hansel",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Headless.Horseman",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Humphries",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Humpty.Dumpty",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "people"
+            ],
+            "ou": "san_ricardo"
+        },
+        {
+            "username": "Huntsman",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Icarus",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Ichabod.Crane",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Imelda",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Inogen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Jack.Andy.Beanstalk",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Jack.and.Jill",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "people"
+            ],
+            "ou": "san_ricardo"
+        },
+        {
+            "username": "Jacques.Sprat",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Jerome.the.Receptionist",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Jiminy.Cricket",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Joan.Rivers",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Johnny.Appleseed",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Kid.Pickles",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "King.Harold",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "monarchs",
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Kitty.Softpaws",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "people"
+            ],
+            "ou": "san_ricardo"
+        },
+        {
+            "username": "Knave.of.Hearts",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Knights",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Krekraw",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Kyle",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Lady.of.the.Lake",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Lamarr",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Lancelot",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Lemke",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Leprechaun",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Little.Boy.Blue",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Little.Miss.Muffet",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Little.Red.Riding.Hood",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Lord.Farquaad",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "rulers",
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Luna",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mabel",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Magic.Carpet",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Magic.Harp",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Magic.Mirror",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Maidens",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mama.Bear",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mama.Luna",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mayor.Temeroso",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Melty.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Merlin",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Merrymen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Miss.Frog",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mister.Geppetto",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Moat.Monster",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mongo",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Monsieur.Hood",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Morgan.le.Fay",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mother.Goose",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mowgli",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mr.McGregor",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mrs.Sprat",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Mud.Bath.Fairies",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Muffin.Man",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Nanny.Dwarf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Naysayer",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Neptune",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Nobleman",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Noblemans.Son",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Ogre.Claus",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Ohhhh.Cat",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Old.MacDonald",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pajuna",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Palace.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pandora",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Papa.Bear",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Parfait",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Paul.Revere",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pecos.Bill",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pendragon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Perrito",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Peter.Pan",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Peter.Rabbit",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Peter-Peter.Pumpkin.Eater",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pied.Piper",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Piggasus",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pinocchio",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Pirates",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Prince.Charming",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "monarchs",
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Princess.of.Duloc",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "rulers"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Principal.Pynchley",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Priscilla",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Professor.Primbottom",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Pumpkin.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Puss.in.Boots",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles",
+                "people",
+                "temporary"
+            ],
+            "ou": "san_ricardo"
+        },
+        {
+            "username": "Queen.Lillian",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "monarchs",
+                "nobles",
+                "temporary"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Rapunzel",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Rapunzel.Actress",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Raul",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Roy",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Royalty.of.Duloc",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Royalty.of.Far.Far.Away",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Rumpel.Stiltskin",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Rumpelstiltskin",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Ruthie",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Santa.Claus",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Scimitar",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Senora.Zapata",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Serpent.Sisters",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Shadow.of.Peter.Pan",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Ship.Captain",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Shoemakers.Elf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Shrek",
+            "password": "Swamp2023!",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles",
+                "residents",
+                "Domain Admins",
+                "Enterprise Admins"
+            ],
+            "ou": "swamp"
+        },
+        {
+            "username": "Shreks.father",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Shreks.mother",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Simon.Cowell",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Singing.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Sleeping.Beauty",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Sleeping.Giant.of.Del.Mar",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Snake",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Snow.White",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "nobles",
+                "temporary"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Snowgre",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Sphinx",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Spider",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Steve.and.Ed",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "Stone.Dragon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Stromboli",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Sugar",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Sun",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Suzy",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Swamp.Beast",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tarzan",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Teen.Fiona",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Teen.Mermaid",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Bakers.Dozen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Beast",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Cow.who.Jumped.over.the.Moon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Dish.and.the.Spoon",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Giant.Cuttlefish",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Gruff.Brothers",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Hare",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Ice.Cream.Queen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Judge",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Little.Mermaid",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Mugger",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Ogre.Resistance",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Old.Woman",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "humans"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "The.Phoenix",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Princess",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Seven.Dwarfs",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "The.Shrek.mascot",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "citizens"
+            ],
+            "ou": "far_far_away"
+        },
+        {
+            "username": "The.Three.Bears",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Three.Bears.Crime.Family",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Three.Blind.Mice",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "The.Three.Diablos",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Three.Good.Fairies",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Ugly.Duckling",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Wicked.Ice.Queen",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "The.Wicked.Witch.of.the.West",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Thelonious",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Three.Blind.Mice",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Three.Little.Pigs",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [
+                "fairy_tale_characters",
+                "temporary"
+            ],
+            "ou": "duloc"
+        },
+        {
+            "username": "Thriffith",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tiffany",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tiffany.Brangaine",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tinker.Bell",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Toby",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tom.Thumb.and.Thumbelina",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Tranche",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Troll",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Turquoise.Haired.Fairy",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Ugly.Duckling",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Unicorn",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Vampire.witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Victor.Frankenstein",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Vina",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Waffle.Man",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wagon.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Walt.the.Tour.Guide",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wendy.Darling",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Whisperer",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wicked.Witch",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Witches",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wolf",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wolfman",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Wrestling.Fan",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Xavier",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        },
+        {
+            "username": "Young.Fiona",
+            "password": "",
+            "description": "sHrEkPaCK",
+            "groups": [],
+            "ou": ""
+        }
+    ],
+    "groups": {
+        "duloc": [
+            "humans",
+            "rulers",
+            "fairy_tale_characters"
+        ],
+        "far_far_away": [
+            "monarchs",
+            "nobles",
+            "citizens",
+            "locations"
+        ],
+        "san_ricardo": [
+            "authorities",
+            "people"
+        ],
+        "swamp": [
+            "residents",
+            "temporary"
+        ]
+    },
+    "ou": [
+        "swamp",
+        "san_ricardo",
+        "duloc",
+        "far_far_away"
+    ]
+}

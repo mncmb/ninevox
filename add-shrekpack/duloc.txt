@@ -1,0 +1,3 @@
+rulers: Lord Farquaad, Princess of Duloc
+fairy_tale_characters: Pinocchio, The Three Blind Mice, Three Little Pigs, Big Bad Wolf, Gingerbread Man, Pied Piper, Tinkerbell, The Fairy Godmothers, Three Bears, The Seven Dwarfs
+humans:     Lord Farquaad, Thelonius, Magic Mirror, Captain of the Duloc Guards, Duloc Guards, Duloc Knights, Duloc Mascot, The Old Woman, Peter Pan, Monsieur Hood, Merrymen, Muffin Man, Mister Geppetto, Fiona

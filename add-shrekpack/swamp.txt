@@ -1,0 +1,2 @@
+residents:     Shrek, Fiona, Fergus, Farkle, Felicia
+temporary:     Donkey, Puss in Boots, Dragon, Dronkeys, Queen Lillian, Pinocchio, The Three Blind Mice, Three Little Pigs, Gingerbread Man, Big Bad Wolf, Three Bears, Pied Piper, The Fairy Godmothers, Old Woman in the Shoe, The Seven Dwarfs, Snow White

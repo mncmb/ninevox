@@ -9,14 +9,14 @@ cd into to the mallab directory and deploy the lab with
 ```bash
 vagrant up
 ```
-**IMPORTANT** 
+**IMPORTANT!** 
 - Disable netAdapter of the control interface (NAT interface / Network Adapter 1) after successful deployment! 
  - Otherwise malware might have access to the internet and possibly to internal network ressources!
 
 
 ![disable_netadapter](../pics/disable_netadapter.jpg)
 
-From `Devices > Network`, which is available from the context menu of a VM, you can **disable the interface by left-clicking** on it.
+The `Devices > Network` menu is available from the context menu of a VM. There you can **disable the interface by left-clicking** on it.
 
 ## getting files in and out
 Virtualbox has a File Manager, which behaves like an inbuilt FTP client. You can access the File Manager from the VM context menu `Machine > File Manager`.
@@ -28,7 +28,7 @@ You need to provide valid credentials, for example user:password `vagrant:vagran
 ![disable_netadapter](../pics/virtualbox_file_manager_file-view.jpg)
 
 
-## remnux configure fakeNet
+## remnux start inetsim
 let remnux act as a fake router that responds to all ips (`iptables`), replies to DNS requests with its own IP (`fakedns`) and serves content on different ports and protocols (`inetsim`).
 ```
 accept-all-ips start enp0s8
@@ -38,7 +38,7 @@ inetsim --bind-address 0.0.0.0
 Take a look at the great [remnux documentation](https://docs.remnux.org/) for more information.
 
 
-## how to get started
+## how to get started with malware analysis
 - [OALabs RE yt tutorials](https://www.youtube.com/c/OALabs?app=desktop)
 - [dumpguy trickster csharp yt tutorials](https://www.youtube.com/@DuMpGuYTrIcKsTeR)
 - [laurieWired android yt tutorials](https://www.youtube.com/@lauriewired)
@@ -48,10 +48,16 @@ Take a look at the great [remnux documentation](https://docs.remnux.org/) for mo
 - [practical malware analysis & triage - paid course](https://academy.tcm-sec.com/p/practical-malware-analysis-triage)
 - [zero2auto paid course](https://courses.zero2auto.com/beginner-bundle)
 
+
+## misc links 
+- [sentinelLabs guide - alternative tooling script and proxy setup](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/)
+- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm)
+
+
 ---
 
 
-## vagrant manual box creation 
+## vagrant box creation 
 - downloaded current remnux and manually prepared it according to this documentation 
 https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/boxes
 
@@ -74,6 +80,3 @@ vagrant init my-remnux
 vagrant up
 ```
 
-
-## misc links 
-- [sentinelLabs guide - contains a setup script for the win vm](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/)
