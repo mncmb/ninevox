@@ -49,7 +49,7 @@ boxes = [
   boxes.each do |box|
     config.vm.define box[:name] do |target|
       # BOX
-      target.vm.box_check_update = false 
+      target.vm.box_check_update = false  # version 2102.0.2211
       target.vm.hostname = box[:name]
       target.vm.provider "virtualbox" do |v|
         v.linked_clone = true
