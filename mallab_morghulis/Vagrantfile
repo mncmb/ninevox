@@ -16,10 +16,10 @@ boxes = [
   { 
   :name => "win11-test", 
   :iface => [{:name => "mallab_internal",  :ip => "10.10.10.22"}],
-  :box => "gusztavvargadr/windows-11", 
+  :box => "gusztavvargadr/windows-10", 
   :os => "windows",
   :scripts => [{:path => "prepare-windows.ps1", :args => defaults, :reload => false}], 
-  :memory => "8096",  
+  :memory => "6096",  
   },
 # if you want to deploy elastic, see "minad" for a config 
 #  { 
@@ -50,6 +50,7 @@ boxes = [
         v.customize ["modifyvm", :id, "--vram", "32"]
         v.customize ["modifyvm", :id, "--groups", "/"+prefix]
         #v.customize ["modifyvm", :id, "--clipboard", "bidirectional"] 
+        # as long as 
         if box.key?(:natnet) 
           v.customize ["modifyvm", :id, "--nic4", "natnetwork"]             # set as nic4 to avoid collisions
           v.customize ["modifyvm", :id, "--nat-network4", "NatNetwork"]
@@ -57,7 +58,8 @@ boxes = [
       end
       target.vm.box_check_update = false
       target.vm.box = box[:box]
-      target.vm.synced_folder '.', '/vagrant', disabled: false
+      # we probably dont want a synced folder in a malware detonation VM
+      #target.vm.synced_folder '.', '/vagrant', disabled: false
 
       # set IP 
       # for network config check https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/networking

@@ -1,4 +1,4 @@
-# malware analysis lab
+# mallab_morghulis
 A classical malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
 
@@ -7,6 +7,7 @@ One Windows VM is used for detonation and analysis of malware, the 2nd VM acts a
 ## deployment
 cd into to the mallab directory and deploy the lab with 
 ```bash
+cd mallab_morghulis
 vagrant up
 ```
 **IMPORTANT!** 

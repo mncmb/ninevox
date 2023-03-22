@@ -170,6 +170,7 @@ Some weird things that had to be considered when doing networking with windows a
 
 ## references, etc.
 This project is based on or influenced by
+- [AD atrrib editor - advanced features](https://woshub.com/active-directory-attribute-editor/)
 - [Detection Lab](https://github.com/clong/DetectionLab)
 - [Red Team Attack Lab](https://github.com/Marshall-Hallenbeck/red_team_attack_lab)
 - [Game of Active Directory](https://github.com/Orange-Cyberdefense/GOAD)

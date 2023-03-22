@@ -2,7 +2,10 @@
 
 export DEBIAN_FRONTEND=noninteractive 
 sudo apt update
-sudo DEBIAN_FRONTEND=noninteractive apt install -y jq gobuster golang-go seclists remmina ghidra code-oss docker.io mingw-w64 sliver starkiller ffuf rustc nim
+sudo DEBIAN_FRONTEND=noninteractive apt install -y jq gobuster seclists remmina code-oss docker.io ffuf 
+sudo DEBIAN_FRONTEND=noninteractive apt install -y sliver starkiller
+sudo DEBIAN_FRONTEND=noninteractive apt install -y golang-go mingw-w64 rustc nim
+sudo DEBIAN_FRONTEND=noninteractive apt install -y ghidra 
 
 # TODO
 # look into havoc jenkins build script, this post about jenkins automation https://blog.sunggwanchoi.com/half-automating-powersharppack/
@@ -43,23 +46,31 @@ fi
 cd
 mkdir Tools
 cd Tools
-git clone https://github.com/optiv/ScareCrow
-git clone https://github.com/ropnop/kerbrute
-git clone https://github.com/blackhat-go/bhg
-git clone https://github.com/EONRaider/blackhat-python3
-git clone https://github.com/BishopFox/sliver
-git clone https://github.com/optiv/Freeze
+#git clone https://github.com/optiv/ScareCrow
+#git clone https://github.com/ropnop/kerbrute
+#git clone https://github.com/blackhat-go/bhg
+#git clone https://github.com/EONRaider/blackhat-python3
+#git clone https://github.com/BishopFox/sliver
+#git clone https://github.com/optiv/Freeze
 git clone https://github.com/HavocFramework/Havoc
-git clone https://github.com/antonioCoco/ConPtyShell
-git clone https://github.com/Flangvik/SharpCollection
-git clone https://github.com/S3cur3Th1sSh1t/PowerSharpPack
-git clone https://github.com/S3cur3Th1sSh1t/WinPwn
-git clone https://github.com/byt3bl33d3r/OffensiveNim
-git clone https://github.com/zimawhit3/Bitmancer
-git clone https://github.com/trickster0/OffensiveRust
-git clone --recurse-submodules https://github.com/ajpc500/NimlineWhispers2
+#git clone https://github.com/antonioCoco/ConPtyShell
+#git clone https://github.com/Flangvik/SharpCollection
+#git clone https://github.com/S3cur3Th1sSh1t/PowerSharpPack
+#git clone https://github.com/S3cur3Th1sSh1t/WinPwn
+#git clone https://github.com/byt3bl33d3r/OffensiveNim
+#git clone https://github.com/zimawhit3/Bitmancer
+#git clone https://github.com/trickster0/OffensiveRust
+#git clone --recurse-submodules https://github.com/ajpc500/NimlineWhispers2
 git clone https://github.com/chvancooten/NimPlant
 
+cd 
+mkdir knowledge
+cd knowledge
+#git clone https://github.com/mantvydasb/RedTeaming-Tactics-and-Techniques
+#git clone https://github.com/ShutdownRepo/The-Hacker-Recipes
+git clone https://github.com/carlospolop/hacktricks
+#git clone https://github.com/carlospolop/hacktricks-cloud
+#git clone https://github.com/swisskyrepo/PayloadsAllTheThings
 
 #       Covenant
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -81,7 +92,7 @@ git clone https://github.com/chvancooten/NimPlant
 # setup neo4j for use with bloodhound
 cd ~/Tools
 mkdir -p neo4j/data
-sudo docker run -d --name neo4j -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 -v /home/$USER/Tools/neo4j/data:/data neo4j
+sudo docker run -d --name neo4j --env NEO4J_AUTH=neo4j/neo4j123 -p 127.0.0.1:7474:7474 -p 127.0.0.1:7687:7687 -v /home/$USER/Tools/neo4j/data:/data neo4j:latest
 
 # wget https://github.com/BloodHoundAD/BloodHound/releases/latest/download/BloodHound-linux-x64.zip
 
@@ -109,14 +120,6 @@ if [[ ! -f $(echo $DOWNLOAD_FILE| awk -F '/' '{print $NF}') ]];then
     wget $DOWNLOAD_FILE
 fi
 
-cd 
-mkdir knowledge
-cd knowledge
-git clone https://github.com/mantvydasb/RedTeaming-Tactics-and-Techniques
-git clone https://github.com/ShutdownRepo/The-Hacker-Recipes
-git clone https://github.com/carlospolop/hacktricks
-git clone https://github.com/carlospolop/hacktricks-cloud
-git clone https://github.com/swisskyrepo/PayloadsAllTheThings
 
 cd
 # update 'locate' database

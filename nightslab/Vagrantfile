@@ -1,9 +1,6 @@
 Vagrant.configure("2") do |config|
 
-# Uncomment this depending on the provider you want to us 
-# ENV['VAGRANT_DEFAULT_PROVIDER'] = 'vmware_desktop'
-# default args - "domain name", "DC ip", "primary interface"
-prefix = "minad_" # vbox VM name prefix 
+prefix = "nightslab_" # vbox VM name prefix 
 defaults = ["shrek.lab", "192.168.56.10", "Ethernet 2"]
 ressources = {:cpus => "2", :memory => "4096"}
 boxes = [

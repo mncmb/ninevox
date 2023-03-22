@@ -1,5 +1,7 @@
-# minAD
-Minimal AD setup.
+# nights_lab
+Flat network, AD template. Elastic container project in the mix.
+
+`As long as the firewall stands, the dead cannot pass.`
 
 Vagrantfile for minimal AD config and setup
 
@@ -23,10 +25,10 @@ $credential = New-Object System.Management.Automation.PSCredential $user,$pw
 $session = New-PSSession -ComputerName DC01 -Credential $credential
 
 # this here should work
-Invoke-Command -Session $session -ScriptBlock {Start-Process -FilePath "C:\Windows\System32\cmd.exe" -LoadUserProfile -ArgumentList "/c" }
+Invoke-Command -Session $session -ScriptBlock {Start-Process -FilePath "C:\Windows\System32\cmd.exe" -LoadUserProfile -ArgumentList "/c dir" }
 
 
-Invoke-Command -Session $session -ScriptBlock { $secpasswd = ConvertTo-SecureString $Using:pass -AsPlainText -Force; $cred = New-Object System.Management.Automation.PSCredential ($Using:user, $secpasswd);Start-Process -FilePath "C:\Windows\System32\cmd.exe" -Credential $credential -LoadUserProfile -ArgumentList "/c" }
+Invoke-Command -Session $session -ScriptBlock { $secpasswd = ConvertTo-SecureString $Using:pass -AsPlainText -Force; $cred = New-Object System.Management.Automation.PSCredential ($Using:user, $secpasswd);Start-Process -FilePath "C:\Windows\System32\cmd.exe" -Credential $credential -LoadUserProfile -ArgumentList "/c dir" }
 ```
 
 autodaminlogon

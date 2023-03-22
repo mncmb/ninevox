@@ -1,4 +1,0 @@
-monarchs: king harold, queen lillian, prince charming, arthur pendragon
-nobles:     King Harold, Queen Lillian, Arthur Pendragon, Fiona, Shrek, Sleeping Beauty, Cinderella, Snow White, Rapunzel, Nobleman, Noblemans son, Prince Charming, Puss in Boots, Donkey
-citizens:     Fairy Godmother, Rumpelstiltskin, Doris, Mabel, Raul, Humphries, Captain of the Guards, Guards, Hansel, Gretel, Butter Pants, Little Red Riding Hood, Captain Hook, Cyclops, Headless Horseman, Steve and Ed, The Shrek mascot
-locations: Abercrombie and Witch, Friars Fat Boy, Ye Olde Foot Locker, Burger Prince, Farbucks Coffee, Romeo Drive, Baskin Robin Hood, Gap Queen, Old MacDonalds, Old Knavery

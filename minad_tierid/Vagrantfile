@@ -1,11 +1,7 @@
 Vagrant.configure("2") do |config|
 
-# Uncomment this depending on the provider you want to us 
-# ENV['VAGRANT_DEFAULT_PROVIDER'] = 'vmware_desktop'
-# default args - "domain name", "DC ip", "primary interface"
-prefix = "pivot_" # vbox VM name prefix 
+prefix = "tierit_" # vbox VM name prefix 
 defaults = ["shrek.lab", "10.10.110.10", "Ethernet 2"]
-admincreds = ["shrek", "Swamp2023!"]
 ressources = {:cpus => "2", :memory => "4096"}
 boxes = [
   # windows server 2022 : don't work for now
@@ -13,15 +9,15 @@ boxes = [
   # windows server 2019
   { 
     :name => "DC01",  
-    :iface => [{:name => "pivot_secure",  :ip => "10.10.110.10"}], 
+    :iface => [{:name => "sacred_chambers",  :ip => "10.10.110.10"}], 
     :box => "gusztavvargadr/windows-server", 
     :os => "windows", 
     :scripts => [{:path => "create-domain.ps1", :args =>defaults, :reload => true}],
   },
   { 
   :name => "SRV01", 
-  :iface => [{:name => "pivot_secure",    :ip => "10.10.110.22"},
-             {:name => "pivot_internal",  :ip => "192.168.8.22"}],
+  :iface => [{:name => "sacred_chambers",    :ip => "10.10.110.22"},
+             {:name => "inner_circle",  :ip => "192.168.8.22"}],
   :natnet => true,    # add "external" aka nat network adapter 
   :box => "gusztavvargadr/windows-server", 
   :os => "windows",
@@ -29,8 +25,8 @@ boxes = [
   },
   { 
   :name => "SRV02", 
-  :iface => [{:name => "pivot_secure",    :ip => "10.10.110.24"},
-             {:name => "pivot_internal",  :ip => "192.168.8.24"}], 
+  :iface => [{:name => "sacred_chambers",    :ip => "10.10.110.24"},
+             {:name => "inner_circle",  :ip => "192.168.8.24"}], 
   :box => "gusztavvargadr/windows-server", 
   :os => "windows",
   :scripts => [{:path => "join-domain.ps1", :args =>defaults, :reload => true}], 
