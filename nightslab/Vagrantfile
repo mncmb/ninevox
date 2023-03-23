@@ -4,9 +4,6 @@ prefix = "nightslab_" # vbox VM name prefix
 defaults = ["shrek.lab", "192.168.56.10", "Ethernet 2"]
 ressources = {:cpus => "2", :memory => "4096"}
 boxes = [
-  # windows server 2022 : don't work for now
-  #{ :name => "DC01",  :ip => "192.168.56.10", :box => "StefanScherer/windows_2022", :box_version => "2021.08.23", :os => "windows"},
-  # windows server 2019
   { 
     :name => "DC01",  
     :iface => [{:name => "vboxnet1", :ip => "192.168.56.10"}], 
@@ -16,6 +13,13 @@ boxes = [
   },
   { 
   :name => "SRV01", 
+  :iface => [{:name => "vboxnet1", :ip => "192.168.56.21"}], 
+  :box => "gusztavvargadr/windows-server", 
+  :os => "windows",
+  :scripts => [{:path => "join-domain.ps1", :args =>defaults, :reload => true}], 
+  },
+  { 
+  :name => "SRV02", 
   :iface => [{:name => "vboxnet1", :ip => "192.168.56.22"}], 
   :box => "gusztavvargadr/windows-server", 
   :os => "windows",
@@ -29,13 +33,6 @@ boxes = [
   #:scripts => [{:path => "deploy-ecp.sh", :args => [], :reload => false}], 
   #:memory => "8096",
   #},
-  #{ :name => "elasticEDR",:ip => ["vboxnet1","192.168.56.30"], :box => "ubuntu/jammy64", :os => "linux", :memory => 8096}
-  # ELK
-# { :name => "elk", :ip => "192.168.56.50", :box => "bento/ubuntu-18.04", :os => "linux",
-#   :forwarded_port => [
-#     {:guest => 22, :host => 2210, :id => "ssh"}
-#   ]
-# }
 ]
 
   config.vm.boot_timeout = 600
@@ -64,10 +61,6 @@ boxes = [
       box[:iface].each do |iface|
         target.vm.network :private_network, ip: iface[:ip], virtualbox__intnet: iface[:name]
       end
-      # target.vm.network :private_network, ip: box[:ip][1], virtualbox__intnet: box[:ip][0]
-      # if box.key?(:ip2)  # if defined set another internal nic
-      #   target.vm.network :private_network, ip: box[:ip2][1], virtualbox__intnet: box[:ip2][0]
-      # end
 
       # OS specific
       if box[:os] == "windows"

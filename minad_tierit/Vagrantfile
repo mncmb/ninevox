@@ -4,9 +4,6 @@ prefix = "tierit_" # vbox VM name prefix
 defaults = ["shrek.lab", "10.10.110.10", "Ethernet 2"]
 ressources = {:cpus => "2", :memory => "4096"}
 boxes = [
-  # windows server 2022 : don't work for now
-  #{ :name => "DC01",  :ip => "192.168.56.10", :box => "StefanScherer/windows_2022", :box_version => "2021.08.23", :os => "windows"},
-  # windows server 2019
   { 
     :name => "DC01",  
     :iface => [{:name => "sacred_chambers",  :ip => "10.10.110.10"}], 
@@ -17,8 +14,9 @@ boxes = [
   { 
   :name => "SRV01", 
   :iface => [{:name => "sacred_chambers",    :ip => "10.10.110.22"},
-             {:name => "inner_circle",  :ip => "192.168.8.22"}],
-  :natnet => true,    # add "external" aka nat network adapter 
+             {:name => "inner_circle",       :ip => "192.168.8.22"},
+             {:name => "outer_reach",       :ip => "172.16.0.22"}],
+  # :natnet => true,    # uncomment if you want to put attack box in a nat network 
   :box => "gusztavvargadr/windows-server", 
   :os => "windows",
   :scripts => [{:path => "join-domain.ps1", :args =>defaults, :reload => true}], 
