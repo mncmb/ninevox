@@ -1,4 +1,4 @@
-# mallab_morghulis
+# mallab
 A classical malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
 
@@ -28,6 +28,7 @@ You need to provide valid credentials, for example user:password `vagrant:vagran
 
 ![disable_netadapter](../pics/virtualbox_file_manager_file-view.jpg)
 
+Alternatively, you can start up the ssh server on remnux and just `ssh` from your host to it and copy files with `scp`.
 
 ## remnux start inetsim
 let remnux act as a fake router that responds to all ips (`iptables`), replies to DNS requests with its own IP (`fakedns`) and serves content on different ports and protocols (`inetsim`).
@@ -36,29 +37,30 @@ accept-all-ips start enp0s8
 fakedns -I 10.10.10.1
 inetsim --bind-address 0.0.0.0
 ```
-Take a look at the great [remnux documentation](https://docs.remnux.org/) for more information.
+Take a look at the [remnux documentation](https://docs.remnux.org/) for more information.
 
 
 ## how to get started with malware analysis
-- [OALabs RE yt tutorials](https://www.youtube.com/c/OALabs?app=desktop)
-- [dumpguy trickster csharp yt tutorials](https://www.youtube.com/@DuMpGuYTrIcKsTeR)
-- [laurieWired android yt tutorials](https://www.youtube.com/@lauriewired)
+- [OALabs RE youtube tutorials](https://www.youtube.com/c/OALabs?app=desktop)
+- [dumpguy trickster csharp youtube tutorials](https://www.youtube.com/@DuMpGuYTrIcKsTeR)
+- [laurieWired android youtube tutorials](https://www.youtube.com/@lauriewired)
 - [malware unicorn RE101 - free workshop](https://malwareunicorn.org/workshops/re101.html#0)
-- [MAS - malware analysis series](https://exploitreversing.com/2021/12/03/malware-analysis-series-mas-article-1/)
-- [c3rb3ru5d3d53c](https://c3rb3ru5d3d53c.github.io/posts/)
-- [practical malware analysis & triage - paid course](https://academy.tcm-sec.com/p/practical-malware-analysis-triage)
+- [MAS - malware analysis series - very in depth](https://exploitreversing.com/2021/12/03/malware-analysis-series-mas-article-1/)
+- [c3rb3ru5d3d53c misc articles](https://c3rb3ru5d3d53c.github.io/posts/)
+- [practical malware analysis & triage - paid but very affordable course](https://academy.tcm-sec.com/p/practical-malware-analysis-triage)
 - [zero2auto paid course](https://courses.zero2auto.com/beginner-bundle)
 
 
 ## misc links 
-- [sentinelLabs guide - alternative tooling script and proxy setup](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/)
-- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm)
+- [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - script for tool setup, blog covers https proxy setup
+- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm), can be deployed on the windows VM if you so desire
 
 
 ---
 
 
 ## vagrant box creation 
+Box creation followed a pretty manual approach but I was kind of annoyed that there was no recent remnux version up on vagrant.
 - downloaded current remnux and manually prepared it according to this documentation 
 https://developer.hashicorp.com/vagrant/docs/providers/virtualbox/boxes
 
@@ -73,7 +75,7 @@ Essentially this boils down to
 vagrant package --base my_remnux
 vagrant box add --force --name my_remnux ./package.box
 ```
-- upload box to vagrant cloud ([example tut ](https://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/)- but its rather straight forward)
+- upload box to vagrant cloud ([example tutorial](https://blog.ycshao.com/2017/09/16/how-to-upload-vagrant-box-to-vagrant-cloud/)- but its rather straight forward)
 
 ### init and test the box
 ```powershell
