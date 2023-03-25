@@ -62,7 +62,7 @@ What's in there?
 | directory | notes |
 | ---|---|
 | win10dev | dev environment. Loads and installs projects and software like threatcheck, amsiTrigger, visualstudio, vscode, sysinternals, python, go, nim, c/c++ and c# build tools, x64dbg, ghidra, etc.|
-| kali_ma | kali with some additional tools, seclists, neo4j/bloodhound setup and some open source C2s, path modifications, etc.|
+| kali | kali with some additional tools, seclists, neo4j/bloodhound setup and some open source C2s, path modifications, etc.|
 
 
 ## Hardware reqs
