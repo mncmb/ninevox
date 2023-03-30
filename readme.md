@@ -1,17 +1,19 @@
-# motivation
+# ninevox
 ![](pics/ninevox.jpg)
 
-This project is a collection of different lab deployments.   
+Ever thought to yourself `I would like to start playing around with some AD concepts for fun or pentesting` or `I wanna do malware analysis` and the lab setup guides looked like too much work until you get to the fun part?   
 
-It follows one simple rule:   
-- **keep dependencies and requirements to a minimum**
+Spare yourself some of the work by using these base templates for all the common and boring VM set up tasks.   
+All while keeping dependencies and requirements to a minimum.
  
-For this reason, [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads) were used, since they are free to use in personal projects and run on every major operating system.  
+You only need [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads) which are free to use in personal projects, run on every major operating system and can be installed with the package manager of your OS (thx `winget`).
 
 
 # mallab
 A classical malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
+
+Take a look at the template directory for guides and ressources to get started with RE.
 
 ![netplan mallab](pics/mallab.jpg)
 
@@ -21,21 +23,24 @@ One Windows VM is used for detonation and analysis of malware, the 2nd VM acts a
 Vagrant template to provision an active directory domain in a flat network environment. 
 Also includes a setup script for the elastic container project.
 
-This is a minimal AD domain installation and was designed as such. Use some kind of `AD generator` to misconfigure it. 
+Creates a minimal AD deployment. Use some kind of `AD generator` to populate it. 
+
+Take a look at the template directory for AD generators that can be used.
 
 ![netplan whoop](pics/whoop.jpg)
 
 # minAD Tierit
 `The beacons are lit.` 
 
-Vagrantfile for provisioning a tiered active directory network environment.   
+Vagrantfile for provisioning a tiered active directory network environment. Useful for practicing pivoting and testing out C2 features.   
+
 Creates a minimal AD deployment. Use some kind of `AD generator` to populate it.   
-Take a look at `bigwhoop` for some pointers or use [theMayors ADgen](https://github.com/dievus/ADGenerator) (or get the course), where the architecture is based on.
+Take a look at `bigwhoop` template directory or use [theMayors ADgen](https://github.com/dievus/ADGenerator) (or get the course), where the architecture is based on.
 
 ![netplan minad](pics/minad.jpg)
 
 ## TLDR: how to setup?
-Essentially just 2 steps:
+Just 2 steps:
 1. install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest tested versions VBox 6.1+, vagrant 2.2+).
     - windows:
         ```powershell
@@ -49,7 +54,7 @@ Essentially just 2 steps:
         apt install virtualbox vagrant
         vagrant plugin install vagrant-reload
         ```
-2. Clone repo and `vagrant up` like so:
+2. Clone repo and `vagrant up` in a template directory like so:
     ```
     git clone https://github.com/mncmb/vagrant
     cd vagrant/bigwhoop
