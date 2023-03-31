@@ -1,4 +1,4 @@
-# motivation
+# ninevox
 ![](pics/ninevox.jpg)
 
 This project is a collection of different lab deployments.   
@@ -10,7 +10,7 @@ For this reason, [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https:/
 
 
 # mallab
-A classical malware analysis lab environment, following the 2 box approach.   
+A classic malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
 
 ![netplan mallab](pics/mallab.jpg)
@@ -28,7 +28,7 @@ This is a minimal AD domain installation and was designed as such. Use some kind
 # minAD Tierit
 `The beacons are lit.` 
 
-Vagrantfile for provisioning a tiered active directory network environment.   
+Vagrantfile for provisioning a tiered active directory network environment, useful for practicing pivoting.   
 Creates a minimal AD deployment. Use some kind of `AD generator` to populate it.   
 Take a look at `bigwhoop` for some pointers or use [theMayors ADgen](https://github.com/dievus/ADGenerator) (or get the course), where the architecture is based on.
 
@@ -92,7 +92,7 @@ vagrant up --provision  # restart provisioning scripts for all systems
 
 vagrant reload web01    # restart vm 
 
-vagrant global-status   # show global status
+vagrant global-status   # show status of all running VMs
 
 vagrant halt            # stop all machines
 vagrant destroy -f      # destroy all machines without confirmation
@@ -103,7 +103,7 @@ vagrant winrm srv01     # winrm into srv01
 vagrant ssh -- -L 1234:localhost:80     # do port fwd with vagrant ssh 
 
 vagrant snapshot push   # create new snapshot
-vagrant snapshot restore    # restore latest snapshot
+vagrant snapshot restore    # restore a snapshot
 ```
 
 ## vagrantfile ruby
@@ -118,7 +118,7 @@ shell.args   = "#{vars['VAR1']} #{vars['VAR2']}"
 
 Gem.win_platform?       # check if running on windows
 defined?(vboxmanage)    # check if defined
-output = `id`           # execute id command on host and capture output in output
+out = `id`           # execute id command on host and capture output in out
 ```
 
 ## VBoxManage
