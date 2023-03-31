@@ -4,21 +4,21 @@
 Vagrant template to provision an active directory domain in a flat network environment. 
 Also includes a setup script for the elastic container project.
 
-This is a minimal AD domain installation and was designed as such. Use some type of `AD generator` to misconfigure it. 
+Creates a minimal AD deployment. Use some kind of `AD generator` to populate it. 
 
-![netplan whoop](../pics/whoop.jpg)
+![netplan whoop](pics/whoop.jpg)
 
-## AD generation tools
-- create users, kerberoastable, asreproastable, misconfigured ACLs, ...
+## AD generators
+- use `BADBLOOD` to create users, kerberoastable, asreproastable, misconfigured ACLs, ... 
 ```powershell
 # clone the repo
 git clone https://github.com/davidprowe/badblood.git
 # run 
 ./badblood/invoke-badblood.ps1
 ```
-- alternatively check out [vulnAD](https://github.com/WazeHell/vulnerable-AD)
-- or the pretty great [adsec](https://github.com/cfalta/adsec) repository
-- or wait for the release of my AD generator some time later this year 
+- alternatively check out [vulnAD](https://github.com/WazeHell/vulnerable-AD) which is an alternative AD `polluter`
+- or the awesome [adsec](https://github.com/cfalta/adsec) repository which provides you with different scenarios and tools to follow along. For the setup you can either **modify the vagrantfile** to rename all 3 systems to the ones mentioned in the repo, or adapt the code of adsec 
+- also keep an eye out for the release of my AD generator later this year 
 
 
 ## Common post built tasks

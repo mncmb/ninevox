@@ -2,17 +2,24 @@
 A classical malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
 
-![lab diagram](../pics/mallab.jpg)
+Take a look at the template directory for guides and ressources to get started with RE.
+
+![netplan mallab](pics/mallab.jpg)
+
 
 ## deployment
 cd into to the mallab directory and deploy the lab with 
 ```bash
-cd mallab_morghulis
+cd mallab
 vagrant up
 ```
+
+The `mentebinaria/retoolkit` installer is downloaded during setup of the box. You may install it on your own or use another tooling suite (see section `other tooling suites`).
+
+
 **IMPORTANT!** 
 - Disable netAdapter of the control interface (NAT interface / Network Adapter 1) after successful deployment! 
- - Otherwise malware might have access to the internet and possibly to internal network ressources!
+ - Otherwise malware might have access to the internet and to your internal network ressources!
 
 
 ![disable_netadapter](../pics/disable_netadapter.jpg)
@@ -51,9 +58,9 @@ Take a look at the [remnux documentation](https://docs.remnux.org/) for more inf
 - [zero2auto paid course](https://courses.zero2auto.com/beginner-bundle)
 
 
-## misc links 
-- [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - script for tool setup, blog covers https proxy setup
-- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm), can be deployed on the windows VM if you so desire
+## other tooling suites
+- [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - provides a script for an alternate tool setup, blog covers setting up a https proxy
+- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm), can be deployed on the windows VM if you so desire - ... but takes ages
 
 
 ---
