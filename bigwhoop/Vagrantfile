@@ -25,6 +25,13 @@ boxes = [
   :os => "windows",
   :scripts => [{:path => "join-domain.ps1", :args =>defaults, :reload => true}], 
   },
+  # { 
+  # :name => "kali", 
+  # :iface => [{:name => "vboxnet1", :ip => "192.168.56.50"}], 
+  # :box => "kalilinux/rolling", 
+  # :os => "linux",
+  # :scripts => [], 
+  # },
   #{ 
   #:name => "elasticEDR", 
   #:iface => [{:name => "vboxnet1", :ip => "192.168.56.100"}], 

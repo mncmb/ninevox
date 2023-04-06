@@ -2,7 +2,7 @@ Vagrant.configure("2") do |config|
     config.vm.box = "kalilinux/rolling"
     config.vm.box_check_update = true # set this to false to not check for updated boxes
     #example version config: 
-    config.vm.box_version = 2023.1.0
+    config.vm.box_version = "2023.1.0"
     config.vm.provider "virtualbox" do |vb, override|
         vb.gui = true
         vb.linked_clone = false # if true, create local master image for clonesvagran 

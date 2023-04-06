@@ -31,12 +31,19 @@ boxes = [
   },
 #  { 
 #  :name => "elastic", 
-#  :iface => [{:name => "pivot_secure", :ip => "10.10.110.100"}], 
+#  :iface => [{:name => "citadel", :ip => "10.10.110.100"}], 
 #  :box => "ubuntu/jammy64", 
 #  :os => "linux",
 #  :scripts => [{:path => "deploy-ecp.sh", :args => [], :reload => false}], 
 #  :memory => "8096",
 #  },
+  # { 
+  # :name => "kali", 
+  # :iface => [{:name => "outer_reaches", :ip => "172.16.0.50"}], 
+  # :box => "kalilinux/rolling", 
+  # :os => "linux",
+  # :scripts => [], 
+  # },
 ]
 
   config.vm.boot_timeout = 600
@@ -69,10 +76,6 @@ boxes = [
       box[:iface].each do |iface|
         target.vm.network :private_network, ip: iface[:ip], virtualbox__intnet: iface[:name]
       end
-      # target.vm.network :private_network, ip: box[:ip][1], virtualbox__intnet: box[:ip][0]
-      # if box.key?(:ip2)  # if defined set another internal nic
-      #   target.vm.network :private_network, ip: box[:ip2][1], virtualbox__intnet: box[:ip2][0]
-      # end
 
       # OS specific
       if box[:os] == "windows"

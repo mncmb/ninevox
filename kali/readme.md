@@ -1,4 +1,4 @@
-# kali_ma
+# kali
 Current kali rolling with some small additions.
 
 ## multi NIC issues
