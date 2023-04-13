@@ -14,3 +14,4 @@
 # but exclude vagrant caches
 /*/.vagrant/**
 Shrek-wallpaper.jpg
+/*/.$*

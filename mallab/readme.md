@@ -14,7 +14,7 @@ cd mallab
 vagrant up
 ```
 
-The `mentebinaria/retoolkit` installer is downloaded during setup of the box. You may install it on your own or use another tooling suite (see section `other tooling suites`).
+[REToolkit](https://github.com/mentebinaria/retoolkit) is downloaded during the setup of the box. You have to install it manually after download, or use another tool suite (see section `other tool suites`).
 
 
 **IMPORTANT!** 
@@ -48,20 +48,22 @@ Take a look at the [remnux documentation](https://docs.remnux.org/) for more inf
 
 
 ## how to get started with malware analysis
+misc ressources
 - [OALabs RE youtube tutorials](https://www.youtube.com/c/OALabs?app=desktop)
 - [dumpguy trickster csharp youtube tutorials](https://www.youtube.com/@DuMpGuYTrIcKsTeR)
+- [dr4k0nia blog - csharp based malware, packers and deobfuscation tools and writeups](https://dr4k0nia.github.io/)
 - [laurieWired android youtube tutorials](https://www.youtube.com/@lauriewired)
 - [malware unicorn RE101 - free workshop](https://malwareunicorn.org/workshops/re101.html#0)
-- [MAS - malware analysis series - very in depth](https://exploitreversing.com/2021/12/03/malware-analysis-series-mas-article-1/)
+- [MAS - malware analysis series - in depth blog series](https://exploitreversing.com/2021/12/03/malware-analysis-series-mas-article-1/)
 - [c3rb3ru5d3d53c misc articles](https://c3rb3ru5d3d53c.github.io/posts/)
 - [practical malware analysis & triage - paid but very affordable course](https://academy.tcm-sec.com/p/practical-malware-analysis-triage)
-- [zero2auto paid course](https://courses.zero2auto.com/beginner-bundle)
+- [zero2auto paid course](https://courses.zero2auto.com/beginner-bundle) 
 
 
-## other tooling suites
+## other tool suites
 - [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - provides a script for an alternate tool setup, blog covers setting up a https proxy
-- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm), can be deployed on the windows VM if you so desire - ... but takes ages
-
+- [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm) If you prefer FlareVM, you can deploy it as an alternative tool suite
+- 
 
 ---
 

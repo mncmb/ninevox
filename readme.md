@@ -1,19 +1,21 @@
 # ninevox
 ![](pics/ninevox.jpg)
 
-Ever thought to yourself `I would like to start playing around with some AD concepts for fun or pentesting` or `I wanna do malware analysis` and the lab setup guides looked like too much work until you get to the fun part?   
+Ever wanted a sandbox lab setup without going through the trouble of manually installing multiple VMs? 
 
-Spare yourself some of the work by using these base templates for all the common and boring VM set up tasks.   
-All while keeping dependencies and requirements to a minimum.
- 
-You only need [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads) which are free to use in personal projects, run on every major operating system and can be installed with the package manager of your OS (thx `winget`).
+Or are you regularly filling your VMs with random trash and want to get back to a clean slate but forgot to take a snapshot beforhand?
+
+If that is you, then I got you covered. This project contains basic lab setups to get going in whatever direction you like. 
+All while keeping dependencies and requirements to a minimum ([VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads)).
+
+----
 
 
 # mallab
 A classic malware analysis lab environment, following the 2 box approach.   
 One Windows VM is used for detonation and analysis of malware, the 2nd VM acts as a router and fakes web and other services. 
 
-Take a look at the template directory for guides and ressources to get started with RE.
+The template directory also contains links to guides and ressources to get started with RE.
 
 ![netplan mallab](pics/mallab.jpg)
 
@@ -40,8 +42,14 @@ Take a look at `bigwhoop` template directory or use [theMayors ADgen](https://gi
 ![netplan minad](pics/minad.jpg)
 
 ## TLDR: how to setup?
-Just 2 steps:
-1. install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest tested versions VBox 6.1+, vagrant 2.2+).
+Clone repo and `vagrant up` in a template directory like so:
+    ```
+    git clone https://github.com/mncmb/vagrant
+    cd vagrant/bigwhoop
+    vagrant up
+    ```
+## installing dependencies
+install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest versions tested was VBox 6.1+, vagrant 2.2+).
     - windows:
         ```powershell
         winget add virtualbox
@@ -54,12 +62,6 @@ Just 2 steps:
         apt install virtualbox vagrant
         vagrant plugin install vagrant-reload
         ```
-2. Clone repo and `vagrant up` in a template directory like so:
-    ```
-    git clone https://github.com/mncmb/vagrant
-    cd vagrant/bigwhoop
-    vagrant up
-    ```
 
 ## single machine dirs
 What's in there?
@@ -69,24 +71,27 @@ What's in there?
 | win10dev | dev environment. Loads and installs projects and software like threatcheck, amsiTrigger, visualstudio, vscode, sysinternals, python, go, nim, c/c++ and c# build tools, x64dbg, ghidra, etc.|
 | kali | kali with some additional tools, seclists, neo4j/bloodhound setup and some open source C2s, path modifications, etc.|
 
+## Why are the AD labs so bare bones?
+I find myself in the situation of redeploying these labs on different systems and with a different purpose in mind. That is why I kept them mostly bare bones.
 
 ## Hardware reqs
-The following settings affect your local RAM and SSD usage, which is most often the limiting factor. CPU wise you should be good to go with anything that has atleast 4 Cores + Multithreading.
+The following settings affect your local RAM and SSD usage, which is most often the limiting factor. CPU wise you should be good to go with any somewhat recent CPU, that has atleast 4 Cores + Multithreading.
 
 - 4 GB RAM per Windows box (can probably be reduced to 2GB if you are RAM starved)
-- `v.linked_clone = true` Vagrant settings creates a single master image and copies that for other instances of the same windows version
+- `v.linked_clone = true` Vagrant settings creates a single master image and copies it for other instances of the same windows version 
 
-The linked clone setting is the reason why you will see identical windows versions in my AD lab setups. This significantly speeds up deployment and saves local storage.  
-
+The linked clone setting is the reason why you will see identical windows versions in my setups. This significantly speeds up deployment and saves local storage.   
+A box with a name like the following will be created `gusztavvargadr-ws2022s-2211.0.0-1669581676_1679088253317_23880`. This is your master image.
 
 ## users
 Since this is a vagrant deployment you can connect to every system with `vagrant:vagrant`.   
 
 ## network adapters
-Vagrant requires __interface 1__ to be a __NAT adapter__ (not network). 
+Vagrant requires __interface 1__ to be a __NAT adapter__ (different than `NAT network`). 
 
-So the first interface has to stay as such for the box to be deployable by vagrant.   
-This means if you do not use the vagrant commands for things like starting or stopping VMs, you may change interface 1 after the first deployment.
+The first interface should not be modified, so that it can be managed by vagrant.   
+
+If you do not use the vagrant commands at all, you may change interface 1 after the first deployment.
 
 
 ## vagrant commands
@@ -109,6 +114,8 @@ vagrant ssh -- -L 1234:localhost:80     # do port fwd with vagrant ssh
 
 vagrant snapshot push   # create new snapshot
 vagrant snapshot restore    # restore a snapshot
+
+vagrant upload localfile # https://developer.hashicorp.com/vagrant/docs/cli/upload
 ```
 
 ## vagrantfile ruby
@@ -127,7 +134,7 @@ out = `id`           # execute id command on host and capture output in out
 ```
 
 ## VBoxManage
-On Windows, the cmdline interface for Virtualboxcan be started with the following command. This assumes you have installed Virtualbox under the default path.
+On Windows, the cmdline interface for Virtualbox can be started with the following command. This assumes you have installed Virtualbox under the default path.
 ```powershell
 ."C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 ```
@@ -137,7 +144,6 @@ vboxmanage natnetwork list
 
 vboxmanage natnetwork add --netname <net_adapter> --network <dhcp_range> --enable --dhcp on
 ```
-
 
 ## references, etc.
 This project is based on or influenced by
