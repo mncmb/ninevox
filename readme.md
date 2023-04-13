@@ -8,6 +8,14 @@ Or are you regularly filling your VMs with random trash and want to get back to 
 If that is you, then I got you covered. This project contains basic lab setups to get going in whatever direction you like. 
 All while keeping dependencies and requirements to a minimum ([VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads)).
 
+## TLDR: how to setup?
+Clone repo and `vagrant up` in a template directory like so:
+```
+git clone https://github.com/mncmb/vagrant
+cd vagrant/bigwhoop
+vagrant up
+```
+
 ----
 
 
@@ -41,27 +49,20 @@ Take a look at `bigwhoop` template directory or use [theMayors ADgen](https://gi
 
 ![netplan minad](pics/minad.jpg)
 
-## TLDR: how to setup?
-Clone repo and `vagrant up` in a template directory like so:
-    ```
-    git clone https://github.com/mncmb/vagrant
-    cd vagrant/bigwhoop
-    vagrant up
-    ```
 ## installing dependencies
 install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest versions tested was VBox 6.1+, vagrant 2.2+).
-    - windows:
-        ```powershell
-        winget add virtualbox
-        winget add vagrant
-        # refresh env / open new powershell
-        vagrant plugin install vagrant-reload
-        ```
-    - linux (replace with your package manager):
-        ```
-        apt install virtualbox vagrant
-        vagrant plugin install vagrant-reload
-        ```
+- windows:
+    ```powershell
+    winget add virtualbox
+    winget add vagrant
+    # refresh env / open new powershell
+    vagrant plugin install vagrant-reload
+    ```
+- linux (replace with your package manager):
+    ```
+    apt install virtualbox vagrant
+    vagrant plugin install vagrant-reload
+    ```
 
 ## single machine dirs
 What's in there?
