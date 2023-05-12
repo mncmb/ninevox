@@ -6,7 +6,7 @@ Also includes a setup script for the elastic container project.
 
 Creates a minimal AD deployment. Use some kind of `AD generator` to populate it. 
 
-![netplan whoop](pics/whoop.jpg)
+![netplan whoop](../pics/whoop.jpg)
 
 ## AD generators
 - use `BADBLOOD` to create users, kerberoastable, asreproastable, misconfigured ACLs, ... 

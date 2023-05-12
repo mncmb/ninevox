@@ -3,16 +3,16 @@
 
 Ever wanted a sandbox lab setup without going through the trouble of manually installing multiple VMs? 
 
-Or are you regularly filling your VMs with random trash and want to get back to a clean slate but forgot to take a snapshot beforhand?
+Or are you regularly filling your VMs with random trash and want to get back to a clean slate, but forgot to take a snapshot?
 
-If that is you, then I got you covered. This project contains basic lab setups to get going in whatever direction you like. 
+If that is you, then I got you covered. This project contains basic lab setups to get going in whatever direction you like.  
 All while keeping dependencies and requirements to a minimum ([VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads)).
 
 ## TLDR: how to setup?
 Clone repo and `vagrant up` in a template directory like so:
 ```
-git clone https://github.com/mncmb/vagrant
-cd vagrant/bigwhoop
+git clone https://github.com/mncmb/ninevox
+cd ninevox/bigwhoop
 vagrant up
 ```
 

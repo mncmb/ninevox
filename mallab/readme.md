@@ -4,7 +4,7 @@ One Windows VM is used for detonation and analysis of malware, the 2nd VM acts a
 
 Take a look at the template directory for guides and ressources to get started with RE.
 
-![netplan mallab](pics/mallab.jpg)
+![netplan mallab](../pics/mallab.jpg)
 
 
 ## deployment
