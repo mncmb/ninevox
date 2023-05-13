@@ -14,7 +14,7 @@ boxes = [
     :scripts => [],
   },
   { 
-  :name => "win11-test", 
+  :name => "mallab-win10", 
   :iface => [{:name => "mallab_internal",  :ip => "10.10.10.22"}],
   :box => "gusztavvargadr/windows-10", 
   :os => "windows",

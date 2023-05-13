@@ -36,7 +36,7 @@ cd Downloads
 # https://gist.github.com/MarkTiedemann/c0adc1701f3f5c215fc2c2d5b1d5efd3
 $repo = "mentebinaria/retoolkit"
 $releases = "https://api.github.com/repos/$repo/releases"
-$dlurl = (Invoke-WebRequest $releases | ConvertFrom-Json)[0].assets.browser_download_url
+$dlurl = (Invoke-WebRequest -useb $releases | ConvertFrom-Json)[0].assets.browser_download_url
 
 $outfile = ($dlurl -split "/")[-1]
 
@@ -51,5 +51,5 @@ new-netroute -interfacealias $iface -NextHop $ipgate -destinationprefix 0.0.0.0/
 Set-DNSClientServerAddress -InterfaceAlias $iface -ServerAddresses $ipgate
 sleep 10 # magic sleep 
 
-Write-host "setup done, netadapter can be disabled now"
-Disable-NetAdapter -Name "Ethernet" -Confirm:$false
+Write-host "setup done, netadapter can be disabled now:"
+write-host '   Disable-NetAdapter -Name "Ethernet" -Confirm:$false'

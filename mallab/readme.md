@@ -17,14 +17,13 @@ vagrant up
 [REToolkit](https://github.com/mentebinaria/retoolkit) is downloaded during the setup of the box. You have to install it manually after download, or use another tool suite (see section `other tool suites`).
 
 
-**IMPORTANT!** 
-- Disable netAdapter of the control interface (NAT interface / Network Adapter 1) after successful deployment! 
- - Otherwise malware might have access to the internet and to your internal network ressources!
-
+# **IMPORTANT!** 
+- Make sure to disable netAdapter of the control interface (NAT interface / Network Adapter 1) after successful deployment!
+- via this adapter malware could access internet ressources and potentially ressources on your internal network, so turn it off / make sure to know what you are doing
 
 ![disable_netadapter](../pics/disable_netadapter.jpg)
 
-The `Devices > Network` menu is available from the context menu of a VM. There you can **disable the interface by left-clicking** on it.
+The `Devices > Network` menu is available from the context menu of a VM. Here you can **disable the interface by left-clicking** on it.
 
 ## getting files in and out
 Virtualbox has a File Manager, which behaves like an inbuilt FTP client. You can access the File Manager from the VM context menu `Machine > File Manager`.
@@ -61,9 +60,9 @@ misc ressources
 
 
 ## other tool suites
-- [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - provides a script for an alternate tool setup, blog covers setting up a https proxy
+- [sentinelLabs malware lab setup guide ](https://www.sentinelone.com/labs/building-a-custom-malware-analysis-lab-environment/) - provides a script for an alternate tool setup, blog also covers setting up a https proxy
 - [flareVM - all in one tooling VM](https://github.com/mandiant/flare-vm) If you prefer FlareVM, you can deploy it as an alternative tool suite
-- 
+
 
 ---
 
