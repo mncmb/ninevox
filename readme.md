@@ -9,13 +9,28 @@ If that is you, then I got you covered. This project contains basic lab setups t
 All while keeping dependencies and requirements to a minimum ([VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://developer.hashicorp.com/vagrant/downloads)).
 
 ## TLDR: how to setup?
-Clone repo and `vagrant up` in a template directory like so:
+1. Install depenencies (see below).
+2. Clone repo and `vagrant up` in a template directory like so:
 ```
 git clone https://github.com/mncmb/ninevox
 cd ninevox/bigwhoop
 vagrant up
 ```
 
+## installing dependencies
+install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest versions tested was VBox 6.1+, vagrant 2.2+).
+- windows:
+    ```powershell
+    winget add virtualbox
+    winget add vagrant
+    # refresh env / open new powershell
+    vagrant plugin install vagrant-reload
+    ```
+- linux (replace with your package manager):
+    ```
+    apt install virtualbox vagrant
+    vagrant plugin install vagrant-reload
+    ```
 ----
 
 
@@ -48,21 +63,6 @@ Creates a minimal AD deployment. Use some kind of `AD generator` to populate it.
 Take a look at `bigwhoop` template directory or use [theMayors ADgen](https://github.com/dievus/ADGenerator) (or get the course), where the architecture is based on.
 
 ![netplan minad](pics/minad.jpg)
-
-## installing dependencies
-install virtualbox and vagrant if not already done. Make sure to have a recent version (oldest versions tested was VBox 6.1+, vagrant 2.2+).
-- windows:
-    ```powershell
-    winget add virtualbox
-    winget add vagrant
-    # refresh env / open new powershell
-    vagrant plugin install vagrant-reload
-    ```
-- linux (replace with your package manager):
-    ```
-    apt install virtualbox vagrant
-    vagrant plugin install vagrant-reload
-    ```
 
 ## single machine dirs
 What's in there?
